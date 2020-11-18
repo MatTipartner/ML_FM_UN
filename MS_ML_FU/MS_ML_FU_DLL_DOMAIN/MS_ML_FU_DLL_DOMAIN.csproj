@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2C05CBB-885E-4433-844C-B280DE1AEE11}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MS_ML_FU_DLL_DOMAIN</RootNamespace>
+    <AssemblyName>MS_ML_FU_DLL_DOMAIN</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Desarrollo|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Desarrollo\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Constantes\BaseDatos\AtributoPestanaParametrica.cs" />
+    <Compile Include="Domain\Constantes\BaseDatosParametrica.cs" />
+    <Compile Include="Domain\Constantes\BaseDatos\TipoCcte.cs" />
+    <Compile Include="Domain\Constantes\BaseDatos\TipoProducto.cs" />
+    <Compile Include="Domain\Constantes\FUControllers.cs" />
+    <Compile Include="Domain\Constantes\ModoAccesoUsuario.cs" />
+    <Compile Include="Domain\Constantes\BaseDatos\PestanaParametrica.cs" />
+    <Compile Include="Domain\Constantes\ServiciosParametrica.cs" />
+    <Compile Include="Domain\Constantes\TipoEjecutivo.cs" />
+    <Compile Include="Domain\Constantes\TiposDeDatos.cs" />
+    <Compile Include="Domain\Constantes\BaseDatos\ConvenioParametrica.cs" />
+    <Compile Include="Domain\DtoMapper\Broker\BrokerCcteDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Broker\BrokerCorradorDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\AquienCobranzaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\CalculoPrimaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\CobranzaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\CobranzaGrupoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\CobranzaRiesgoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\ContributoriedadDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\DestinatarioCobranzaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\RiesgoFacturacionDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\TipoCobroDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Cobranza\TipoFactutacionCobranzaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\ConvenioDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\FarmaciaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\OtrosConveniosDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\TipoConvenioDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\TipoFacturacionDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Convenio\VademecumDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\CanalVentaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\UbicacionGeograficaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\LineaNegocioDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\RiesgoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\TipoAdicionDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\TipoPolizaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\FrecuenciaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\GrupoPrestadorDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\GrupoPrestadorSacsDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\ImedDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\PrestadorDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\PrestadorExcepcionDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\TipoFrecuenciaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\TipoImedDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Imed\TopeMontoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Mensaje\AtributoPestanaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Mensaje\EstadoAtributoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Mensaje\MensajeDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\CascadaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\CoberturaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\ProductoSaludDetalleDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\ProductoVidaApDetalleDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\ProductoVidaApDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Producto\TipoProductoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Tarifa\DefinicionTributariaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Tarifa\TarifaDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Tarifa\TarifaGrupoDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Tarifa\TasaEspecialDtoMapper.cs" />
+    <Compile Include="Domain\DtoMapper\Tarifa\TasaPrimaDtoMapper.cs" />
+    <Compile Include="Domain\Dtos\AccesoPerfil\AccesoPerfilDto.cs" />
+    <Compile Include="Domain\Dtos\AccesoPerfil\Perfil\PerfilUsuario.cs" />
+    <Compile Include="Domain\Dtos\AccesoPerfil\Perfil\Permisos.cs" />
+    <Compile Include="Domain\Dtos\AccesoPerfil\Redireccion\RedireccionPerfil.cs" />
+    <Compile Include="Domain\Dtos\AccesoPerfil\UsuarioDto.cs" />
+    <Compile Include="Domain\Dtos\Broker\BrokerDto.cs" />
+    <Compile Include="Domain\Dtos\Broker\BrokerPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Broker\Parametricas\ParametricasBrokerDetalle.cs" />
+    <Compile Include="Domain\Dtos\Cobranza\CobranzaDto.cs" />
+    <Compile Include="Domain\Dtos\Cobranza\CobranzaPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Cobranza\Parametricas\ParametricasCobranzaDetalle.cs" />
+    <Compile Include="Domain\Dtos\CondicionEspecial\CondEspecDto.cs" />
+    <Compile Include="Domain\Dtos\CondicionEspecial\CondEspecPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\CondicionEspecial\Parametricas\ParametricasCondEspecDetalle.cs" />
+    <Compile Include="Domain\Dtos\Convenios\ConvenioDto.cs" />
+    <Compile Include="Domain\Dtos\Convenios\ConvenioPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Convenios\Parametricas\ParametricaConvenioDetalle.cs" />
+    <Compile Include="Domain\Dtos\Credenciales\CredencialDto.cs" />
+    <Compile Include="Domain\Dtos\Credenciales\OAuth2ResponseDto.cs" />
+    <Compile Include="Domain\Dtos\DatosPoliza\UbicacionGeograficaPolizaDto.cs" />
+    <Compile Include="Domain\Dtos\DatosPoliza\DatosPolizaDto.cs" />
+    <Compile Include="Domain\Dtos\DatosPoliza\DatosPolizaPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\DatosPoliza\Parametricas\ParametricaPolizaDetalle.cs" />
+    <Compile Include="Domain\Dtos\General\AppSettingsLectura.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\PestanaPadre.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\RespuestaSettingData\ErrorField.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\RespuestaSettingData\GetSettingDataRespuesta.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\RespuestaSettingData\GetSettingDataRespuestaCuerpo.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\RespuestaSettingData\GetSettingDataRespuestaDetalleError.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\RespuestaSettingData\GetSettingDataRespuestaError.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\SolicitudSettingData\GetSettingDataSolicitud.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\SolicitudSettingData\GetSettingDataSolicitudCriterio.cs" />
+    <Compile Include="Domain\Dtos\General\Estructura\SolicitudSettingData\GetSettingDataSolicitudCuerpo.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\CabeceraJsonDto.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\GrupoFormularioDto.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\ParametricasBdPrestacionParametrica.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\ParametricasBdReferencia.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\ParametricasInfoFacturacion.cs" />
+    <Compile Include="Domain\Dtos\General\Parametricas\TokenInformacion.cs" />
+    <Compile Include="Domain\Dtos\General\Respuesta.cs" />
+    <Compile Include="Domain\Dtos\IMED\ImedDto.cs" />
+    <Compile Include="Domain\Dtos\IMED\ImedPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\IMED\Parametricas\ParametricaImedDetalle.cs" />
+    <Compile Include="Domain\Dtos\Mensaje\MensajeDto.cs" />
+    <Compile Include="Domain\Dtos\Menu\Parametricas\ParametricaMenuDetalle.cs" />
+    <Compile Include="Domain\Dtos\Menu\Parametricas\ParametricaMenu.cs" />
+    <Compile Include="Domain\DtoMapper\DatosPoliza\DatosPolizaDtoMapper.cs" />
+    <Compile Include="Domain\Dtos\Parametros\Parametricas\ParametricaParametroDetalle.cs" />
+    <Compile Include="Domain\Dtos\Parametros\ParametroDto.cs" />
+    <Compile Include="Domain\Dtos\Parametros\ParametroPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\PlanGrilla\Parametricas\ParametricasPlanGrillaDetalle.cs" />
+    <Compile Include="Domain\Dtos\PlanGrilla\PlanGrillaDto.cs" />
+    <Compile Include="Domain\Dtos\PlanGrilla\PlanGrillaPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Productos\Parametricas\ParametricaProductoDetalle.cs" />
+    <Compile Include="Domain\Dtos\Productos\ProductoDto.cs" />
+    <Compile Include="Domain\Dtos\Productos\ProductoPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\RequisitoAsegurabilidad\Parametricas\ParametricaReqAseguDetalle.cs" />
+    <Compile Include="Domain\Dtos\RequisitoAsegurabilidad\ReqAsegDto.cs" />
+    <Compile Include="Domain\Dtos\RequisitoAsegurabilidad\ReqAsegPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Tarifas\Parametricas\ParametricaTarifasDetalle.cs" />
+    <Compile Include="Domain\Dtos\Tarifas\TarifaDto.cs" />
+    <Compile Include="Domain\Dtos\Tarifas\TarifaPestanaDto.cs" />
+    <Compile Include="Domain\Dtos\Tarifas\Vista\TarifaGrupoVistaDto.cs" />
+    <Compile Include="Domain\Transformaciones\Cobranza\EstructuraRiesgoCobranza.cs" />
+    <Compile Include="Domain\Transformaciones\Convenio\EstructuraFarmacia.cs" />
+    <Compile Include="Domain\Transformaciones\Convenio\EstructuraOtrosConvenios.cs" />
+    <Compile Include="Domain\Transformaciones\Convenio\FarmaciaDto.cs" />
+    <Compile Include="Domain\Transformaciones\Convenio\OtrosConvenioDto.cs" />
+    <Compile Include="Domain\Transformaciones\Producto\EstructuraCascada.cs" />
+    <Compile Include="Domain\Transformaciones\Producto\EstructuraListaProductoSalud.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraListaReferencia.cs" />
+    <Compile Include="Domain\Transformaciones\Producto\EstructuraListaProductoVidaAp.cs" />
+    <Compile Include="Domain\Transformaciones\Tarifa\EstructuraTarifaCobertura.cs" />
+    <Compile Include="Domain\Transformaciones\Tarifa\TarifaGrupoDto.cs" />
+    <Compile Include="Domain\Transformaciones\Tarifa\TasaEspecialDto.cs" />
+    <Compile Include="Domain\Transformaciones\Tarifa\TasaPrimaDto.cs" />
+    <Compile Include="Domain\Utilidades\EstructuraMensaje.cs" />
+    <Compile Include="Domain\Utilidades\MapperEstructuraConvenio.cs" />
+    <Compile Include="Domain\Utilidades\MapperEstructuraRiesgoCobranza.cs" />
+    <Compile Include="Domain\Utilidades\MapperEstructurasUtilidades.cs" />
+    <Compile Include="Domain\Utilidades\MapperEstructurasProducto.cs" />
+    <Compile Include="Domain\Utilidades\Serializacion\JsonNetSerializer.cs" />
+    <Compile Include="Domain\Utilidades\MapperEstructurasTarifa.cs" />
+    <Compile Include="Domain\Utilidades\ValidacionesUtils.cs" />
+    <Compile Include="Model\Tests\Dtos\Dto\TipoGlosaDto.cs" />
+    <Compile Include="Model\Tests\Dtos\GitHub\Repository.cs" />
+    <Compile Include="Model\Tests\Dtos\GitHub\RepositoryOwner.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraCadena.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraDecimal.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraEntera.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraFecha.cs" />
+    <Compile Include="Domain\Transformaciones\EstructuraGeneral.cs" />
+    <Compile Include="Model\Tests\Dtos\Transform\ObjetoDTO.cs" />
+    <Compile Include="Model\Tests\Dtos\Transform\ObjetoEntity.cs" />
+    <Compile Include="Model\Tests\Dtos\Varios\TestObjectJson.cs" />
+    <Compile Include="Model\Tests\Dtos\Varios\TestObjectJsonItem.cs" />
+    <Compile Include="Model\Tests\Dtos\Wikimedia\WikimediaAvailability.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terceros\General\AtributoCriterioBd.cs" />
+    <Compile Include="Terceros\General\ParametricasBdEstandar.cs" />
+    <Compile Include="Terceros\General\ParametricaServicioEstandar.cs" />
+    <Compile Include="Terceros\General\ParametricaServicioReferencia.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\DtoMapper\CondicionesEspeciales\" />
+    <Folder Include="Domain\Transformaciones\Broker\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

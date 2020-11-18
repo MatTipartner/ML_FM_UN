@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="847938db801d4ba48ef6c6aeb863e53f" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTADORGRUPO" Width="2.375" PointX="7.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_OBSERSALUD" Width="2.75" PointX="4.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_OBSERVIDAAP" Width="3" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_PREFERENTE" Width="2.625" PointX="4.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_PRESTACIONES" Width="2.75" PointX="4.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_PRESTBASICA" Width="2.625" PointX="0.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PLANGRILLA_VIDAAP" Width="2.625" PointX="10.5" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_ID_OBSERVAION_VA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FKID_AGRUPACIONPLAGRILLA_PREFE" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PLANGRILLAPRESTACIONES" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

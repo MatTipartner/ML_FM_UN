@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_AQUIENCOBRANZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_AQUIENCOBRANZA">
+        <MappingFragment StoreEntitySet="FUWEB_P_AQUIENCOBRANZA">
+          <ScalarProperty Name="ID_AQUIENCOBRANZA" ColumnName="ID_AQUIENCOBRANZA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SAC" ColumnName="SIGLA_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_CALCULOPRIMA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_CALCULOPRIMA">
+        <MappingFragment StoreEntitySet="FUWEB_P_CALCULOPRIMA">
+          <ScalarProperty Name="ID_CALCULOPRIMA" ColumnName="ID_CALCULOPRIMA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SAC" ColumnName="SIGLA_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_DESTINATARIOCOBRANZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_DESTINATARIOCOBRANZA">
+        <MappingFragment StoreEntitySet="FUWEB_P_DESTINATARIOCOBRANZA">
+          <ScalarProperty Name="ID_DESTINATARIOCOBRANZA" ColumnName="ID_DESTINATARIOCOBRANZA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NRO_SAC" ColumnName="NRO_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_RIESGOFACTURACION">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_RIESGOFACTURACION">
+        <MappingFragment StoreEntitySet="FUWEB_P_RIESGOFACTURACION">
+          <ScalarProperty Name="ID_RIESGOFACTURACION" ColumnName="ID_RIESGOFACTURACION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SAC" ColumnName="SIGLA_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOCOBRO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOCOBRO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOCOBRO">
+          <ScalarProperty Name="ID_TIPOCOBRO" ColumnName="ID_TIPOCOBRO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SAC" ColumnName="SIGLA_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOFACTURACIONCOBR">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFACTURACIONCOBR">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFACTURACIONCOBR">
+          <ScalarProperty Name="ID_TIPOFACTURACION" ColumnName="ID_TIPOFACTURACION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_COBRANZARIESGO">
+      <EntityTypeMapping TypeName="Model.FUWEB_COBRANZARIESGO">
+        <MappingFragment StoreEntitySet="FUWEB_COBRANZARIESGO">
+          <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+          <ScalarProperty Name="ID_COBRANZAGRUPO" ColumnName="ID_COBRANZAGRUPO" />
+          <ScalarProperty Name="ID_TIPORIESGO" ColumnName="ID_TIPORIESGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_COBRANZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_COBRANZA">
+        <MappingFragment StoreEntitySet="FUWEB_COBRANZA">
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+          <ScalarProperty Name="DIACONVERSION" ColumnName="DIACONVERSION" />
+          <ScalarProperty Name="MESCONVERSION" ColumnName="MESCONVERSION" />
+          <ScalarProperty Name="MESCOBRO" ColumnName="MESCOBRO" />
+          <ScalarProperty Name="DIACOBRO" ColumnName="DIACOBRO" />
+          <ScalarProperty Name="ID_TIPOCOBRO" ColumnName="ID_TIPOCOBRO" />
+          <ScalarProperty Name="ID_CONTABILIZACION" ColumnName="ID_CONTABILIZACION" />
+          <ScalarProperty Name="ID_REPORTEFACTUACION" ColumnName="ID_REPORTEFACTUACION" />
+          <ScalarProperty Name="AUTOCOBRANZA" ColumnName="AUTOCOBRANZA" />
+          <ScalarProperty Name="PRECOBRANZA" ColumnName="PRECOBRANZA" />
+          <ScalarProperty Name="CONTRAPAGO" ColumnName="CONTRAPAGO" />
+          <ScalarProperty Name="HES" ColumnName="HES" />
+          <ScalarProperty Name="DIAFRONTERA" ColumnName="DIAFRONTERA" />
+          <ScalarProperty Name="ID_TIPOPROCESOCOBRANZA" ColumnName="ID_TIPOPROCESOCOBRANZA" />
+          <ScalarProperty Name="ID_CALCULOPRIMA" ColumnName="ID_CALCULOPRIMA" />
+          <ScalarProperty Name="ID_DESTINATARIOCOBRANZA" ColumnName="ID_DESTINATARIOCOBRANZA" />
+          <ScalarProperty Name="SIGLA_COBROPRIMA" ColumnName="SIGLA_COBROPRIMA" />
+          <ScalarProperty Name="ID_TIPOFACTURACION" ColumnName="ID_TIPOFACTURACION" />
+          <ScalarProperty Name="ID_COBRANZA" ColumnName="ID_COBRANZA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_COBRANZAGRUPO">
+      <EntityTypeMapping TypeName="Model.FUWEB_COBRANZAGRUPO">
+        <MappingFragment StoreEntitySet="FUWEB_COBRANZAGRUPO">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="DV_FACTURACION" ColumnName="DV_FACTURACION" />
+          <ScalarProperty Name="RUT_FACTURACION" ColumnName="RUT_FACTURACION" />
+          <ScalarProperty Name="SIGLA_TIPOFACTURA" ColumnName="SIGLA_TIPOFACTURA" />
+          <ScalarProperty Name="ID_AQUIENCOBRANZA" ColumnName="ID_AQUIENCOBRANZA" />
+          <ScalarProperty Name="ESPECIALCONTRIBUTORIEDAD" ColumnName="ESPECIALCONTRIBUTORIEDAD" />
+          <ScalarProperty Name="PORCENTAJEASEGURADO" ColumnName="PORCENTAJEASEGURADO" />
+          <ScalarProperty Name="PORCENTAJECONTRATANTE" ColumnName="PORCENTAJECONTRATANTE" />
+          <ScalarProperty Name="ID_CONTRIBUTORIEDAD" ColumnName="ID_CONTRIBUTORIEDAD" />
+          <ScalarProperty Name="CONTRIBUTORIEDAD" ColumnName="CONTRIBUTORIEDAD" />
+          <ScalarProperty Name="ID_COBRANZAGRUPO" ColumnName="ID_COBRANZAGRUPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_CONTRIBUTORIEDAD">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_CONTRIBUTORIEDAD">
+        <MappingFragment StoreEntitySet="FUWEB_P_CONTRIBUTORIEDAD">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CONTRIBUTORIEDAD" ColumnName="ID_CONTRIBUTORIEDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

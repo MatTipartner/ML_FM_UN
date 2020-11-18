@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="IFW_AGL_TIPOGLOSA">
+      <EntityTypeMapping TypeName="Model.IFW_AGL_TIPOGLOSA">
+        <MappingFragment StoreEntitySet="IFW_AGL_TIPOGLOSA">
+          <ScalarProperty Name="AGLTIPO" ColumnName="AGLTIPO" />
+          <ScalarProperty Name="AGLDESCRIPCIONTIPO" ColumnName="AGLDESCRIPCIONTIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_POLIZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_POLIZA">
+        <MappingFragment StoreEntitySet="FUWEB_POLIZA">
+          <ScalarProperty Name="NRO_POLIZA_SACS" ColumnName="NRO_POLIZA_SACS" />
+          <ScalarProperty Name="ID_FORMULARIODETALLE" ColumnName="ID_FORMULARIODETALLE" />
+          <ScalarProperty Name="ID_ESTADOBISFLOW" ColumnName="ID_ESTADOBISFLOW" />
+          <ScalarProperty Name="ID_ESTADOFORMULARIO" ColumnName="ID_ESTADOFORMULARIO" />
+          <ScalarProperty Name="ADDITION" ColumnName="ADDITION" />
+          <ScalarProperty Name="NUEVONEGOCIO" ColumnName="NUEVONEGOCIO" />
+          <ScalarProperty Name="ID_TIPOADDITION" ColumnName="ID_TIPOADDITION" />
+          <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+          <ScalarProperty Name="ID_LINEANEGOCIO" ColumnName="ID_LINEANEGOCIO" />
+          <ScalarProperty Name="ID_CANALVENTA" ColumnName="ID_CANALVENTA" />
+          <ScalarProperty Name="ID_ESTADOCOBERTURA" ColumnName="ID_ESTADOCOBERTURA" />
+          <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+          <ScalarProperty Name="SIGLA_MONEDA" ColumnName="SIGLA_MONEDA" />
+          <ScalarProperty Name="ID_RIESGO" ColumnName="ID_RIESGO" />
+          <ScalarProperty Name="VIGENTE_FINAL" ColumnName="VIGENTE_FINAL" />
+          <ScalarProperty Name="VIGENTE_INICIO" ColumnName="VIGENTE_INICIO" />
+          <ScalarProperty Name="ID_TIPOPOLIZA" ColumnName="ID_TIPOPOLIZA" />
+          <ScalarProperty Name="NRO_BIZFLOW" ColumnName="NRO_BIZFLOW" />
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_CANALVENTA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_CANALVENTA">
+        <MappingFragment StoreEntitySet="FUWEB_P_CANALVENTA">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="NRO_CANALVENTASACS" ColumnName="NRO_CANALVENTASACS" />
+          <ScalarProperty Name="ID_CANALVENTA" ColumnName="ID_CANALVENTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_LINEANEGOCIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_LINEANEGOCIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_LINEANEGOCIO">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="NRO_LENANEGOCIOSACS" ColumnName="NRO_LENANEGOCIOSACS" />
+          <ScalarProperty Name="ID_LINEANEGOCIO" ColumnName="ID_LINEANEGOCIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_RIESGO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_RIESGO">
+        <MappingFragment StoreEntitySet="FUWEB_P_RIESGO">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="S_RIESGOSACS" ColumnName="S_RIESGOSACS" />
+          <ScalarProperty Name="ID_RIESGO" ColumnName="ID_RIESGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOADDITION">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOADDITION">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOADDITION">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="S_ADDITIONSACS" ColumnName="S_ADDITIONSACS" />
+          <ScalarProperty Name="ID_TIPOADDITION" ColumnName="ID_TIPOADDITION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOPOLIZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOPOLIZA">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOPOLIZA">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPOPOLIZA" ColumnName="ID_TIPOPOLIZA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_UBICACION_GEOGRAFICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_UBICACION_GEOGRAFICA">
+        <MappingFragment StoreEntitySet="FUWEB_UBICACION_GEOGRAFICA">
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+          <ScalarProperty Name="NOMBRE_UBICACIONGEOGRAFICA" ColumnName="NOMBRE_UBICACIONGEOGRAFICA" />
+          <ScalarProperty Name="ID_UBICACIONGEOGRAFICA" ColumnName="ID_UBICACIONGEOGRAFICA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

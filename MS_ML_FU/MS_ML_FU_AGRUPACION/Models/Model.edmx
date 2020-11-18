@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_AGRUPACION">
+          <Key>
+            <PropertyRef Name="ID_AGRUPACION" />
+          </Key>
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_AGRUPACION" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_UBICACION" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_LUGARDESPACHO" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_AGRUPACION" EntityType="Self.FUWEB_AGRUPACION" Schema="SALUD" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_AGRUPACION">
+          <Key>
+            <PropertyRef Name="ID_AGRUPACION" />
+          </Key>
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_AGRUPACION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+          <Property Name="ID_UBICACION" Type="Int32" />
+          <Property Name="ID_LUGARDESPACHO" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_AGRUPACION" EntityType="Self.FUWEB_AGRUPACION" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_AGRUPACION">
+            <EntityTypeMapping TypeName="Model.FUWEB_AGRUPACION">
+              <MappingFragment StoreEntitySet="FUWEB_AGRUPACION">
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+                <ScalarProperty Name="NOMBRE_AGRUPACION" ColumnName="NOMBRE_AGRUPACION" />
+                <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+                <ScalarProperty Name="ID_UBICACION" ColumnName="ID_UBICACION" />
+                <ScalarProperty Name="ID_LUGARDESPACHO" ColumnName="ID_LUGARDESPACHO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

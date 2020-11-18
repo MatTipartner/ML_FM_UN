@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_AQUIENPARAMETROS">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_AQUIENPARAMETROS">
+        <MappingFragment StoreEntitySet="FUWEB_P_AQUIENPARAMETROS">
+          <ScalarProperty Name="ID_AQUIENPARAMETROS" ColumnName="ID_AQUIENPARAMETROS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_GRUPOISAPRE">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_GRUPOISAPRE">
+        <MappingFragment StoreEntitySet="FUWEB_P_GRUPOISAPRE">
+          <ScalarProperty Name="ID_P_GRUPOISAPRE" ColumnName="ID_P_GRUPOISAPRE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NRO_SAC" ColumnName="NRO_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACIONBASICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACIONBASICA">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACIONBASICA">
+          <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SACS" ColumnName="SIGLA_SACS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

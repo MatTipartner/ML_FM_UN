@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad9db3b97eef45a6a413cd0d053aaf09" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="Model.FUWEB_P_AREA" Width="1.5" PointX="8.125" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_ESTADOBIZFLOW" Width="2.25" PointX="4.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_ESTADOFORMULARIO" Width="2.5" PointX="13.625" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PESTANA" Width="2.25" PointX="10.125" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOFORMULARIO" Width="2.625" PointX="4.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOFORMULARIODETALLE" Width="2.625" PointX="8.625" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOPERMISO" Width="2.125" PointX="14.875" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_PERMISOAREA" Width="2.125" PointX="10.625" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_AREAPERIMISO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ESTADOFORMULARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PESTANAAREA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_P_TIPOFORMULARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TIPOPERMISOAREA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.FUWEB_PERMISOESTADO" Width="2.375" PointX="4.25" PointY="5.375" />
+        <AssociationConnector Association="Model.FK_AREAESTADO" />
+        <AssociationConnector Association="Model.FK_P_ESTADOBIZBLOWESTADO" />
+        <AssociationConnector Association="Model.FK_P_TIPOFORMULARIOESTADO" />
+        <EntityTypeShape EntityType="Model.FUWEB_REDIRECCION" Width="2" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.FUWEB_USUARIO" Width="2" PointX="7.625" PointY="9.125" />
+        <AssociationConnector Association="Model.FK_AREAUSUARIO" />
+        <EntityTypeShape EntityType="Model.FUWEB_POLIZA" Width="3.125" PointX="12" PointY="0.625" />
+        <AssociationConnector Association="Model.FK_POLIZADORDETAL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

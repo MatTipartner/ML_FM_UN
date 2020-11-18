@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CredencialesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CREDENCIAL">
+    <Key>
+      <PropertyRef Name="Usuario" />
+    </Key>
+    <Property Name="Usuario" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NroBizflow" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="ModoAcceso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="FechaMovimiento" Type="datetime" />
+    <Property Name="TokenAcceso" Type="varchar" MaxLength="400" />
+    <Property Name="TokenRefresco" Type="varchar" MaxLength="400" />
+    <Property Name="TiempoExpiracionAcceso" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="TiempoExpiracionRefresco" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="CredencialesModelStoreContainer">
+    <EntitySet Name="CREDENCIAL" EntityType="Self.CREDENCIAL" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

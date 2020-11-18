@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_CONVENIOOTROS">
+      <EntityTypeMapping TypeName="Model.FUWEB_CONVENIOOTROS">
+        <MappingFragment StoreEntitySet="FUWEB_CONVENIOOTROS">
+          <ScalarProperty Name="ID_OTROSCONVENIOS" ColumnName="ID_OTROSCONVENIOS" />
+          <ScalarProperty Name="ID_CONVENIO" ColumnName="ID_CONVENIO" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOCONVENIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOCONVENIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOCONVENIO">
+          <ScalarProperty Name="ID_TIPOCONVENIO" ColumnName="ID_TIPOCONVENIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOFACTURACION">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFACTURACION">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFACTURACION">
+          <ScalarProperty Name="ID_TIPOFACTURACION" ColumnName="ID_TIPOFACTURACION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_VADEMECUM">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_VADEMECUM">
+        <MappingFragment StoreEntitySet="FUWEB_P_VADEMECUM">
+          <ScalarProperty Name="ID_VADEMECUM" ColumnName="ID_VADEMECUM" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_CONVENIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_CONVENIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_CONVENIO">
+          <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+          <ScalarProperty Name="NRO_SACS" ColumnName="NRO_SACS" />
+          <ScalarProperty Name="ID_TIPOCONVENIO" ColumnName="ID_TIPOCONVENIO" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CONVENIO" ColumnName="ID_CONVENIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_CONVENIOFARMACIA">
+      <EntityTypeMapping TypeName="Model.FUWEB_CONVENIOFARMACIA">
+        <MappingFragment StoreEntitySet="FUWEB_CONVENIOFARMACIA">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="MODOOPERACION" ColumnName="MODOOPERACION" />
+          <ScalarProperty Name="OPS" ColumnName="OPS" />
+          <ScalarProperty Name="MONTOASEGURADO" ColumnName="MONTOASEGURADO" />
+          <ScalarProperty Name="SIGLAMONEDA" ColumnName="SIGLAMONEDA" />
+          <ScalarProperty Name="FRANQUICIA" ColumnName="FRANQUICIA" />
+          <ScalarProperty Name="ID_TIPOFACTURACION" ColumnName="ID_TIPOFACTURACION" />
+          <ScalarProperty Name="ID_VADEMECUM" ColumnName="ID_VADEMECUM" />
+          <ScalarProperty Name="ID_FARMACIA" ColumnName="ID_FARMACIA" />
+          <ScalarProperty Name="ID_LISTAFARMACIA" ColumnName="ID_LISTAFARMACIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

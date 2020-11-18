@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_MENSAJES">
+    <Key>
+      <PropertyRef Name="ID_MENSAJE" />
+    </Key>
+    <Property Name="ID_MENSAJE" Type="Int32" Nullable="false" />
+    <Property Name="ID_ATRIBUTOPESTANA" Type="Int32" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+    <Property Name="ID_ESTADOATRIBUTO" Type="Int32" Nullable="false" />
+    <Property Name="MENSAJE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="SIGLA_USUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_ATRIBUTOPESTANA" Relationship="Model.FK_PESTANAMENSAJE" FromRole="FUWEB_MENSAJES" ToRole="FUWEB_P_ATRIBUTOPESTANA" />
+    <NavigationProperty Name="FUWEB_P_ESTADOATRIBUTO" Relationship="Model.FK_ESTADOMENSAJE" FromRole="FUWEB_MENSAJES" ToRole="FUWEB_P_ESTADOATRIBUTO" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_MENSAJES" EntityType="Self.FUWEB_MENSAJES" />
+    <EntitySet Name="FUWEB_P_ATRIBUTOPESTANA" EntityType="Model.FUWEB_P_ATRIBUTOPESTANA" />
+    <AssociationSet Name="FK_PESTANAMENSAJE" Association="Model.FK_PESTANAMENSAJE">
+      <End Role="FUWEB_P_ATRIBUTOPESTANA" EntitySet="FUWEB_P_ATRIBUTOPESTANA" />
+      <End Role="FUWEB_MENSAJES" EntitySet="FUWEB_MENSAJES" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_P_ESTADOATRIBUTO" EntityType="Model.FUWEB_P_ESTADOATRIBUTO" />
+    <AssociationSet Name="FK_ESTADOMENSAJE" Association="Model.FK_ESTADOMENSAJE">
+      <End Role="FUWEB_P_ESTADOATRIBUTO" EntitySet="FUWEB_P_ESTADOATRIBUTO" />
+      <End Role="FUWEB_MENSAJES" EntitySet="FUWEB_MENSAJES" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FUWEB_P_ATRIBUTOPESTANA">
+    <Key>
+      <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+    </Key>
+    <Property Name="ID_ATRIBUTOPESTANA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID_PESTANA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_MENSAJES" Relationship="Model.FK_PESTANAMENSAJE" FromRole="FUWEB_P_ATRIBUTOPESTANA" ToRole="FUWEB_MENSAJES" />
+  </EntityType>
+  <Association Name="FK_PESTANAMENSAJE">
+    <End Type="Model.FUWEB_P_ATRIBUTOPESTANA" Role="FUWEB_P_ATRIBUTOPESTANA" Multiplicity="1" />
+    <End Type="Model.FUWEB_MENSAJES" Role="FUWEB_MENSAJES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ATRIBUTOPESTANA">
+        <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+      </Principal>
+      <Dependent Role="FUWEB_MENSAJES">
+        <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_P_ESTADOATRIBUTO">
+    <Key>
+      <PropertyRef Name="ID_ESTADOATRIBUTO" />
+    </Key>
+    <Property Name="ID_ESTADOATRIBUTO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_MENSAJES" Relationship="Model.FK_ESTADOMENSAJE" FromRole="FUWEB_P_ESTADOATRIBUTO" ToRole="FUWEB_MENSAJES" />
+  </EntityType>
+  <Association Name="FK_ESTADOMENSAJE">
+    <End Type="Model.FUWEB_P_ESTADOATRIBUTO" Role="FUWEB_P_ESTADOATRIBUTO" Multiplicity="1" />
+    <End Type="Model.FUWEB_MENSAJES" Role="FUWEB_MENSAJES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ESTADOATRIBUTO">
+        <PropertyRef Name="ID_ESTADOATRIBUTO" />
+      </Principal>
+      <Dependent Role="FUWEB_MENSAJES">
+        <PropertyRef Name="ID_ESTADOATRIBUTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

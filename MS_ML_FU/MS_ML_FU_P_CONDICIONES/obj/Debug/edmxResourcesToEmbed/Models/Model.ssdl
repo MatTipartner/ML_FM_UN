@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_CONDESP">
+    <Key>
+      <PropertyRef Name="ID_CONDESP" />
+    </Key>
+    <Property Name="ID_CONDESP" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FLD" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DP" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DP_HOLDING" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DP_POLIZA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MONTO_FONDO" Type="number" Precision="10" Scale="0" />
+    <Property Name="NOMBRE_FONDO" Type="varchar2" MaxLength="100" />
+    <Property Name="NRO_FONDO" Type="number" Precision="10" Scale="0" />
+    <Property Name="VERSION" Type="number" Precision="10" Scale="0" />
+    <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_CONDESP_COBERTU_DP">
+    <Key>
+      <PropertyRef Name="ID_COBERTURA_DP" />
+    </Key>
+    <Property Name="ID_COBERTURA_DP" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_COBERTURA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_CONDESP" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_CONDESP_TEXTO">
+    <Key>
+      <PropertyRef Name="ID_CONDESP_TEXTO" />
+    </Key>
+    <Property Name="ID_CONDESP_TEXTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPOOBSERVACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TEXTO" Type="varchar2" MaxLength="500" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_COND_ESPC_DP">
+    <End Role="FUWEB_CONDESP" Type="Self.FUWEB_CONDESP" Multiplicity="1" />
+    <End Role="FUWEB_CONDESP_COBERTU_DP" Type="Self.FUWEB_CONDESP_COBERTU_DP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_CONDESP">
+        <PropertyRef Name="ID_CONDESP" />
+      </Principal>
+      <Dependent Role="FUWEB_CONDESP_COBERTU_DP">
+        <PropertyRef Name="ID_CONDESP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_CONDESP" EntityType="Self.FUWEB_CONDESP" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_CONDESP_COBERTU_DP" EntityType="Self.FUWEB_CONDESP_COBERTU_DP" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_CONDESP_TEXTO" EntityType="Self.FUWEB_CONDESP_TEXTO" Schema="SALUD" store:Type="Tables" />
+    <AssociationSet Name="FK_COND_ESPC_DP" Association="Self.FK_COND_ESPC_DP">
+      <End Role="FUWEB_CONDESP" EntitySet="FUWEB_CONDESP" />
+      <End Role="FUWEB_CONDESP_COBERTU_DP" EntitySet="FUWEB_CONDESP_COBERTU_DP" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

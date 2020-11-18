@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Entities-Web.config Connection String" description="Entities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Models.Model.csdl|res://*/Models.Model.ssdl|res://*/Models.Model.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=mlfdesa02)  (PORT=1532)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=metrcsd)));PASSWORD=desarrollo;PERSIST SECURITY INFO=True;USER ID=SALUD&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\vguti\\Documents\\GitHub\\Desarrollo\\FormularioUnico\\MS_ML_FU\\MS_ML_FU_P_COBRANZA\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+  </parameter>
+</parameters>

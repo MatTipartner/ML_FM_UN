@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CredencialesModelStoreContainer" CdmEntityContainer="CredencialesEntities">
+    <EntitySetMapping Name="CREDENCIAL">
+      <EntityTypeMapping TypeName="CredencialesModel.CREDENCIAL">
+        <MappingFragment StoreEntitySet="CREDENCIAL">
+          <ScalarProperty Name="TiempoExpiracionRefresco" ColumnName="TiempoExpiracionRefresco" />
+          <ScalarProperty Name="TiempoExpiracionAcceso" ColumnName="TiempoExpiracionAcceso" />
+          <ScalarProperty Name="TokenRefresco" ColumnName="TokenRefresco" />
+          <ScalarProperty Name="TokenAcceso" ColumnName="TokenAcceso" />
+          <ScalarProperty Name="FechaMovimiento" ColumnName="FechaMovimiento" />
+          <ScalarProperty Name="ModoAcceso" ColumnName="ModoAcceso" />
+          <ScalarProperty Name="NroBizflow" ColumnName="NroBizflow" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

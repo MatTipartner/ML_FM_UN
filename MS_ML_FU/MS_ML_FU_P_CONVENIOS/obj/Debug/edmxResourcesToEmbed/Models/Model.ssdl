@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_CONVENIOFARMACIA">
+    <Key>
+      <PropertyRef Name="ID_LISTAFARMACIA" />
+    </Key>
+    <Property Name="ID_LISTAFARMACIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_FARMACIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_VADEMECUM" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPOFACTURACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FRANQUICIA" Type="char" MaxLength="1" />
+    <Property Name="SIGLAMONEDA" Type="char" MaxLength="4" />
+    <Property Name="MONTOASEGURADO" Type="number" Precision="10" Scale="0" />
+    <Property Name="OPS" Type="varchar2" MaxLength="100" />
+    <Property Name="MODOOPERACION" Type="varchar2" MaxLength="100" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_CONVENIOOTROS">
+    <Key>
+      <PropertyRef Name="ID_OTROSCONVENIOS" />
+    </Key>
+    <Property Name="ID_OTROSCONVENIOS" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_CONVENIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_CONVENIO">
+    <Key>
+      <PropertyRef Name="ID_CONVENIO" />
+    </Key>
+    <Property Name="ID_CONVENIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ID_TIPOCONVENIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NRO_SACS" Type="number" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOCONVENIO">
+    <Key>
+      <PropertyRef Name="ID_TIPOCONVENIO" />
+    </Key>
+    <Property Name="ID_TIPOCONVENIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOFACTURACION">
+    <Key>
+      <PropertyRef Name="ID_TIPOFACTURACION" />
+    </Key>
+    <Property Name="ID_TIPOFACTURACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_VADEMECUM">
+    <Key>
+      <PropertyRef Name="ID_VADEMECUM" />
+    </Key>
+    <Property Name="ID_VADEMECUM" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FARMACIA">
+    <End Role="FUWEB_P_CONVENIO" Type="Self.FUWEB_P_CONVENIO" Multiplicity="1" />
+    <End Role="FUWEB_CONVENIOFARMACIA" Type="Self.FUWEB_CONVENIOFARMACIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_CONVENIO">
+        <PropertyRef Name="ID_CONVENIO" />
+      </Principal>
+      <Dependent Role="FUWEB_CONVENIOFARMACIA">
+        <PropertyRef Name="ID_FARMACIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_CONVENIO">
+    <End Role="FUWEB_P_CONVENIO" Type="Self.FUWEB_P_CONVENIO" Multiplicity="1" />
+    <End Role="FUWEB_CONVENIOOTROS" Type="Self.FUWEB_CONVENIOOTROS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_CONVENIO">
+        <PropertyRef Name="ID_CONVENIO" />
+      </Principal>
+      <Dependent Role="FUWEB_CONVENIOOTROS">
+        <PropertyRef Name="ID_CONVENIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_TIPOCONVENIO">
+    <End Role="FUWEB_P_TIPOCONVENIO" Type="Self.FUWEB_P_TIPOCONVENIO" Multiplicity="1" />
+    <End Role="FUWEB_P_CONVENIO" Type="Self.FUWEB_P_CONVENIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOCONVENIO">
+        <PropertyRef Name="ID_TIPOCONVENIO" />
+      </Principal>
+      <Dependent Role="FUWEB_P_CONVENIO">
+        <PropertyRef Name="ID_TIPOCONVENIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPOFACTURACION">
+    <End Role="FUWEB_P_TIPOFACTURACION" Type="Self.FUWEB_P_TIPOFACTURACION" Multiplicity="1" />
+    <End Role="FUWEB_CONVENIOFARMACIA" Type="Self.FUWEB_CONVENIOFARMACIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFACTURACION">
+        <PropertyRef Name="ID_TIPOFACTURACION" />
+      </Principal>
+      <Dependent Role="FUWEB_CONVENIOFARMACIA">
+        <PropertyRef Name="ID_TIPOFACTURACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VADEMECUM">
+    <End Role="FUWEB_P_VADEMECUM" Type="Self.FUWEB_P_VADEMECUM" Multiplicity="1" />
+    <End Role="FUWEB_CONVENIOFARMACIA" Type="Self.FUWEB_CONVENIOFARMACIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_VADEMECUM">
+        <PropertyRef Name="ID_VADEMECUM" />
+      </Principal>
+      <Dependent Role="FUWEB_CONVENIOFARMACIA">
+        <PropertyRef Name="ID_VADEMECUM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_CONVENIOFARMACIA" EntityType="Self.FUWEB_CONVENIOFARMACIA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_CONVENIOOTROS" EntityType="Self.FUWEB_CONVENIOOTROS" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_CONVENIO" EntityType="Self.FUWEB_P_CONVENIO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOCONVENIO" EntityType="Self.FUWEB_P_TIPOCONVENIO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOFACTURACION" EntityType="Self.FUWEB_P_TIPOFACTURACION" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_VADEMECUM" EntityType="Self.FUWEB_P_VADEMECUM" Schema="SALUD" store:Type="Tables" />
+    <AssociationSet Name="FK_FARMACIA" Association="Self.FK_FARMACIA">
+      <End Role="FUWEB_P_CONVENIO" EntitySet="FUWEB_P_CONVENIO" />
+      <End Role="FUWEB_CONVENIOFARMACIA" EntitySet="FUWEB_CONVENIOFARMACIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_CONVENIO" Association="Self.FK_ID_CONVENIO">
+      <End Role="FUWEB_P_CONVENIO" EntitySet="FUWEB_P_CONVENIO" />
+      <End Role="FUWEB_CONVENIOOTROS" EntitySet="FUWEB_CONVENIOOTROS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_TIPOCONVENIO" Association="Self.FK_ID_TIPOCONVENIO">
+      <End Role="FUWEB_P_TIPOCONVENIO" EntitySet="FUWEB_P_TIPOCONVENIO" />
+      <End Role="FUWEB_P_CONVENIO" EntitySet="FUWEB_P_CONVENIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPOFACTURACION" Association="Self.FK_TIPOFACTURACION">
+      <End Role="FUWEB_P_TIPOFACTURACION" EntitySet="FUWEB_P_TIPOFACTURACION" />
+      <End Role="FUWEB_CONVENIOFARMACIA" EntitySet="FUWEB_CONVENIOFARMACIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VADEMECUM" Association="Self.FK_VADEMECUM">
+      <End Role="FUWEB_P_VADEMECUM" EntitySet="FUWEB_P_VADEMECUM" />
+      <End Role="FUWEB_CONVENIOFARMACIA" EntitySet="FUWEB_CONVENIOFARMACIA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

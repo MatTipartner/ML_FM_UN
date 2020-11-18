@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_CONDESP">
+      <EntityTypeMapping TypeName="Model.FUWEB_CONDESP">
+        <MappingFragment StoreEntitySet="FUWEB_CONDESP">
+          <ScalarProperty Name="ID_CONDESP" ColumnName="ID_CONDESP" />
+          <ScalarProperty Name="FLD" ColumnName="FLD" />
+          <ScalarProperty Name="DP" ColumnName="DP" />
+          <ScalarProperty Name="DP_HOLDING" ColumnName="DP_HOLDING" />
+          <ScalarProperty Name="DP_POLIZA" ColumnName="DP_POLIZA" />
+          <ScalarProperty Name="MONTO_FONDO" ColumnName="MONTO_FONDO" />
+          <ScalarProperty Name="NOMBRE_FONDO" ColumnName="NOMBRE_FONDO" />
+          <ScalarProperty Name="NRO_FONDO" ColumnName="NRO_FONDO" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_CONDESP_COBERTU_DP">
+      <EntityTypeMapping TypeName="Model.FUWEB_CONDESP_COBERTU_DP">
+        <MappingFragment StoreEntitySet="FUWEB_CONDESP_COBERTU_DP">
+          <ScalarProperty Name="ID_COBERTURA_DP" ColumnName="ID_COBERTURA_DP" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_CONDESP" ColumnName="ID_CONDESP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_CONDESP_TEXTO">
+      <EntityTypeMapping TypeName="Model.FUWEB_CONDESP_TEXTO">
+        <MappingFragment StoreEntitySet="FUWEB_CONDESP_TEXTO">
+          <ScalarProperty Name="ID_CONDESP_TEXTO" ColumnName="ID_CONDESP_TEXTO" />
+          <ScalarProperty Name="ID_TIPOOBSERVACION" ColumnName="ID_TIPOOBSERVACION" />
+          <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

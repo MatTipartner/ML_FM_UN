@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98212c0140934b5b84b948d68a047b62" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.IFW_AGL_TIPOGLOSA" Width="1.75" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_POLIZA" Width="1.5" PointX="3.375" PointY="1.125" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_CANALVENTA" Width="2.125" PointX="0.5" PointY="6" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_LINEANEGOCIO" Width="2.125" PointX="0.5" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_RIESGO" Width="2.5" PointX="5.875" PointY="8" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOADDITION" Width="2.125" PointX="0.5" PointY="3.25" />
+        <AssociationConnector Association="Model.FK_POLIZACANALVENTA" />
+        <AssociationConnector Association="Model.FK_POLIZALINEANEGOC" />
+        <AssociationConnector Association="Model.FK_POLIZARIESGO" />
+        <AssociationConnector Association="Model.FK_POLIZAADDITION" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOPOLIZA" Width="1.5" PointX="1.125" PointY="12.25" />
+        <EntityTypeShape EntityType="Model.FUWEB_UBICACION_GEOGRAFICA" Width="1.5" PointX="5.625" PointY="5.25" />
+        <AssociationConnector Association="Model.FK_POLIZATIPOPOLIZA" />
+        <AssociationConnector Association="Model.FK_POLIZA_GEO" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

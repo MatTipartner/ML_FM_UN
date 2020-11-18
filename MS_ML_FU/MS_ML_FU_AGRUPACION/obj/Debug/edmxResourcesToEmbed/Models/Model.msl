@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_AGRUPACION">
+      <EntityTypeMapping TypeName="Model.FUWEB_AGRUPACION">
+        <MappingFragment StoreEntitySet="FUWEB_AGRUPACION">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="NOMBRE_AGRUPACION" ColumnName="NOMBRE_AGRUPACION" />
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+          <ScalarProperty Name="ID_UBICACION" ColumnName="ID_UBICACION" />
+          <ScalarProperty Name="ID_LUGARDESPACHO" ColumnName="ID_LUGARDESPACHO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

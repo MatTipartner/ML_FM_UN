@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_P_PRESTADORGRUPO">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPO" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_OBSERSALUD">
+          <Key>
+            <PropertyRef Name="ID_OBSERSALUD" />
+          </Key>
+          <Property Name="ID_OBSERSALUD" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="OBSERVACION" Type="varchar2" MaxLength="100" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_OBSERVIDAAP">
+          <Key>
+            <PropertyRef Name="ID_OBSERVIDAAP" />
+          </Key>
+          <Property Name="ID_OBSERVIDAAP" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="OBSERVACION" Type="varchar2" MaxLength="100" />
+          <Property Name="ID_PLANGRILLA_VIDAAP" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PREFERENTE">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PREFERENTE" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PREFERENTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_CLINICA_PREFEREN" Type="number" Precision="10" Scale="0" />
+          <Property Name="PORCENTAJE_PREFEREN" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_TIPOPREVISIONSALUD" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PRESTACIONES">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PRESTACIONES" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PRESTACIONES" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_PRESTACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PRESTBASICA">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_PLAN" Type="varchar2" MaxLength="100" />
+          <Property Name="CODIGOPLAN" Type="varchar2" MaxLength="100" />
+          <Property Name="NOMBRE_NUEVAAGRUPACION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_PRESTACIONBASICA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_JERARQUIA_PRESTBASICA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SCFMONTO" Type="number" Precision="10" Scale="0" />
+          <Property Name="CARENCIA_DIA" Type="number" Precision="10" Scale="0" />
+          <Property Name="REEMBOLSO_DIRECTO" Type="number" Precision="10" Scale="0" />
+          <Property Name="REEMBOLSO_BONO" Type="number" Precision="10" Scale="0" />
+          <Property Name="REEMBOLSO_ISAPRE" Type="number" Precision="10" Scale="0" />
+          <Property Name="TOPE" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_NIVELTOPE" Type="number" Precision="10" Scale="0" />
+          <Property Name="LIMITE" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_NIVELLIMITE" Type="number" Precision="10" Scale="0" />
+          <Property Name="EXCEDENTE" Type="char" MaxLength="1" />
+          <Property Name="SIN_DEDUCIBLE" Type="char" MaxLength="1" />
+          <Property Name="SCF" Type="char" MaxLength="1" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_VIDAAP">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_VIDAAP" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_PLAN" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="INDEMNIZAION" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ID_OBSERVAION_VA">
+          <End Role="FUWEB_PLANGRILLA_VIDAAP" Type="Self.FUWEB_PLANGRILLA_VIDAAP" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_OBSERVIDAAP" Type="Self.FUWEB_PLANGRILLA_OBSERVIDAAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_VIDAAP">
+              <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_OBSERVIDAAP">
+              <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANGRILLAPRESTACIONES">
+          <End Role="FUWEB_PLANGRILLA_PRESTBASICA" Type="Self.FUWEB_PLANGRILLA_PRESTBASICA" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_PRESTACIONES" Type="Self.FUWEB_PLANGRILLA_PRESTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_PRESTBASICA">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_PRESTACIONES">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKID_AGRUPACIONPLAGRILLA_PREFE">
+          <End Role="FUWEB_PLANGRILLA_PRESTBASICA" Type="Self.FUWEB_PLANGRILLA_PRESTBASICA" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_PREFERENTE" Type="Self.FUWEB_PLANGRILLA_PREFERENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_PRESTBASICA">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_PREFERENTE">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPO" EntityType="Self.FUWEB_P_PRESTADORGRUPO" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_OBSERSALUD" EntityType="Self.FUWEB_PLANGRILLA_OBSERSALUD" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_OBSERVIDAAP" EntityType="Self.FUWEB_PLANGRILLA_OBSERVIDAAP" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PREFERENTE" EntityType="Self.FUWEB_PLANGRILLA_PREFERENTE" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PRESTACIONES" EntityType="Self.FUWEB_PLANGRILLA_PRESTACIONES" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PRESTBASICA" EntityType="Self.FUWEB_PLANGRILLA_PRESTBASICA" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_PLANGRILLA_VIDAAP" EntityType="Self.FUWEB_PLANGRILLA_VIDAAP" Schema="SALUD" store:Type="Tables" />
+          <AssociationSet Name="FK_ID_OBSERVAION_VA" Association="Self.FK_ID_OBSERVAION_VA">
+            <End Role="FUWEB_PLANGRILLA_VIDAAP" EntitySet="FUWEB_PLANGRILLA_VIDAAP" />
+            <End Role="FUWEB_PLANGRILLA_OBSERVIDAAP" EntitySet="FUWEB_PLANGRILLA_OBSERVIDAAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANGRILLAPRESTACIONES" Association="Self.FK_PLANGRILLAPRESTACIONES">
+            <End Role="FUWEB_PLANGRILLA_PRESTBASICA" EntitySet="FUWEB_PLANGRILLA_PRESTBASICA" />
+            <End Role="FUWEB_PLANGRILLA_PRESTACIONES" EntitySet="FUWEB_PLANGRILLA_PRESTACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FKID_AGRUPACIONPLAGRILLA_PREFE" Association="Self.FKID_AGRUPACIONPLAGRILLA_PREFE">
+            <End Role="FUWEB_PLANGRILLA_PRESTBASICA" EntitySet="FUWEB_PLANGRILLA_PRESTBASICA" />
+            <End Role="FUWEB_PLANGRILLA_PREFERENTE" EntitySet="FUWEB_PLANGRILLA_PREFERENTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_P_PRESTADORGRUPO">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPO" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_OBSERSALUD">
+          <Key>
+            <PropertyRef Name="ID_OBSERSALUD" />
+          </Key>
+          <Property Name="ID_OBSERSALUD" Type="Int32" Nullable="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_OBSERVIDAAP">
+          <Key>
+            <PropertyRef Name="ID_OBSERVIDAAP" />
+          </Key>
+          <Property Name="ID_OBSERVIDAAP" Type="Int32" Nullable="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PLANGRILLA_VIDAAP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_VIDAAP" Relationship="Self.FK_ID_OBSERVAION_VA" FromRole="FUWEB_PLANGRILLA_OBSERVIDAAP" ToRole="FUWEB_PLANGRILLA_VIDAAP" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PREFERENTE">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PREFERENTE" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PREFERENTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_CLINICA_PREFEREN" Type="Int32" />
+          <Property Name="PORCENTAJE_PREFEREN" Type="Int32" />
+          <Property Name="ID_TIPOPREVISIONSALUD" Type="Int32" />
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_PRESTBASICA" Relationship="Self.FKID_AGRUPACIONPLAGRILLA_PREFE" FromRole="FUWEB_PLANGRILLA_PREFERENTE" ToRole="FUWEB_PLANGRILLA_PRESTBASICA" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PRESTACIONES">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PRESTACIONES" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PRESTACIONES" Type="Int32" Nullable="false" />
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRESTACION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_PRESTBASICA" Relationship="Self.FK_PLANGRILLAPRESTACIONES" FromRole="FUWEB_PLANGRILLA_PRESTACIONES" ToRole="FUWEB_PLANGRILLA_PRESTBASICA" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_PRESTBASICA">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_PRESTBASICA" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION_PLAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGOPLAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_NUEVAAGRUPACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_PRESTACIONBASICA" Type="Int32" Nullable="false" />
+          <Property Name="ID_JERARQUIA_PRESTBASICA" Type="Int32" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+          <Property Name="SCFMONTO" Type="Int32" />
+          <Property Name="CARENCIA_DIA" Type="Int32" />
+          <Property Name="REEMBOLSO_DIRECTO" Type="Int32" />
+          <Property Name="REEMBOLSO_BONO" Type="Int32" />
+          <Property Name="REEMBOLSO_ISAPRE" Type="Int32" />
+          <Property Name="TOPE" Type="Int32" />
+          <Property Name="ID_NIVELTOPE" Type="Int32" />
+          <Property Name="LIMITE" Type="Int32" />
+          <Property Name="ID_NIVELLIMITE" Type="Int32" />
+          <Property Name="EXCEDENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SIN_DEDUCIBLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SCF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_PREFERENTE" Relationship="Self.FKID_AGRUPACIONPLAGRILLA_PREFE" FromRole="FUWEB_PLANGRILLA_PRESTBASICA" ToRole="FUWEB_PLANGRILLA_PREFERENTE" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_PRESTACIONES" Relationship="Self.FK_PLANGRILLAPRESTACIONES" FromRole="FUWEB_PLANGRILLA_PRESTBASICA" ToRole="FUWEB_PLANGRILLA_PRESTACIONES" />
+        </EntityType>
+        <EntityType Name="FUWEB_PLANGRILLA_VIDAAP">
+          <Key>
+            <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+          </Key>
+          <Property Name="ID_PLANGRILLA_VIDAAP" Type="Int32" Nullable="false" />
+          <Property Name="ID_PLAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+          <Property Name="INDEMNIZAION" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_PLANGRILLA_OBSERVIDAAP" Relationship="Self.FK_ID_OBSERVAION_VA" FromRole="FUWEB_PLANGRILLA_VIDAAP" ToRole="FUWEB_PLANGRILLA_OBSERVIDAAP" />
+        </EntityType>
+        <Association Name="FK_ID_OBSERVAION_VA">
+          <End Role="FUWEB_PLANGRILLA_VIDAAP" Type="Self.FUWEB_PLANGRILLA_VIDAAP" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_OBSERVIDAAP" Type="Self.FUWEB_PLANGRILLA_OBSERVIDAAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_VIDAAP">
+              <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_OBSERVIDAAP">
+              <PropertyRef Name="ID_PLANGRILLA_VIDAAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKID_AGRUPACIONPLAGRILLA_PREFE">
+          <End Role="FUWEB_PLANGRILLA_PRESTBASICA" Type="Self.FUWEB_PLANGRILLA_PRESTBASICA" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_PREFERENTE" Type="Self.FUWEB_PLANGRILLA_PREFERENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_PRESTBASICA">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_PREFERENTE">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANGRILLAPRESTACIONES">
+          <End Role="FUWEB_PLANGRILLA_PRESTBASICA" Type="Self.FUWEB_PLANGRILLA_PRESTBASICA" Multiplicity="1" />
+          <End Role="FUWEB_PLANGRILLA_PRESTACIONES" Type="Self.FUWEB_PLANGRILLA_PRESTACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_PLANGRILLA_PRESTBASICA">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Principal>
+            <Dependent Role="FUWEB_PLANGRILLA_PRESTACIONES">
+              <PropertyRef Name="ID_PLANGRILLA_PRESTBASICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPO" EntityType="Self.FUWEB_P_PRESTADORGRUPO" />
+          <EntitySet Name="FUWEB_PLANGRILLA_OBSERSALUD" EntityType="Self.FUWEB_PLANGRILLA_OBSERSALUD" />
+          <EntitySet Name="FUWEB_PLANGRILLA_OBSERVIDAAP" EntityType="Self.FUWEB_PLANGRILLA_OBSERVIDAAP" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PREFERENTE" EntityType="Self.FUWEB_PLANGRILLA_PREFERENTE" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PRESTACIONES" EntityType="Self.FUWEB_PLANGRILLA_PRESTACIONES" />
+          <EntitySet Name="FUWEB_PLANGRILLA_PRESTBASICA" EntityType="Self.FUWEB_PLANGRILLA_PRESTBASICA" />
+          <EntitySet Name="FUWEB_PLANGRILLA_VIDAAP" EntityType="Self.FUWEB_PLANGRILLA_VIDAAP" />
+          <AssociationSet Name="FK_ID_OBSERVAION_VA" Association="Self.FK_ID_OBSERVAION_VA">
+            <End Role="FUWEB_PLANGRILLA_VIDAAP" EntitySet="FUWEB_PLANGRILLA_VIDAAP" />
+            <End Role="FUWEB_PLANGRILLA_OBSERVIDAAP" EntitySet="FUWEB_PLANGRILLA_OBSERVIDAAP" />
+          </AssociationSet>
+          <AssociationSet Name="FKID_AGRUPACIONPLAGRILLA_PREFE" Association="Self.FKID_AGRUPACIONPLAGRILLA_PREFE">
+            <End Role="FUWEB_PLANGRILLA_PRESTBASICA" EntitySet="FUWEB_PLANGRILLA_PRESTBASICA" />
+            <End Role="FUWEB_PLANGRILLA_PREFERENTE" EntitySet="FUWEB_PLANGRILLA_PREFERENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANGRILLAPRESTACIONES" Association="Self.FK_PLANGRILLAPRESTACIONES">
+            <End Role="FUWEB_PLANGRILLA_PRESTBASICA" EntitySet="FUWEB_PLANGRILLA_PRESTBASICA" />
+            <End Role="FUWEB_PLANGRILLA_PRESTACIONES" EntitySet="FUWEB_PLANGRILLA_PRESTACIONES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_P_PRESTADORGRUPO">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTADORGRUPO">
+              <MappingFragment StoreEntitySet="FUWEB_P_PRESTADORGRUPO">
+                <ScalarProperty Name="ID_PRESTADORGRUPO" ColumnName="ID_PRESTADORGRUPO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_OBSERSALUD">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_OBSERSALUD">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_OBSERSALUD">
+                <ScalarProperty Name="ID_OBSERSALUD" ColumnName="ID_OBSERSALUD" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_OBSERVIDAAP">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_OBSERVIDAAP">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_OBSERVIDAAP">
+                <ScalarProperty Name="ID_OBSERVIDAAP" ColumnName="ID_OBSERVIDAAP" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ID_PLANGRILLA_VIDAAP" ColumnName="ID_PLANGRILLA_VIDAAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_PREFERENTE">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PREFERENTE">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PREFERENTE">
+                <ScalarProperty Name="ID_PLANGRILLA_PREFERENTE" ColumnName="ID_PLANGRILLA_PREFERENTE" />
+                <ScalarProperty Name="ID_CLINICA_PREFEREN" ColumnName="ID_CLINICA_PREFEREN" />
+                <ScalarProperty Name="PORCENTAJE_PREFEREN" ColumnName="PORCENTAJE_PREFEREN" />
+                <ScalarProperty Name="ID_TIPOPREVISIONSALUD" ColumnName="ID_TIPOPREVISIONSALUD" />
+                <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_PRESTACIONES">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PRESTACIONES">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PRESTACIONES">
+                <ScalarProperty Name="ID_PLANGRILLA_PRESTACIONES" ColumnName="ID_PLANGRILLA_PRESTACIONES" />
+                <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+                <ScalarProperty Name="ID_PRESTACION" ColumnName="ID_PRESTACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_PRESTBASICA">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PRESTBASICA">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PRESTBASICA">
+                <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+                <ScalarProperty Name="DESCRIPCION_PLAN" ColumnName="DESCRIPCION_PLAN" />
+                <ScalarProperty Name="CODIGOPLAN" ColumnName="CODIGOPLAN" />
+                <ScalarProperty Name="NOMBRE_NUEVAAGRUPACION" ColumnName="NOMBRE_NUEVAAGRUPACION" />
+                <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+                <ScalarProperty Name="ID_JERARQUIA_PRESTBASICA" ColumnName="ID_JERARQUIA_PRESTBASICA" />
+                <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+                <ScalarProperty Name="SCFMONTO" ColumnName="SCFMONTO" />
+                <ScalarProperty Name="CARENCIA_DIA" ColumnName="CARENCIA_DIA" />
+                <ScalarProperty Name="REEMBOLSO_DIRECTO" ColumnName="REEMBOLSO_DIRECTO" />
+                <ScalarProperty Name="REEMBOLSO_BONO" ColumnName="REEMBOLSO_BONO" />
+                <ScalarProperty Name="REEMBOLSO_ISAPRE" ColumnName="REEMBOLSO_ISAPRE" />
+                <ScalarProperty Name="TOPE" ColumnName="TOPE" />
+                <ScalarProperty Name="ID_NIVELTOPE" ColumnName="ID_NIVELTOPE" />
+                <ScalarProperty Name="LIMITE" ColumnName="LIMITE" />
+                <ScalarProperty Name="ID_NIVELLIMITE" ColumnName="ID_NIVELLIMITE" />
+                <ScalarProperty Name="EXCEDENTE" ColumnName="EXCEDENTE" />
+                <ScalarProperty Name="SIN_DEDUCIBLE" ColumnName="SIN_DEDUCIBLE" />
+                <ScalarProperty Name="SCF" ColumnName="SCF" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_PLANGRILLA_VIDAAP">
+            <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_VIDAAP">
+              <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_VIDAAP">
+                <ScalarProperty Name="ID_PLANGRILLA_VIDAAP" ColumnName="ID_PLANGRILLA_VIDAAP" />
+                <ScalarProperty Name="ID_PLAN" ColumnName="ID_PLAN" />
+                <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+                <ScalarProperty Name="INDEMNIZAION" ColumnName="INDEMNIZAION" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

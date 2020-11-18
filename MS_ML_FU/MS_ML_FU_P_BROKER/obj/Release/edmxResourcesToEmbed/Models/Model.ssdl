@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_BROKERCCTE">
+    <Key>
+      <PropertyRef Name="ID_CCTE" />
+    </Key>
+    <Property Name="ID_CCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RUTCCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DVCCTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOMBRECCTE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="GRUPOEMPRESAS" Type="varchar2" MaxLength="80" />
+    <Property Name="TELEFONO" Type="number" Precision="10" Scale="0" />
+    <Property Name="DIRECCION" Type="varchar2" MaxLength="150" />
+    <Property Name="COMUNA" Type="varchar2" MaxLength="80" />
+    <Property Name="CIUDAD" Type="varchar2" MaxLength="80" />
+    <Property Name="GIRO" Type="varchar2" MaxLength="80" />
+    <Property Name="NOMBRE_CONTACTO" Type="varchar2" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="300" />
+    <Property Name="NOMBRE_MANDANTE" Type="varchar2" MaxLength="100" />
+    <Property Name="RUT_MANDANTE" Type="varchar2" MaxLength="10" />
+    <Property Name="ID_TIPOCCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_BROKERCORREDOR">
+    <Key>
+      <PropertyRef Name="ID_CORREDOR" />
+    </Key>
+    <Property Name="ID_CORREDOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RUT_CORREDOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DV_CORREDOR" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOMBRE_CORREDOR" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="TELEFONO" Type="number" Precision="10" Scale="0" />
+    <Property Name="GIRO" Type="varchar2" MaxLength="100" />
+    <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+    <Property Name="CIUDAD" Type="varchar2" MaxLength="100" />
+    <Property Name="COMUNA" Type="varchar2" MaxLength="100" />
+    <Property Name="POLIZA_GARANTIA_VIGENTE" Type="varchar2" MaxLength="100" />
+    <Property Name="NOMBRE_CONTACTO" Type="varchar2" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="300" />
+    <Property Name="FORMA_PAGO" Type="number" Precision="10" Scale="0" />
+    <Property Name="TIPO_CUENTA" Type="number" Precision="10" Scale="0" />
+    <Property Name="NRO_CUENTA" Type="number" Precision="10" Scale="0" />
+    <Property Name="BANCO" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_HOLDING" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_ADMINISTRADOR" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_COBRANZA" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_COMERCIAL" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_MOVIMIENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_BROKERCCTE" EntityType="Self.FUWEB_BROKERCCTE" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_BROKERCORREDOR" EntityType="Self.FUWEB_BROKERCORREDOR" Schema="SALUD" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

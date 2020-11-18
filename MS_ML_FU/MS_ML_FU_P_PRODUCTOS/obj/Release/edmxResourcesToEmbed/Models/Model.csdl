@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_P_COBERTURA">
+    <Key>
+      <PropertyRef Name="ID_COBERTURA" />
+    </Key>
+    <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NRO_SACS" Type="Int32" Nullable="false" />
+    <Property Name="ID_TIPOPRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="ORDENAR" Type="Int16" />
+    <NavigationProperty Name="FUWEB_P_TIPOPRODUCTO" Relationship="Model.FK_ID_TIPOPRODUCTO" FromRole="FUWEB_P_COBERTURA" ToRole="FUWEB_P_TIPOPRODUCTO" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA_PRESTBASICA" Relationship="Model.FK_COBERTURA20" FromRole="FUWEB_P_COBERTURA" ToRole="FUWEB_P_COBERTURA_PRESTBASICA" />
+    <NavigationProperty Name="FUWEB_PRODUCTOLIST_SALUD" Relationship="Model.FK_COBERTURA3" FromRole="FUWEB_P_COBERTURA" ToRole="FUWEB_PRODUCTOLIST_SALUD" />
+    <NavigationProperty Name="FUWEB_PRODUCTOLIST_VIDAAP" Relationship="Model.FK_COBERTURA2" FromRole="FUWEB_P_COBERTURA" ToRole="FUWEB_PRODUCTOLIST_VIDAAP" />
+    <NavigationProperty Name="FUWEB_PRODUCTOCASCADA" Relationship="Model.FK_TIPOPRODUCTO" FromRole="FUWEB_P_COBERTURA" ToRole="FUWEB_PRODUCTOCASCADA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PRESTACIONBASICA">
+    <Key>
+      <PropertyRef Name="ID_PRESTACIONBASICA" />
+    </Key>
+    <Property Name="ID_PRESTACIONBASICA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SIGLA_SACS" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONBASICGENERIC" Relationship="Self.FK_PRESTACIONBASICA1" FromRole="FUWEB_P_PRESTACIONBASICA" ToRole="FUWEB_P_PRESTACIONBASICGENERIC" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA_PRESTBASICA" Relationship="Model.FK_PRESBASICA20" FromRole="FUWEB_P_PRESTACIONBASICA" ToRole="FUWEB_P_COBERTURA_PRESTBASICA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PRESTACIONBASICGENERIC">
+    <Key>
+      <PropertyRef Name="ID_BASICAGENERICA" />
+    </Key>
+    <Property Name="ID_BASICAGENERICA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRESTACIONBASICA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRESTACIONGENERICA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONBASICA" Relationship="Self.FK_PRESTACIONBASICA1" FromRole="FUWEB_P_PRESTACIONBASICGENERIC" ToRole="FUWEB_P_PRESTACIONBASICA" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONGENERICA" Relationship="Self.FK_PRESTACIONGENERICA1" FromRole="FUWEB_P_PRESTACIONBASICGENERIC" ToRole="FUWEB_P_PRESTACIONGENERICA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PRESTACIONGENERICA">
+    <Key>
+      <PropertyRef Name="ID_PRESTACIONGENERICA" />
+    </Key>
+    <Property Name="ID_PRESTACIONGENERICA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONBASICGENERIC" Relationship="Self.FK_PRESTACIONGENERICA1" FromRole="FUWEB_P_PRESTACIONGENERICA" ToRole="FUWEB_P_PRESTACIONBASICGENERIC" />
+    <NavigationProperty Name="FUWEB_P_PRESTACION" Relationship="Model.FK_PRESTACIONGENERICA2" FromRole="FUWEB_P_PRESTACIONGENERICA" ToRole="FUWEB_P_PRESTACION" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PRESTACIONSUBGRUPO">
+    <Key>
+      <PropertyRef Name="ID_PRESTACIONSUBGRUPO" />
+    </Key>
+    <Property Name="ID_PRESTACIONSUBGRUPO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_PRESTACION" Relationship="Model.FK_GRUPOPRESTACION2" FromRole="FUWEB_P_PRESTACIONSUBGRUPO" ToRole="FUWEB_P_PRESTACION" />
+  </EntityType>
+  <Association Name="FK_PRESTACIONBASICA1">
+    <End Role="FUWEB_P_PRESTACIONBASICA" Type="Self.FUWEB_P_PRESTACIONBASICA" Multiplicity="1" />
+    <End Role="FUWEB_P_PRESTACIONBASICGENERIC" Type="Self.FUWEB_P_PRESTACIONBASICGENERIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PRESTACIONBASICA">
+        <PropertyRef Name="ID_PRESTACIONBASICA" />
+      </Principal>
+      <Dependent Role="FUWEB_P_PRESTACIONBASICGENERIC">
+        <PropertyRef Name="ID_PRESTACIONBASICA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTACIONGENERICA1">
+    <End Role="FUWEB_P_PRESTACIONGENERICA" Type="Self.FUWEB_P_PRESTACIONGENERICA" Multiplicity="1" />
+    <End Role="FUWEB_P_PRESTACIONBASICGENERIC" Type="Self.FUWEB_P_PRESTACIONBASICGENERIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PRESTACIONGENERICA">
+        <PropertyRef Name="ID_PRESTACIONGENERICA" />
+      </Principal>
+      <Dependent Role="FUWEB_P_PRESTACIONBASICGENERIC">
+        <PropertyRef Name="ID_PRESTACIONGENERICA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_P_COBERTURA" EntityType="Self.FUWEB_P_COBERTURA" />
+    <EntitySet Name="FUWEB_P_PRESTACIONBASICA" EntityType="Self.FUWEB_P_PRESTACIONBASICA" />
+    <EntitySet Name="FUWEB_P_PRESTACIONBASICGENERIC" EntityType="Self.FUWEB_P_PRESTACIONBASICGENERIC" />
+    <EntitySet Name="FUWEB_P_PRESTACIONGENERICA" EntityType="Self.FUWEB_P_PRESTACIONGENERICA" />
+    <EntitySet Name="FUWEB_P_PRESTACIONSUBGRUPO" EntityType="Self.FUWEB_P_PRESTACIONSUBGRUPO" />
+    <AssociationSet Name="FK_PRESTACIONBASICA1" Association="Self.FK_PRESTACIONBASICA1">
+      <End Role="FUWEB_P_PRESTACIONBASICA" EntitySet="FUWEB_P_PRESTACIONBASICA" />
+      <End Role="FUWEB_P_PRESTACIONBASICGENERIC" EntitySet="FUWEB_P_PRESTACIONBASICGENERIC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTACIONGENERICA1" Association="Self.FK_PRESTACIONGENERICA1">
+      <End Role="FUWEB_P_PRESTACIONGENERICA" EntitySet="FUWEB_P_PRESTACIONGENERICA" />
+      <End Role="FUWEB_P_PRESTACIONBASICGENERIC" EntitySet="FUWEB_P_PRESTACIONBASICGENERIC" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_P_TIPOPRODUCTO" EntityType="Model.FUWEB_P_TIPOPRODUCTO" />
+    <AssociationSet Name="FK_ID_TIPOPRODUCTO" Association="Model.FK_ID_TIPOPRODUCTO">
+      <End Role="FUWEB_P_TIPOPRODUCTO" EntitySet="FUWEB_P_TIPOPRODUCTO" />
+      <End Role="FUWEB_P_COBERTURA" EntitySet="FUWEB_P_COBERTURA" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_P_PRESTACION" EntityType="Model.FUWEB_P_PRESTACION" />
+    <AssociationSet Name="FK_GRUPOPRESTACION2" Association="Model.FK_GRUPOPRESTACION2">
+      <End Role="FUWEB_P_PRESTACIONSUBGRUPO" EntitySet="FUWEB_P_PRESTACIONSUBGRUPO" />
+      <End Role="FUWEB_P_PRESTACION" EntitySet="FUWEB_P_PRESTACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTACIONGENERICA2" Association="Model.FK_PRESTACIONGENERICA2">
+      <End Role="FUWEB_P_PRESTACIONGENERICA" EntitySet="FUWEB_P_PRESTACIONGENERICA" />
+      <End Role="FUWEB_P_PRESTACION" EntitySet="FUWEB_P_PRESTACION" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_P_COBERTURA_PRESTBASICA" EntityType="Model.FUWEB_P_COBERTURA_PRESTBASICA" />
+    <AssociationSet Name="FK_COBERTURA20" Association="Model.FK_COBERTURA20">
+      <End Role="FUWEB_P_COBERTURA" EntitySet="FUWEB_P_COBERTURA" />
+      <End Role="FUWEB_P_COBERTURA_PRESTBASICA" EntitySet="FUWEB_P_COBERTURA_PRESTBASICA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESBASICA20" Association="Model.FK_PRESBASICA20">
+      <End Role="FUWEB_P_PRESTACIONBASICA" EntitySet="FUWEB_P_PRESTACIONBASICA" />
+      <End Role="FUWEB_P_COBERTURA_PRESTBASICA" EntitySet="FUWEB_P_COBERTURA_PRESTBASICA" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_PRODUCTOLIST_SALUD" EntityType="Model.FUWEB_PRODUCTOLIST_SALUD" />
+    <AssociationSet Name="FK_COBERTURA3" Association="Model.FK_COBERTURA3">
+      <End Role="FUWEB_P_COBERTURA" EntitySet="FUWEB_P_COBERTURA" />
+      <End Role="FUWEB_PRODUCTOLIST_SALUD" EntitySet="FUWEB_PRODUCTOLIST_SALUD" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_PRODUCTOLIST_VIDAAP" EntityType="Model.FUWEB_PRODUCTOLIST_VIDAAP" />
+    <AssociationSet Name="FK_COBERTURA2" Association="Model.FK_COBERTURA2">
+      <End Role="FUWEB_P_COBERTURA" EntitySet="FUWEB_P_COBERTURA" />
+      <End Role="FUWEB_PRODUCTOLIST_VIDAAP" EntitySet="FUWEB_PRODUCTOLIST_VIDAAP" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_PRODUCTO_VIDAAP" EntityType="Model.FUWEB_PRODUCTO_VIDAAP" />
+    <EntitySet Name="FUWEB_PRODUCTOCASCADA" EntityType="Model.FUWEB_PRODUCTOCASCADA" />
+    <AssociationSet Name="FK_TIPOPRODUCTO" Association="Model.FK_TIPOPRODUCTO">
+      <End Role="FUWEB_P_COBERTURA" EntitySet="FUWEB_P_COBERTURA" />
+      <End Role="FUWEB_PRODUCTOCASCADA" EntitySet="FUWEB_PRODUCTOCASCADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COBERTURA4" Association="Model.FK_COBERTURA4">
+      <End Role="FUWEB_P_TIPOPRODUCTO" EntitySet="FUWEB_P_TIPOPRODUCTO" />
+      <End Role="FUWEB_PRODUCTOCASCADA" EntitySet="FUWEB_PRODUCTOCASCADA" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FUWEB_P_TIPOPRODUCTO">
+    <Key>
+      <PropertyRef Name="ID_TIPOPRODUCTO" />
+    </Key>
+    <Property Name="ID_TIPOPRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA" Relationship="Model.FK_ID_TIPOPRODUCTO" FromRole="FUWEB_P_TIPOPRODUCTO" ToRole="FUWEB_P_COBERTURA" />
+    <NavigationProperty Name="FUWEB_PRODUCTOCASCADA" Relationship="Model.FK_COBERTURA4" FromRole="FUWEB_P_TIPOPRODUCTO" ToRole="FUWEB_PRODUCTOCASCADA" />
+  </EntityType>
+  <Association Name="FK_ID_TIPOPRODUCTO">
+    <End Type="Model.FUWEB_P_TIPOPRODUCTO" Role="FUWEB_P_TIPOPRODUCTO" Multiplicity="1" />
+    <End Type="Model.FUWEB_P_COBERTURA" Role="FUWEB_P_COBERTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOPRODUCTO">
+        <PropertyRef Name="ID_TIPOPRODUCTO" />
+      </Principal>
+      <Dependent Role="FUWEB_P_COBERTURA">
+        <PropertyRef Name="ID_TIPOPRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_P_PRESTACION">
+    <Key>
+      <PropertyRef Name="ID_PRESTACION" />
+    </Key>
+    <Property Name="ID_PRESTACION" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID_PRESTACIONGENERICA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRESTACIONSUBGRUPO" Type="Int32" Nullable="false" />
+    <Property Name="SIGLA_SACS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONSUBGRUPO" Relationship="Model.FK_GRUPOPRESTACION2" FromRole="FUWEB_P_PRESTACION" ToRole="FUWEB_P_PRESTACIONSUBGRUPO" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONGENERICA" Relationship="Model.FK_PRESTACIONGENERICA2" FromRole="FUWEB_P_PRESTACION" ToRole="FUWEB_P_PRESTACIONGENERICA" />
+  </EntityType>
+  <Association Name="FK_GRUPOPRESTACION2">
+    <End Type="Model.FUWEB_P_PRESTACIONSUBGRUPO" Role="FUWEB_P_PRESTACIONSUBGRUPO" Multiplicity="1" />
+    <End Type="Model.FUWEB_P_PRESTACION" Role="FUWEB_P_PRESTACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PRESTACIONSUBGRUPO">
+        <PropertyRef Name="ID_PRESTACIONSUBGRUPO" />
+      </Principal>
+      <Dependent Role="FUWEB_P_PRESTACION">
+        <PropertyRef Name="ID_PRESTACIONSUBGRUPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTACIONGENERICA2">
+    <End Type="Model.FUWEB_P_PRESTACIONGENERICA" Role="FUWEB_P_PRESTACIONGENERICA" Multiplicity="1" />
+    <End Type="Model.FUWEB_P_PRESTACION" Role="FUWEB_P_PRESTACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PRESTACIONGENERICA">
+        <PropertyRef Name="ID_PRESTACIONGENERICA" />
+      </Principal>
+      <Dependent Role="FUWEB_P_PRESTACION">
+        <PropertyRef Name="ID_PRESTACIONGENERICA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_P_COBERTURA_PRESTBASICA">
+    <Key>
+      <PropertyRef Name="ID_COBERTURA_PRESTBASICA" />
+    </Key>
+    <Property Name="ID_COBERTURA_PRESTBASICA" Type="Int32" Nullable="false" />
+    <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRESTACIONBASICA" Type="Int32" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA" Relationship="Model.FK_COBERTURA20" FromRole="FUWEB_P_COBERTURA_PRESTBASICA" ToRole="FUWEB_P_COBERTURA" />
+    <NavigationProperty Name="FUWEB_P_PRESTACIONBASICA" Relationship="Model.FK_PRESBASICA20" FromRole="FUWEB_P_COBERTURA_PRESTBASICA" ToRole="FUWEB_P_PRESTACIONBASICA" />
+  </EntityType>
+  <Association Name="FK_COBERTURA20">
+    <End Type="Model.FUWEB_P_COBERTURA" Role="FUWEB_P_COBERTURA" Multiplicity="1" />
+    <End Type="Model.FUWEB_P_COBERTURA_PRESTBASICA" Role="FUWEB_P_COBERTURA_PRESTBASICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_COBERTURA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Principal>
+      <Dependent Role="FUWEB_P_COBERTURA_PRESTBASICA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESBASICA20">
+    <End Type="Model.FUWEB_P_PRESTACIONBASICA" Role="FUWEB_P_PRESTACIONBASICA" Multiplicity="1" />
+    <End Type="Model.FUWEB_P_COBERTURA_PRESTBASICA" Role="FUWEB_P_COBERTURA_PRESTBASICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PRESTACIONBASICA">
+        <PropertyRef Name="ID_PRESTACIONBASICA" />
+      </Principal>
+      <Dependent Role="FUWEB_P_COBERTURA_PRESTBASICA">
+        <PropertyRef Name="ID_PRESTACIONBASICA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_PRODUCTOLIST_SALUD">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO_SALUD" />
+    </Key>
+    <Property Name="ID_PRODUCTO_SALUD" Type="Int32" Nullable="false" />
+    <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+    <Property Name="MONTO_ASEGURADO" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="POL_CAD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA" Relationship="Model.FK_COBERTURA3" FromRole="FUWEB_PRODUCTOLIST_SALUD" ToRole="FUWEB_P_COBERTURA" />
+  </EntityType>
+  <Association Name="FK_COBERTURA3">
+    <End Type="Model.FUWEB_P_COBERTURA" Role="FUWEB_P_COBERTURA" Multiplicity="1" />
+    <End Type="Model.FUWEB_PRODUCTOLIST_SALUD" Role="FUWEB_PRODUCTOLIST_SALUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_COBERTURA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Principal>
+      <Dependent Role="FUWEB_PRODUCTOLIST_SALUD">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_PRODUCTOLIST_VIDAAP">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTOLIST_VIDAAP" />
+    </Key>
+    <Property Name="ID_PRODUCTOLIST_VIDAAP" Type="Int32" Nullable="false" />
+    <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+    <Property Name="CAPITAL_FIJO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CANTIDAD_RENTA" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="CAPITAL_MINIMO_PESO" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="CAPITAL_MAXIMO_UF" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA" Relationship="Model.FK_COBERTURA2" FromRole="FUWEB_PRODUCTOLIST_VIDAAP" ToRole="FUWEB_P_COBERTURA" />
+  </EntityType>
+  <Association Name="FK_COBERTURA2">
+    <End Type="Model.FUWEB_P_COBERTURA" Role="FUWEB_P_COBERTURA" Multiplicity="1" />
+    <End Type="Model.FUWEB_PRODUCTOLIST_VIDAAP" Role="FUWEB_PRODUCTOLIST_VIDAAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_COBERTURA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Principal>
+      <Dependent Role="FUWEB_PRODUCTOLIST_VIDAAP">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_PRODUCTO_VIDAAP">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO_VIDAAP" />
+    </Key>
+    <Property Name="ID_PRODUCTO_VIDAAP" Type="Int32" Nullable="false" />
+    <Property Name="FREECOVER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CAPITALMAXINO" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="CUMULO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_PRODUCTOCASCADA">
+    <Key>
+      <PropertyRef Name="ID_CASCADA" />
+    </Key>
+    <Property Name="ID_CASCADA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+    <Property Name="EDAD_HASTA" Type="Int32" />
+    <Property Name="SIGLA_SEXO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SIGLA_RELACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_PLAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD" Type="Int32" />
+    <Property Name="MONTO" Type="Decimal" Precision="23" Scale="3" />
+    <Property Name="INCLUYE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_COBERTURA" Relationship="Model.FK_TIPOPRODUCTO" FromRole="FUWEB_PRODUCTOCASCADA" ToRole="FUWEB_P_COBERTURA" />
+    <NavigationProperty Name="FUWEB_P_TIPOPRODUCTO" Relationship="Model.FK_COBERTURA4" FromRole="FUWEB_PRODUCTOCASCADA" ToRole="FUWEB_P_TIPOPRODUCTO" />
+  </EntityType>
+  <Association Name="FK_TIPOPRODUCTO">
+    <End Type="Model.FUWEB_P_COBERTURA" Role="FUWEB_P_COBERTURA" Multiplicity="1" />
+    <End Type="Model.FUWEB_PRODUCTOCASCADA" Role="FUWEB_PRODUCTOCASCADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_COBERTURA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Principal>
+      <Dependent Role="FUWEB_PRODUCTOCASCADA">
+        <PropertyRef Name="ID_COBERTURA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COBERTURA4">
+    <End Type="Model.FUWEB_P_TIPOPRODUCTO" Role="FUWEB_P_TIPOPRODUCTO" Multiplicity="1" />
+    <End Type="Model.FUWEB_PRODUCTOCASCADA" Role="FUWEB_PRODUCTOCASCADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOPRODUCTO">
+        <PropertyRef Name="ID_TIPOPRODUCTO" />
+      </Principal>
+      <Dependent Role="FUWEB_PRODUCTOCASCADA">
+        <PropertyRef Name="ID_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

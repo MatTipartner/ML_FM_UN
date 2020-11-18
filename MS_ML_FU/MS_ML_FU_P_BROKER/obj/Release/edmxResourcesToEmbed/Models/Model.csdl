@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_BROKERCCTE">
+    <Key>
+      <PropertyRef Name="ID_CCTE" />
+    </Key>
+    <Property Name="ID_CCTE" Type="Int32" Nullable="false" />
+    <Property Name="RUTCCTE" Type="Int32" Nullable="false" />
+    <Property Name="DVCCTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRECCTE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GRUPOEMPRESAS" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="Int32" />
+    <Property Name="DIRECCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COMUNA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CIUDAD" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="GIRO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_CONTACTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_MANDANTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RUT_MANDANTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TIPOCCTE" Type="Int32" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_BROKERCORREDOR">
+    <Key>
+      <PropertyRef Name="ID_CORREDOR" />
+    </Key>
+    <Property Name="ID_CORREDOR" Type="Int32" Nullable="false" />
+    <Property Name="RUT_CORREDOR" Type="Int32" Nullable="false" />
+    <Property Name="DV_CORREDOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_CORREDOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="Int32" />
+    <Property Name="GIRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CIUDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COMUNA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="POLIZA_GARANTIA_VIGENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_CONTACTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="FORMA_PAGO" Type="Int32" />
+    <Property Name="TIPO_CUENTA" Type="Int32" />
+    <Property Name="NRO_CUENTA" Type="Int32" />
+    <Property Name="BANCO" Type="Int32" />
+    <Property Name="ID_HOLDING" Type="Int32" Nullable="false" />
+    <Property Name="ID_ADMINISTRADOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_COBRANZA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_COMERCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_EJECUTIVO_MOVIMIENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_BROKERCCTE" EntityType="Self.FUWEB_BROKERCCTE" />
+    <EntitySet Name="FUWEB_BROKERCORREDOR" EntityType="Self.FUWEB_BROKERCORREDOR" />
+  </EntityContainer>
+</Schema>

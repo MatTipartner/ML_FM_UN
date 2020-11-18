@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_COBERTURA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_COBERTURA">
+        <MappingFragment StoreEntitySet="FUWEB_P_COBERTURA">
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NRO_SACS" ColumnName="NRO_SACS" />
+          <ScalarProperty Name="ID_TIPOPRODUCTO" ColumnName="ID_TIPOPRODUCTO" />
+          <ScalarProperty Name="ORDENAR" ColumnName="ORDENAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACIONBASICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACIONBASICA">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACIONBASICA">
+          <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLA_SACS" ColumnName="SIGLA_SACS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACIONBASICGENERIC">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACIONBASICGENERIC">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACIONBASICGENERIC">
+          <ScalarProperty Name="ID_BASICAGENERICA" ColumnName="ID_BASICAGENERICA" />
+          <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+          <ScalarProperty Name="ID_PRESTACIONGENERICA" ColumnName="ID_PRESTACIONGENERICA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACIONGENERICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACIONGENERICA">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACIONGENERICA">
+          <ScalarProperty Name="ID_PRESTACIONGENERICA" ColumnName="ID_PRESTACIONGENERICA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACIONSUBGRUPO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACIONSUBGRUPO">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACIONSUBGRUPO">
+          <ScalarProperty Name="ID_PRESTACIONSUBGRUPO" ColumnName="ID_PRESTACIONSUBGRUPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOPRODUCTO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOPRODUCTO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOPRODUCTO">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPOPRODUCTO" ColumnName="ID_TIPOPRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PRESTACION">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTACION">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTACION">
+          <ScalarProperty Name="SIGLA_SACS" ColumnName="SIGLA_SACS" />
+          <ScalarProperty Name="ID_PRESTACIONSUBGRUPO" ColumnName="ID_PRESTACIONSUBGRUPO" />
+          <ScalarProperty Name="ID_PRESTACIONGENERICA" ColumnName="ID_PRESTACIONGENERICA" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_PRESTACION" ColumnName="ID_PRESTACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_COBERTURA_PRESTBASICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_COBERTURA_PRESTBASICA">
+        <MappingFragment StoreEntitySet="FUWEB_P_COBERTURA_PRESTBASICA">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_COBERTURA_PRESTBASICA" ColumnName="ID_COBERTURA_PRESTBASICA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PRODUCTOLIST_SALUD">
+      <EntityTypeMapping TypeName="Model.FUWEB_PRODUCTOLIST_SALUD">
+        <MappingFragment StoreEntitySet="FUWEB_PRODUCTOLIST_SALUD">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="POL_CAD" ColumnName="POL_CAD" />
+          <ScalarProperty Name="MONTO_ASEGURADO" ColumnName="MONTO_ASEGURADO" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_PRODUCTO_SALUD" ColumnName="ID_PRODUCTO_SALUD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PRODUCTOLIST_VIDAAP">
+      <EntityTypeMapping TypeName="Model.FUWEB_PRODUCTOLIST_VIDAAP">
+        <MappingFragment StoreEntitySet="FUWEB_PRODUCTOLIST_VIDAAP">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="CAPITAL_MAXIMO_UF" ColumnName="CAPITAL_MAXIMO_UF" />
+          <ScalarProperty Name="CAPITAL_MINIMO_PESO" ColumnName="CAPITAL_MINIMO_PESO" />
+          <ScalarProperty Name="CANTIDAD_RENTA" ColumnName="CANTIDAD_RENTA" />
+          <ScalarProperty Name="CAPITAL_FIJO" ColumnName="CAPITAL_FIJO" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_PRODUCTOLIST_VIDAAP" ColumnName="ID_PRODUCTOLIST_VIDAAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PRODUCTO_VIDAAP">
+      <EntityTypeMapping TypeName="Model.FUWEB_PRODUCTO_VIDAAP">
+        <MappingFragment StoreEntitySet="FUWEB_PRODUCTO_VIDAAP">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="CUMULO" ColumnName="CUMULO" />
+          <ScalarProperty Name="CAPITALMAXINO" ColumnName="CAPITALMAXINO" />
+          <ScalarProperty Name="FREECOVER" ColumnName="FREECOVER" />
+          <ScalarProperty Name="ID_PRODUCTO_VIDAAP" ColumnName="ID_PRODUCTO_VIDAAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PRODUCTOCASCADA">
+      <EntityTypeMapping TypeName="Model.FUWEB_PRODUCTOCASCADA">
+        <MappingFragment StoreEntitySet="FUWEB_PRODUCTOCASCADA">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="INCLUYE" ColumnName="INCLUYE" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="CODIGO_PLAN" ColumnName="CODIGO_PLAN" />
+          <ScalarProperty Name="SIGLA_RELACION" ColumnName="SIGLA_RELACION" />
+          <ScalarProperty Name="SIGLA_SEXO" ColumnName="SIGLA_SEXO" />
+          <ScalarProperty Name="EDAD_HASTA" ColumnName="EDAD_HASTA" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="ID_CASCADA" ColumnName="ID_CASCADA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_BROKERCCTE">
+          <Key>
+            <PropertyRef Name="ID_CCTE" />
+          </Key>
+          <Property Name="ID_CCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUTCCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DVCCTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOMBRECCTE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="GRUPOEMPRESAS" Type="varchar2" MaxLength="80" />
+          <Property Name="TELEFONO" Type="number" Precision="10" Scale="0" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="150" />
+          <Property Name="COMUNA" Type="varchar2" MaxLength="80" />
+          <Property Name="CIUDAD" Type="varchar2" MaxLength="80" />
+          <Property Name="GIRO" Type="varchar2" MaxLength="80" />
+          <Property Name="NOMBRE_CONTACTO" Type="varchar2" MaxLength="100" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="300" />
+          <Property Name="NOMBRE_MANDANTE" Type="varchar2" MaxLength="100" />
+          <Property Name="RUT_MANDANTE" Type="varchar2" MaxLength="10" />
+          <Property Name="ID_TIPOCCTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_BROKERCORREDOR">
+          <Key>
+            <PropertyRef Name="ID_CORREDOR" />
+          </Key>
+          <Property Name="ID_CORREDOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT_CORREDOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DV_CORREDOR" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOMBRE_CORREDOR" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="TELEFONO" Type="number" Precision="10" Scale="0" />
+          <Property Name="GIRO" Type="varchar2" MaxLength="100" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+          <Property Name="CIUDAD" Type="varchar2" MaxLength="100" />
+          <Property Name="COMUNA" Type="varchar2" MaxLength="100" />
+          <Property Name="POLIZA_GARANTIA_VIGENTE" Type="varchar2" MaxLength="100" />
+          <Property Name="NOMBRE_CONTACTO" Type="varchar2" MaxLength="100" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="300" />
+          <Property Name="FORMA_PAGO" Type="number" Precision="10" Scale="0" />
+          <Property Name="TIPO_CUENTA" Type="number" Precision="10" Scale="0" />
+          <Property Name="NRO_CUENTA" Type="number" Precision="10" Scale="0" />
+          <Property Name="BANCO" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID_HOLDING" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_ADMINISTRADOR" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_COBRANZA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_COMERCIAL" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_MOVIMIENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_BROKERCCTE" EntityType="Self.FUWEB_BROKERCCTE" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_BROKERCORREDOR" EntityType="Self.FUWEB_BROKERCORREDOR" Schema="SALUD" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_BROKERCCTE">
+          <Key>
+            <PropertyRef Name="ID_CCTE" />
+          </Key>
+          <Property Name="ID_CCTE" Type="Int32" Nullable="false" />
+          <Property Name="RUTCCTE" Type="Int32" Nullable="false" />
+          <Property Name="DVCCTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRECCTE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GRUPOEMPRESAS" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Int32" />
+          <Property Name="DIRECCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="COMUNA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CIUDAD" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="GIRO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_CONTACTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_MANDANTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RUT_MANDANTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TIPOCCTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_BROKERCORREDOR">
+          <Key>
+            <PropertyRef Name="ID_CORREDOR" />
+          </Key>
+          <Property Name="ID_CORREDOR" Type="Int32" Nullable="false" />
+          <Property Name="RUT_CORREDOR" Type="Int32" Nullable="false" />
+          <Property Name="DV_CORREDOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_CORREDOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" />
+          <Property Name="GIRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CIUDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="COMUNA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="POLIZA_GARANTIA_VIGENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_CONTACTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FORMA_PAGO" Type="Int32" />
+          <Property Name="TIPO_CUENTA" Type="Int32" />
+          <Property Name="NRO_CUENTA" Type="Int32" />
+          <Property Name="BANCO" Type="Int32" />
+          <Property Name="ID_HOLDING" Type="Int32" Nullable="false" />
+          <Property Name="ID_ADMINISTRADOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_COBRANZA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_COMERCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_EJECUTIVO_MOVIMIENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_BROKERCCTE" EntityType="Self.FUWEB_BROKERCCTE" />
+          <EntitySet Name="FUWEB_BROKERCORREDOR" EntityType="Self.FUWEB_BROKERCORREDOR" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_BROKERCCTE">
+            <EntityTypeMapping TypeName="Model.FUWEB_BROKERCCTE">
+              <MappingFragment StoreEntitySet="FUWEB_BROKERCCTE">
+                <ScalarProperty Name="ID_CCTE" ColumnName="ID_CCTE" />
+                <ScalarProperty Name="RUTCCTE" ColumnName="RUTCCTE" />
+                <ScalarProperty Name="DVCCTE" ColumnName="DVCCTE" />
+                <ScalarProperty Name="NOMBRECCTE" ColumnName="NOMBRECCTE" />
+                <ScalarProperty Name="GRUPOEMPRESAS" ColumnName="GRUPOEMPRESAS" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="GIRO" ColumnName="GIRO" />
+                <ScalarProperty Name="NOMBRE_CONTACTO" ColumnName="NOMBRE_CONTACTO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NOMBRE_MANDANTE" ColumnName="NOMBRE_MANDANTE" />
+                <ScalarProperty Name="RUT_MANDANTE" ColumnName="RUT_MANDANTE" />
+                <ScalarProperty Name="ID_TIPOCCTE" ColumnName="ID_TIPOCCTE" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_BROKERCORREDOR">
+            <EntityTypeMapping TypeName="Model.FUWEB_BROKERCORREDOR">
+              <MappingFragment StoreEntitySet="FUWEB_BROKERCORREDOR">
+                <ScalarProperty Name="ID_CORREDOR" ColumnName="ID_CORREDOR" />
+                <ScalarProperty Name="RUT_CORREDOR" ColumnName="RUT_CORREDOR" />
+                <ScalarProperty Name="DV_CORREDOR" ColumnName="DV_CORREDOR" />
+                <ScalarProperty Name="NOMBRE_CORREDOR" ColumnName="NOMBRE_CORREDOR" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="GIRO" ColumnName="GIRO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+                <ScalarProperty Name="POLIZA_GARANTIA_VIGENTE" ColumnName="POLIZA_GARANTIA_VIGENTE" />
+                <ScalarProperty Name="NOMBRE_CONTACTO" ColumnName="NOMBRE_CONTACTO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FORMA_PAGO" ColumnName="FORMA_PAGO" />
+                <ScalarProperty Name="TIPO_CUENTA" ColumnName="TIPO_CUENTA" />
+                <ScalarProperty Name="NRO_CUENTA" ColumnName="NRO_CUENTA" />
+                <ScalarProperty Name="BANCO" ColumnName="BANCO" />
+                <ScalarProperty Name="ID_HOLDING" ColumnName="ID_HOLDING" />
+                <ScalarProperty Name="ID_ADMINISTRADOR" ColumnName="ID_ADMINISTRADOR" />
+                <ScalarProperty Name="ID_EJECUTIVO_COBRANZA" ColumnName="ID_EJECUTIVO_COBRANZA" />
+                <ScalarProperty Name="ID_EJECUTIVO_COMERCIAL" ColumnName="ID_EJECUTIVO_COMERCIAL" />
+                <ScalarProperty Name="ID_EJECUTIVO_MOVIMIENTO" ColumnName="ID_EJECUTIVO_MOVIMIENTO" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

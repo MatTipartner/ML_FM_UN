@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48dcb2d11b964cf39bd2e5c474ed44c6" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.FUWEB_MENSAJES" Width="2.375" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_ATRIBUTOPESTANA" Width="2.5" PointX="5" PointY="3" />
+        <AssociationConnector Association="Model.FK_PESTANAMENSAJE" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_ESTADOATRIBUTO" Width="2.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="Model.FK_ESTADOMENSAJE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

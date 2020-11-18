@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_AREA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_AREA">
+        <MappingFragment StoreEntitySet="FUWEB_P_AREA">
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_ESTADOBIZFLOW">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_ESTADOBIZFLOW">
+        <MappingFragment StoreEntitySet="FUWEB_P_ESTADOBIZFLOW">
+          <ScalarProperty Name="ID_ESTADOBISFLOW" ColumnName="ID_ESTADOBISFLOW" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="SIGLAESTADOSACS" ColumnName="SIGLAESTADOSACS" />
+          <ScalarProperty Name="NROESTADOSACS" ColumnName="NROESTADOSACS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_ESTADOFORMULARIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_ESTADOFORMULARIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_ESTADOFORMULARIO">
+          <ScalarProperty Name="ID_ESTADOFORMULARIO" ColumnName="ID_ESTADOFORMULARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_PESTANA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PESTANA">
+        <MappingFragment StoreEntitySet="FUWEB_P_PESTANA">
+          <ScalarProperty Name="ID_PESTANA" ColumnName="ID_PESTANA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="ORDENSECUENCIA" ColumnName="ORDENSECUENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOFORMULARIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFORMULARIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFORMULARIO">
+          <ScalarProperty Name="ID_TIPOFORMULARIO" ColumnName="ID_TIPOFORMULARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOFORMULARIODETALLE">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFORMULARIODETALLE">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFORMULARIODETALLE">
+          <ScalarProperty Name="ID_TIPOFORMUALRIODETALLE" ColumnName="ID_TIPOFORMUALRIODETALLE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="ID_TIPOFORMULARIO" ColumnName="ID_TIPOFORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOPERMISO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOPERMISO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOPERMISO">
+          <ScalarProperty Name="ID_TIPOPERMISO" ColumnName="ID_TIPOPERMISO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PERMISOAREA">
+      <EntityTypeMapping TypeName="Model.FUWEB_PERMISOAREA">
+        <MappingFragment StoreEntitySet="FUWEB_PERMISOAREA">
+          <ScalarProperty Name="ID_PERMISOAREA" ColumnName="ID_PERMISOAREA" />
+          <ScalarProperty Name="ID_TIPOPERMISO" ColumnName="ID_TIPOPERMISO" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="ID_PESTANA" ColumnName="ID_PESTANA" />
+          <ScalarProperty Name="ID_ESTADOFORMULARIO" ColumnName="ID_ESTADOFORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PERMISOESTADO">
+      <EntityTypeMapping TypeName="Model.FUWEB_PERMISOESTADO">
+        <MappingFragment StoreEntitySet="FUWEB_PERMISOESTADO">
+          <ScalarProperty Name="ID_ESTADOBISFLOW" ColumnName="ID_ESTADOBISFLOW" />
+          <ScalarProperty Name="ID_TIPOFORMULARIO" ColumnName="ID_TIPOFORMULARIO" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="ID_PERMISOAESTADO" ColumnName="ID_PERMISOAESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_REDIRECCION">
+      <EntityTypeMapping TypeName="Model.FUWEB_REDIRECCION">
+        <MappingFragment StoreEntitySet="FUWEB_REDIRECCION">
+          <ScalarProperty Name="EXISTEBIZFOR" ColumnName="EXISTEBIZFOR" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_REDIRECCION" ColumnName="ID_REDIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_USUARIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_USUARIO">
+        <MappingFragment StoreEntitySet="FUWEB_USUARIO">
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="SIGLA_USUARIO" ColumnName="SIGLA_USUARIO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_POLIZA">
+      <EntityTypeMapping TypeName="Model.FUWEB_POLIZA">
+        <MappingFragment StoreEntitySet="FUWEB_POLIZA">
+          <ScalarProperty Name="ID_FORMULARIODETALLE" ColumnName="ID_FORMULARIODETALLE" />
+          <ScalarProperty Name="ID_ESTADOBISFLOW" ColumnName="ID_ESTADOBISFLOW" />
+          <ScalarProperty Name="ID_ESTADOFORMULARIO" ColumnName="ID_ESTADOFORMULARIO" />
+          <ScalarProperty Name="ADDITION" ColumnName="ADDITION" />
+          <ScalarProperty Name="NUEVONEGOCIO" ColumnName="NUEVONEGOCIO" />
+          <ScalarProperty Name="ID_TIPOADDITION" ColumnName="ID_TIPOADDITION" />
+          <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+          <ScalarProperty Name="ID_LINEANEGOCIO" ColumnName="ID_LINEANEGOCIO" />
+          <ScalarProperty Name="ID_CANALVENTA" ColumnName="ID_CANALVENTA" />
+          <ScalarProperty Name="ID_ESTADOCOBERTURA" ColumnName="ID_ESTADOCOBERTURA" />
+          <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+          <ScalarProperty Name="SIGLA_MONEDA" ColumnName="SIGLA_MONEDA" />
+          <ScalarProperty Name="ID_RIESGO" ColumnName="ID_RIESGO" />
+          <ScalarProperty Name="VIGENTE_FINAL" ColumnName="VIGENTE_FINAL" />
+          <ScalarProperty Name="VIGENTE_INICIO" ColumnName="VIGENTE_INICIO" />
+          <ScalarProperty Name="ID_TIPOPOLIZA" ColumnName="ID_TIPOPOLIZA" />
+          <ScalarProperty Name="NRO_BIZFLOW" ColumnName="NRO_BIZFLOW" />
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

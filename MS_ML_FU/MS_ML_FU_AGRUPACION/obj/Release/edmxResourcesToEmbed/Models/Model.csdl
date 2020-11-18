@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_AGRUPACION">
+    <Key>
+      <PropertyRef Name="ID_AGRUPACION" />
+    </Key>
+    <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE_AGRUPACION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+    <Property Name="ID_UBICACION" Type="Int32" />
+    <Property Name="ID_LUGARDESPACHO" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_AGRUPACION" EntityType="Self.FUWEB_AGRUPACION" />
+  </EntityContainer>
+</Schema>

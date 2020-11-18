@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_COBRANZA">
+    <Key>
+      <PropertyRef Name="ID_COBRANZA" />
+    </Key>
+    <Property Name="ID_COBRANZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPOFACTURACION" Type="number" Precision="10" Scale="0" />
+    <Property Name="SIGLA_COBROPRIMA" Type="varchar2" MaxLength="10" />
+    <Property Name="ID_DESTINATARIOCOBRANZA" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_CALCULOPRIMA" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_TIPOPROCESOCOBRANZA" Type="number" Precision="10" Scale="0" />
+    <Property Name="DIAFRONTERA" Type="number" Precision="10" Scale="0" />
+    <Property Name="HES" Type="varchar2" MaxLength="10" />
+    <Property Name="CONTRAPAGO" Type="varchar2" MaxLength="10" />
+    <Property Name="PRECOBRANZA" Type="varchar2" MaxLength="10" />
+    <Property Name="AUTOCOBRANZA" Type="varchar2" MaxLength="10" />
+    <Property Name="ID_REPORTEFACTUACION" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_CONTABILIZACION" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_TIPOCOBRO" Type="number" Precision="10" Scale="0" />
+    <Property Name="DIACOBRO" Type="number" Precision="10" Scale="0" />
+    <Property Name="MESCOBRO" Type="number" Precision="10" Scale="0" />
+    <Property Name="MESCONVERSION" Type="number" Precision="10" Scale="0" />
+    <Property Name="DIACONVERSION" Type="number" Precision="10" Scale="0" />
+    <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="FUWEB_COBRANZAGRUPO">
+    <Key>
+      <PropertyRef Name="ID_COBRANZAGRUPO" />
+    </Key>
+    <Property Name="ID_COBRANZAGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CONTRIBUTORIEDAD" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ID_CONTRIBUTORIEDAD" Type="number" Precision="10" Scale="0" />
+    <Property Name="PORCENTAJECONTRATANTE" Type="number" Precision="10" Scale="0" />
+    <Property Name="PORCENTAJEASEGURADO" Type="number" Precision="10" Scale="0" />
+    <Property Name="ESPECIALCONTRIBUTORIEDAD" Type="varchar2" MaxLength="100" />
+    <Property Name="ID_AQUIENCOBRANZA" Type="number" Precision="10" Scale="0" />
+    <Property Name="SIGLA_TIPOFACTURA" Type="varchar2" MaxLength="10" />
+    <Property Name="RUT_FACTURACION" Type="number" Precision="10" Scale="0" />
+    <Property Name="DV_FACTURACION" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_COBRANZARIESGO">
+    <Key>
+      <PropertyRef Name="ID_TIPORIESGO" />
+      <PropertyRef Name="ID_COBRANZAGRUPO" />
+    </Key>
+    <Property Name="ID_TIPORIESGO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_COBRANZAGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TEXTO" Type="varchar2" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_AQUIENCOBRANZA">
+    <Key>
+      <PropertyRef Name="ID_AQUIENCOBRANZA" />
+    </Key>
+    <Property Name="ID_AQUIENCOBRANZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SIGLA_SAC" Type="varchar2" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_CALCULOPRIMA">
+    <Key>
+      <PropertyRef Name="ID_CALCULOPRIMA" />
+    </Key>
+    <Property Name="ID_CALCULOPRIMA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SIGLA_SAC" Type="varchar2" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_CONTRIBUTORIEDAD">
+    <Key>
+      <PropertyRef Name="ID_CONTRIBUTORIEDAD" />
+    </Key>
+    <Property Name="ID_CONTRIBUTORIEDAD" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_DESTINATARIOCOBRANZA">
+    <Key>
+      <PropertyRef Name="ID_DESTINATARIOCOBRANZA" />
+    </Key>
+    <Property Name="ID_DESTINATARIOCOBRANZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NRO_SAC" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_RIESGOFACTURACION">
+    <Key>
+      <PropertyRef Name="ID_RIESGOFACTURACION" />
+    </Key>
+    <Property Name="ID_RIESGOFACTURACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SIGLA_SAC" Type="varchar2" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOCOBRO">
+    <Key>
+      <PropertyRef Name="ID_TIPOCOBRO" />
+    </Key>
+    <Property Name="ID_TIPOCOBRO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SIGLA_SAC" Type="varchar2" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOFACTURACIONCOBR">
+    <Key>
+      <PropertyRef Name="ID_TIPOFACTURACION" />
+    </Key>
+    <Property Name="ID_TIPOFACTURACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AQUIENFACTURAR">
+    <End Role="FUWEB_P_AQUIENCOBRANZA" Type="Self.FUWEB_P_AQUIENCOBRANZA" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZAGRUPO" Type="Self.FUWEB_COBRANZAGRUPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_AQUIENCOBRANZA">
+        <PropertyRef Name="ID_AQUIENCOBRANZA" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZAGRUPO">
+        <PropertyRef Name="ID_AQUIENCOBRANZA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CALCULOPRIM">
+    <End Role="FUWEB_P_CALCULOPRIMA" Type="Self.FUWEB_P_CALCULOPRIMA" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZA" Type="Self.FUWEB_COBRANZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_CALCULOPRIMA">
+        <PropertyRef Name="ID_CALCULOPRIMA" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZA">
+        <PropertyRef Name="ID_CALCULOPRIMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATARIOCOBRAN">
+    <End Role="FUWEB_P_DESTINATARIOCOBRANZA" Type="Self.FUWEB_P_DESTINATARIOCOBRANZA" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZA" Type="Self.FUWEB_COBRANZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_DESTINATARIOCOBRANZA">
+        <PropertyRef Name="ID_DESTINATARIOCOBRANZA" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZA">
+        <PropertyRef Name="ID_DESTINATARIOCOBRANZA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GRUPOCOBRANZA">
+    <End Role="FUWEB_COBRANZAGRUPO" Type="Self.FUWEB_COBRANZAGRUPO" Multiplicity="1" />
+    <End Role="FUWEB_COBRANZARIESGO" Type="Self.FUWEB_COBRANZARIESGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_COBRANZAGRUPO">
+        <PropertyRef Name="ID_COBRANZAGRUPO" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZARIESGO">
+        <PropertyRef Name="ID_COBRANZAGRUPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_CONTRIBUTORIEDAD">
+    <End Role="FUWEB_P_CONTRIBUTORIEDAD" Type="Self.FUWEB_P_CONTRIBUTORIEDAD" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZAGRUPO" Type="Self.FUWEB_COBRANZAGRUPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_CONTRIBUTORIEDAD">
+        <PropertyRef Name="ID_CONTRIBUTORIEDAD" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZAGRUPO">
+        <PropertyRef Name="ID_CONTRIBUTORIEDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPOCOBO">
+    <End Role="FUWEB_P_TIPOCOBRO" Type="Self.FUWEB_P_TIPOCOBRO" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZA" Type="Self.FUWEB_COBRANZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOCOBRO">
+        <PropertyRef Name="ID_TIPOCOBRO" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZA">
+        <PropertyRef Name="ID_TIPOCOBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPOFACTURACIONCO">
+    <End Role="FUWEB_P_TIPOFACTURACIONCOBR" Type="Self.FUWEB_P_TIPOFACTURACIONCOBR" Multiplicity="0..1" />
+    <End Role="FUWEB_COBRANZA" Type="Self.FUWEB_COBRANZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFACTURACIONCOBR">
+        <PropertyRef Name="ID_TIPOFACTURACION" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZA">
+        <PropertyRef Name="ID_TIPOFACTURACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPORIESGOFACT">
+    <End Role="FUWEB_P_RIESGOFACTURACION" Type="Self.FUWEB_P_RIESGOFACTURACION" Multiplicity="1" />
+    <End Role="FUWEB_COBRANZARIESGO" Type="Self.FUWEB_COBRANZARIESGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_RIESGOFACTURACION">
+        <PropertyRef Name="ID_RIESGOFACTURACION" />
+      </Principal>
+      <Dependent Role="FUWEB_COBRANZARIESGO">
+        <PropertyRef Name="ID_TIPORIESGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_COBRANZA" EntityType="Self.FUWEB_COBRANZA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_COBRANZAGRUPO" EntityType="Self.FUWEB_COBRANZAGRUPO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_COBRANZARIESGO" EntityType="Self.FUWEB_COBRANZARIESGO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_AQUIENCOBRANZA" EntityType="Self.FUWEB_P_AQUIENCOBRANZA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_CALCULOPRIMA" EntityType="Self.FUWEB_P_CALCULOPRIMA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_CONTRIBUTORIEDAD" EntityType="Self.FUWEB_P_CONTRIBUTORIEDAD" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_DESTINATARIOCOBRANZA" EntityType="Self.FUWEB_P_DESTINATARIOCOBRANZA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_RIESGOFACTURACION" EntityType="Self.FUWEB_P_RIESGOFACTURACION" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOCOBRO" EntityType="Self.FUWEB_P_TIPOCOBRO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOFACTURACIONCOBR" EntityType="Self.FUWEB_P_TIPOFACTURACIONCOBR" Schema="SALUD" store:Type="Tables" />
+    <AssociationSet Name="FK_AQUIENFACTURAR" Association="Self.FK_AQUIENFACTURAR">
+      <End Role="FUWEB_P_AQUIENCOBRANZA" EntitySet="FUWEB_P_AQUIENCOBRANZA" />
+      <End Role="FUWEB_COBRANZAGRUPO" EntitySet="FUWEB_COBRANZAGRUPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CALCULOPRIM" Association="Self.FK_CALCULOPRIM">
+      <End Role="FUWEB_P_CALCULOPRIMA" EntitySet="FUWEB_P_CALCULOPRIMA" />
+      <End Role="FUWEB_COBRANZA" EntitySet="FUWEB_COBRANZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATARIOCOBRAN" Association="Self.FK_DESTINATARIOCOBRAN">
+      <End Role="FUWEB_P_DESTINATARIOCOBRANZA" EntitySet="FUWEB_P_DESTINATARIOCOBRANZA" />
+      <End Role="FUWEB_COBRANZA" EntitySet="FUWEB_COBRANZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GRUPOCOBRANZA" Association="Self.FK_GRUPOCOBRANZA">
+      <End Role="FUWEB_COBRANZAGRUPO" EntitySet="FUWEB_COBRANZAGRUPO" />
+      <End Role="FUWEB_COBRANZARIESGO" EntitySet="FUWEB_COBRANZARIESGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_CONTRIBUTORIEDAD" Association="Self.FK_ID_CONTRIBUTORIEDAD">
+      <End Role="FUWEB_P_CONTRIBUTORIEDAD" EntitySet="FUWEB_P_CONTRIBUTORIEDAD" />
+      <End Role="FUWEB_COBRANZAGRUPO" EntitySet="FUWEB_COBRANZAGRUPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPOCOBO" Association="Self.FK_TIPOCOBO">
+      <End Role="FUWEB_P_TIPOCOBRO" EntitySet="FUWEB_P_TIPOCOBRO" />
+      <End Role="FUWEB_COBRANZA" EntitySet="FUWEB_COBRANZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPOFACTURACIONCO" Association="Self.FK_TIPOFACTURACIONCO">
+      <End Role="FUWEB_P_TIPOFACTURACIONCOBR" EntitySet="FUWEB_P_TIPOFACTURACIONCOBR" />
+      <End Role="FUWEB_COBRANZA" EntitySet="FUWEB_COBRANZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPORIESGOFACT" Association="Self.FK_TIPORIESGOFACT">
+      <End Role="FUWEB_P_RIESGOFACTURACION" EntitySet="FUWEB_P_RIESGOFACTURACION" />
+      <End Role="FUWEB_COBRANZARIESGO" EntitySet="FUWEB_COBRANZARIESGO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

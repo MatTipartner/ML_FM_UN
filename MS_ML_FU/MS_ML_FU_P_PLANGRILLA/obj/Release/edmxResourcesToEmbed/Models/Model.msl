@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_PRESTADORGRUPO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTADORGRUPO">
+        <MappingFragment StoreEntitySet="FUWEB_P_PRESTADORGRUPO">
+          <ScalarProperty Name="ID_PRESTADORGRUPO" ColumnName="ID_PRESTADORGRUPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_OBSERSALUD">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_OBSERSALUD">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_OBSERSALUD">
+          <ScalarProperty Name="ID_OBSERSALUD" ColumnName="ID_OBSERSALUD" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_OBSERVIDAAP">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_OBSERVIDAAP">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_OBSERVIDAAP">
+          <ScalarProperty Name="ID_OBSERVIDAAP" ColumnName="ID_OBSERVIDAAP" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="ID_PLANGRILLA_VIDAAP" ColumnName="ID_PLANGRILLA_VIDAAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_PREFERENTE">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PREFERENTE">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PREFERENTE">
+          <ScalarProperty Name="ID_PLANGRILLA_PREFERENTE" ColumnName="ID_PLANGRILLA_PREFERENTE" />
+          <ScalarProperty Name="ID_CLINICA_PREFEREN" ColumnName="ID_CLINICA_PREFEREN" />
+          <ScalarProperty Name="PORCENTAJE_PREFEREN" ColumnName="PORCENTAJE_PREFEREN" />
+          <ScalarProperty Name="ID_TIPOPREVISIONSALUD" ColumnName="ID_TIPOPREVISIONSALUD" />
+          <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_PRESTACIONES">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PRESTACIONES">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PRESTACIONES">
+          <ScalarProperty Name="ID_PLANGRILLA_PRESTACIONES" ColumnName="ID_PLANGRILLA_PRESTACIONES" />
+          <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+          <ScalarProperty Name="ID_PRESTACION" ColumnName="ID_PRESTACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_PRESTBASICA">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_PRESTBASICA">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_PRESTBASICA">
+          <ScalarProperty Name="ID_PLANGRILLA_PRESTBASICA" ColumnName="ID_PLANGRILLA_PRESTBASICA" />
+          <ScalarProperty Name="DESCRIPCION_PLAN" ColumnName="DESCRIPCION_PLAN" />
+          <ScalarProperty Name="CODIGOPLAN" ColumnName="CODIGOPLAN" />
+          <ScalarProperty Name="NOMBRE_NUEVAAGRUPACION" ColumnName="NOMBRE_NUEVAAGRUPACION" />
+          <ScalarProperty Name="ID_PRESTACIONBASICA" ColumnName="ID_PRESTACIONBASICA" />
+          <ScalarProperty Name="ID_JERARQUIA_PRESTBASICA" ColumnName="ID_JERARQUIA_PRESTBASICA" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="SCFMONTO" ColumnName="SCFMONTO" />
+          <ScalarProperty Name="CARENCIA_DIA" ColumnName="CARENCIA_DIA" />
+          <ScalarProperty Name="REEMBOLSO_DIRECTO" ColumnName="REEMBOLSO_DIRECTO" />
+          <ScalarProperty Name="REEMBOLSO_BONO" ColumnName="REEMBOLSO_BONO" />
+          <ScalarProperty Name="REEMBOLSO_ISAPRE" ColumnName="REEMBOLSO_ISAPRE" />
+          <ScalarProperty Name="TOPE" ColumnName="TOPE" />
+          <ScalarProperty Name="ID_NIVELTOPE" ColumnName="ID_NIVELTOPE" />
+          <ScalarProperty Name="LIMITE" ColumnName="LIMITE" />
+          <ScalarProperty Name="ID_NIVELLIMITE" ColumnName="ID_NIVELLIMITE" />
+          <ScalarProperty Name="EXCEDENTE" ColumnName="EXCEDENTE" />
+          <ScalarProperty Name="SIN_DEDUCIBLE" ColumnName="SIN_DEDUCIBLE" />
+          <ScalarProperty Name="SCF" ColumnName="SCF" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_PLANGRILLA_VIDAAP">
+      <EntityTypeMapping TypeName="Model.FUWEB_PLANGRILLA_VIDAAP">
+        <MappingFragment StoreEntitySet="FUWEB_PLANGRILLA_VIDAAP">
+          <ScalarProperty Name="ID_PLANGRILLA_VIDAAP" ColumnName="ID_PLANGRILLA_VIDAAP" />
+          <ScalarProperty Name="ID_PLAN" ColumnName="ID_PLAN" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="INDEMNIZAION" ColumnName="INDEMNIZAION" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

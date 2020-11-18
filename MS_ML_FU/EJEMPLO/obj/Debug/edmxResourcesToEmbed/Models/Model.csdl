@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="IFW_AGL_TIPOGLOSA">
+    <Key>
+      <PropertyRef Name="AGLTIPO" />
+    </Key>
+    <Property Name="AGLTIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="AGLDESCRIPCIONTIPO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="IFW_AGL_TIPOGLOSA" EntityType="Self.IFW_AGL_TIPOGLOSA" />
+    <EntitySet Name="FUWEB_POLIZA" EntityType="Model.FUWEB_POLIZA" />
+    <EntitySet Name="FUWEB_P_CANALVENTA" EntityType="Model.FUWEB_P_CANALVENTA" />
+    <EntitySet Name="FUWEB_P_LINEANEGOCIO" EntityType="Model.FUWEB_P_LINEANEGOCIO" />
+    <EntitySet Name="FUWEB_P_RIESGO" EntityType="Model.FUWEB_P_RIESGO" />
+    <EntitySet Name="FUWEB_P_TIPOADDITION" EntityType="Model.FUWEB_P_TIPOADDITION" />
+    <AssociationSet Name="FK_POLIZACANALVENTA" Association="Model.FK_POLIZACANALVENTA">
+      <End Role="FUWEB_P_CANALVENTA" EntitySet="FUWEB_P_CANALVENTA" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZALINEANEGOC" Association="Model.FK_POLIZALINEANEGOC">
+      <End Role="FUWEB_P_LINEANEGOCIO" EntitySet="FUWEB_P_LINEANEGOCIO" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZARIESGO" Association="Model.FK_POLIZARIESGO">
+      <End Role="FUWEB_P_RIESGO" EntitySet="FUWEB_P_RIESGO" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAADDITION" Association="Model.FK_POLIZAADDITION">
+      <End Role="FUWEB_P_TIPOADDITION" EntitySet="FUWEB_P_TIPOADDITION" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <EntitySet Name="FUWEB_P_TIPOPOLIZA" EntityType="Model.FUWEB_P_TIPOPOLIZA" />
+    <EntitySet Name="FUWEB_UBICACION_GEOGRAFICA" EntityType="Model.FUWEB_UBICACION_GEOGRAFICA" />
+    <AssociationSet Name="FK_POLIZATIPOPOLIZA" Association="Model.FK_POLIZATIPOPOLIZA">
+      <End Role="FUWEB_P_TIPOPOLIZA" EntitySet="FUWEB_P_TIPOPOLIZA" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZA_GEO" Association="Model.FK_POLIZA_GEO">
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+      <End Role="FUWEB_UBICACION_GEOGRAFICA" EntitySet="FUWEB_UBICACION_GEOGRAFICA" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FUWEB_POLIZA">
+    <Key>
+      <PropertyRef Name="NRO_POLIZA" />
+    </Key>
+    <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+    <Property Name="NRO_BIZFLOW" Type="Int32" Nullable="false" />
+    <Property Name="ID_TIPOPOLIZA" Type="Int32" Nullable="false" />
+    <Property Name="VIGENTE_INICIO" Type="DateTime" />
+    <Property Name="VIGENTE_FINAL" Type="DateTime" />
+    <Property Name="ID_RIESGO" Type="Int32" Nullable="false" />
+    <Property Name="SIGLA_MONEDA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ID_SUCURSAL" Type="Int32" />
+    <Property Name="ID_ESTADOCOBERTURA" Type="Int32" />
+    <Property Name="ID_CANALVENTA" Type="Int32" Nullable="false" />
+    <Property Name="ID_LINEANEGOCIO" Type="Int32" Nullable="false" />
+    <Property Name="COMENTARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TIPOADDITION" Type="Int32" Nullable="false" />
+    <Property Name="NUEVONEGOCIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ADDITION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID_ESTADOFORMULARIO" Type="Int32" />
+    <Property Name="ID_ESTADOBISFLOW" Type="Int32" />
+    <Property Name="ID_FORMULARIODETALLE" Type="Int32" Nullable="false" />
+    <Property Name="NRO_POLIZA_SACS" Type="Decimal" Precision="20" Scale="0" />
+    <NavigationProperty Name="FUWEB_P_CANALVENTA" Relationship="Model.FK_POLIZACANALVENTA" FromRole="FUWEB_POLIZA" ToRole="FUWEB_P_CANALVENTA" />
+    <NavigationProperty Name="FUWEB_P_LINEANEGOCIO" Relationship="Model.FK_POLIZALINEANEGOC" FromRole="FUWEB_POLIZA" ToRole="FUWEB_P_LINEANEGOCIO" />
+    <NavigationProperty Name="FUWEB_P_RIESGO" Relationship="Model.FK_POLIZARIESGO" FromRole="FUWEB_POLIZA" ToRole="FUWEB_P_RIESGO" />
+    <NavigationProperty Name="FUWEB_P_TIPOADDITION" Relationship="Model.FK_POLIZAADDITION" FromRole="FUWEB_POLIZA" ToRole="FUWEB_P_TIPOADDITION" />
+    <NavigationProperty Name="FUWEB_P_TIPOPOLIZA" Relationship="Model.FK_POLIZATIPOPOLIZA" FromRole="FUWEB_POLIZA" ToRole="FUWEB_P_TIPOPOLIZA" />
+    <NavigationProperty Name="FUWEB_UBICACION_GEOGRAFICA" Relationship="Model.FK_POLIZA_GEO" FromRole="FUWEB_POLIZA" ToRole="FUWEB_UBICACION_GEOGRAFICA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_CANALVENTA">
+    <Key>
+      <PropertyRef Name="ID_CANALVENTA" />
+    </Key>
+    <Property Name="ID_CANALVENTA" Type="Int32" Nullable="false" />
+    <Property Name="NRO_CANALVENTASACS" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZACANALVENTA" FromRole="FUWEB_P_CANALVENTA" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_LINEANEGOCIO">
+    <Key>
+      <PropertyRef Name="ID_LINEANEGOCIO" />
+    </Key>
+    <Property Name="ID_LINEANEGOCIO" Type="Int32" Nullable="false" />
+    <Property Name="NRO_LENANEGOCIOSACS" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZALINEANEGOC" FromRole="FUWEB_P_LINEANEGOCIO" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_RIESGO">
+    <Key>
+      <PropertyRef Name="ID_RIESGO" />
+    </Key>
+    <Property Name="ID_RIESGO" Type="Int32" Nullable="false" />
+    <Property Name="S_RIESGOSACS" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZARIESGO" FromRole="FUWEB_P_RIESGO" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOADDITION">
+    <Key>
+      <PropertyRef Name="ID_TIPOADDITION" />
+    </Key>
+    <Property Name="ID_TIPOADDITION" Type="Int32" Nullable="false" />
+    <Property Name="S_ADDITIONSACS" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZAADDITION" FromRole="FUWEB_P_TIPOADDITION" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <Association Name="FK_POLIZACANALVENTA">
+    <End Type="Model.FUWEB_P_CANALVENTA" Role="FUWEB_P_CANALVENTA" Multiplicity="1" />
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_CANALVENTA">
+        <PropertyRef Name="ID_CANALVENTA" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_CANALVENTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZALINEANEGOC">
+    <End Type="Model.FUWEB_P_LINEANEGOCIO" Role="FUWEB_P_LINEANEGOCIO" Multiplicity="1" />
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_LINEANEGOCIO">
+        <PropertyRef Name="ID_LINEANEGOCIO" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_LINEANEGOCIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZARIESGO">
+    <End Type="Model.FUWEB_P_RIESGO" Role="FUWEB_P_RIESGO" Multiplicity="1" />
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_RIESGO">
+        <PropertyRef Name="ID_RIESGO" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_RIESGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAADDITION">
+    <End Type="Model.FUWEB_P_TIPOADDITION" Role="FUWEB_P_TIPOADDITION" Multiplicity="1" />
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOADDITION">
+        <PropertyRef Name="ID_TIPOADDITION" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_TIPOADDITION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FUWEB_P_TIPOPOLIZA">
+    <Key>
+      <PropertyRef Name="ID_TIPOPOLIZA" />
+    </Key>
+    <Property Name="ID_TIPOPOLIZA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZATIPOPOLIZA" FromRole="FUWEB_P_TIPOPOLIZA" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <EntityType Name="FUWEB_UBICACION_GEOGRAFICA">
+    <Key>
+      <PropertyRef Name="ID_UBICACIONGEOGRAFICA" />
+    </Key>
+    <Property Name="ID_UBICACIONGEOGRAFICA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE_UBICACIONGEOGRAFICA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_POLIZA" Relationship="Model.FK_POLIZA_GEO" FromRole="FUWEB_UBICACION_GEOGRAFICA" ToRole="FUWEB_POLIZA" />
+  </EntityType>
+  <Association Name="FK_POLIZATIPOPOLIZA">
+    <End Type="Model.FUWEB_P_TIPOPOLIZA" Role="FUWEB_P_TIPOPOLIZA" Multiplicity="1" />
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOPOLIZA">
+        <PropertyRef Name="ID_TIPOPOLIZA" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_TIPOPOLIZA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZA_GEO">
+    <End Type="Model.FUWEB_POLIZA" Role="FUWEB_POLIZA" Multiplicity="1" />
+    <End Type="Model.FUWEB_UBICACION_GEOGRAFICA" Role="FUWEB_UBICACION_GEOGRAFICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_POLIZA">
+        <PropertyRef Name="NRO_POLIZA" />
+      </Principal>
+      <Dependent Role="FUWEB_UBICACION_GEOGRAFICA">
+        <PropertyRef Name="NRO_POLIZA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

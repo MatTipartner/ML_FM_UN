@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_P_AREA">
+    <Key>
+      <PropertyRef Name="ID_AREA" />
+    </Key>
+    <Property Name="ID_AREA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_ESTADOBIZFLOW">
+    <Key>
+      <PropertyRef Name="ID_ESTADOBISFLOW" />
+    </Key>
+    <Property Name="ID_ESTADOBISFLOW" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SIGLAESTADOSACS" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="NROESTADOSACS" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_ESTADOFORMULARIO">
+    <Key>
+      <PropertyRef Name="ID_ESTADOFORMULARIO" />
+    </Key>
+    <Property Name="ID_ESTADOFORMULARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PESTANA">
+    <Key>
+      <PropertyRef Name="ID_PESTANA" />
+    </Key>
+    <Property Name="ID_PESTANA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ORDENSECUENCIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOFORMULARIO">
+    <Key>
+      <PropertyRef Name="ID_TIPOFORMULARIO" />
+    </Key>
+    <Property Name="ID_TIPOFORMULARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="VISIBLE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOFORMULARIODETALLE">
+    <Key>
+      <PropertyRef Name="ID_TIPOFORMUALRIODETALLE" />
+    </Key>
+    <Property Name="ID_TIPOFORMUALRIODETALLE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ID_TIPOFORMULARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOPERMISO">
+    <Key>
+      <PropertyRef Name="ID_TIPOPERMISO" />
+    </Key>
+    <Property Name="ID_TIPOPERMISO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_PERMISOAREA">
+    <Key>
+      <PropertyRef Name="ID_PERMISOAREA" />
+    </Key>
+    <Property Name="ID_PERMISOAREA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPOPERMISO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_AREA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_PESTANA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_ESTADOFORMULARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_PERMISOESTADO">
+    <Key>
+      <PropertyRef Name="ID_PERMISOAESTADO" />
+    </Key>
+    <Property Name="ID_PERMISOAESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_AREA" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_TIPOFORMULARIO" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_ESTADOBISFLOW" Type="number" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="FUWEB_POLIZA">
+    <Key>
+      <PropertyRef Name="NRO_POLIZA" />
+    </Key>
+    <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NRO_BIZFLOW" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPOPOLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="VIGENTE_INICIO" Type="date" />
+    <Property Name="VIGENTE_FINAL" Type="date" />
+    <Property Name="ID_RIESGO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="SIGLA_MONEDA" Type="varchar2" MaxLength="80" />
+    <Property Name="ID_SUCURSAL" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_ESTADOCOBERTURA" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_CANALVENTA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_LINEANEGOCIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="COMENTARIO" Type="varchar2" MaxLength="100" />
+    <Property Name="ID_TIPOADDITION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NUEVONEGOCIO" Type="char" MaxLength="1" />
+    <Property Name="ADDITION" Type="char" MaxLength="1" />
+    <Property Name="ID_ESTADOFORMULARIO" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_ESTADOBISFLOW" Type="number" Precision="10" Scale="0" />
+    <Property Name="ID_FORMULARIODETALLE" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_REDIRECCION">
+    <Key>
+      <PropertyRef Name="ID_REDIRECCION" />
+    </Key>
+    <Property Name="ID_REDIRECCION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EXISTEBIZFOR" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="SIGLA_USUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ID_AREA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CORREO" Type="varchar2" MaxLength="90" />
+  </EntityType>
+  <Association Name="FK_AREAESTADO">
+    <End Role="FUWEB_P_AREA" Type="Self.FUWEB_P_AREA" Multiplicity="0..1" />
+    <End Role="FUWEB_PERMISOESTADO" Type="Self.FUWEB_PERMISOESTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOESTADO">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AREAPERIMISO">
+    <End Role="FUWEB_P_AREA" Type="Self.FUWEB_P_AREA" Multiplicity="1" />
+    <End Role="FUWEB_PERMISOAREA" Type="Self.FUWEB_PERMISOAREA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOAREA">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AREAUSUARIO">
+    <End Role="FUWEB_P_AREA" Type="Self.FUWEB_P_AREA" Multiplicity="1" />
+    <End Role="FUWEB_USUARIO" Type="Self.FUWEB_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_AREA">
+        <PropertyRef Name="ID_AREA" />
+      </Principal>
+      <Dependent Role="FUWEB_USUARIO">
+        <PropertyRef Name="ID_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ESTADOFORMULARIO">
+    <End Role="FUWEB_P_ESTADOFORMULARIO" Type="Self.FUWEB_P_ESTADOFORMULARIO" Multiplicity="1" />
+    <End Role="FUWEB_PERMISOAREA" Type="Self.FUWEB_PERMISOAREA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ESTADOFORMULARIO">
+        <PropertyRef Name="ID_ESTADOFORMULARIO" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOAREA">
+        <PropertyRef Name="ID_ESTADOFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_ESTADOBIZBLOWESTADO">
+    <End Role="FUWEB_P_ESTADOBIZFLOW" Type="Self.FUWEB_P_ESTADOBIZFLOW" Multiplicity="0..1" />
+    <End Role="FUWEB_PERMISOESTADO" Type="Self.FUWEB_PERMISOESTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ESTADOBIZFLOW">
+        <PropertyRef Name="ID_ESTADOBISFLOW" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOESTADO">
+        <PropertyRef Name="ID_ESTADOBISFLOW" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_TIPOFORMULARIO">
+    <End Role="FUWEB_P_TIPOFORMULARIO" Type="Self.FUWEB_P_TIPOFORMULARIO" Multiplicity="1" />
+    <End Role="FUWEB_P_TIPOFORMULARIODETALLE" Type="Self.FUWEB_P_TIPOFORMULARIODETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFORMULARIO">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Principal>
+      <Dependent Role="FUWEB_P_TIPOFORMULARIODETALLE">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_TIPOFORMULARIOESTADO">
+    <End Role="FUWEB_P_TIPOFORMULARIO" Type="Self.FUWEB_P_TIPOFORMULARIO" Multiplicity="0..1" />
+    <End Role="FUWEB_PERMISOESTADO" Type="Self.FUWEB_PERMISOESTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFORMULARIO">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOESTADO">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PESTANAAREA">
+    <End Role="FUWEB_P_PESTANA" Type="Self.FUWEB_P_PESTANA" Multiplicity="1" />
+    <End Role="FUWEB_PERMISOAREA" Type="Self.FUWEB_PERMISOAREA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_PESTANA">
+        <PropertyRef Name="ID_PESTANA" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOAREA">
+        <PropertyRef Name="ID_PESTANA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADORDETAL">
+    <End Role="FUWEB_P_TIPOFORMULARIODETALLE" Type="Self.FUWEB_P_TIPOFORMULARIODETALLE" Multiplicity="1" />
+    <End Role="FUWEB_POLIZA" Type="Self.FUWEB_POLIZA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFORMULARIODETALLE">
+        <PropertyRef Name="ID_TIPOFORMUALRIODETALLE" />
+      </Principal>
+      <Dependent Role="FUWEB_POLIZA">
+        <PropertyRef Name="ID_FORMULARIODETALLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPOPERMISOAREA">
+    <End Role="FUWEB_P_TIPOPERMISO" Type="Self.FUWEB_P_TIPOPERMISO" Multiplicity="1" />
+    <End Role="FUWEB_PERMISOAREA" Type="Self.FUWEB_PERMISOAREA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOPERMISO">
+        <PropertyRef Name="ID_TIPOPERMISO" />
+      </Principal>
+      <Dependent Role="FUWEB_PERMISOAREA">
+        <PropertyRef Name="ID_TIPOPERMISO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_P_AREA" EntityType="Self.FUWEB_P_AREA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_ESTADOBIZFLOW" EntityType="Self.FUWEB_P_ESTADOBIZFLOW" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_ESTADOFORMULARIO" EntityType="Self.FUWEB_P_ESTADOFORMULARIO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_PESTANA" EntityType="Self.FUWEB_P_PESTANA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOFORMULARIO" EntityType="Self.FUWEB_P_TIPOFORMULARIO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOFORMULARIODETALLE" EntityType="Self.FUWEB_P_TIPOFORMULARIODETALLE" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_TIPOPERMISO" EntityType="Self.FUWEB_P_TIPOPERMISO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_PERMISOAREA" EntityType="Self.FUWEB_PERMISOAREA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_PERMISOESTADO" EntityType="Self.FUWEB_PERMISOESTADO" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_POLIZA" EntityType="Self.FUWEB_POLIZA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_REDIRECCION" EntityType="Self.FUWEB_REDIRECCION" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_USUARIO" EntityType="Self.FUWEB_USUARIO" Schema="SALUD" store:Type="Tables" />
+    <AssociationSet Name="FK_AREAESTADO" Association="Self.FK_AREAESTADO">
+      <End Role="FUWEB_P_AREA" EntitySet="FUWEB_P_AREA" />
+      <End Role="FUWEB_PERMISOESTADO" EntitySet="FUWEB_PERMISOESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AREAPERIMISO" Association="Self.FK_AREAPERIMISO">
+      <End Role="FUWEB_P_AREA" EntitySet="FUWEB_P_AREA" />
+      <End Role="FUWEB_PERMISOAREA" EntitySet="FUWEB_PERMISOAREA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AREAUSUARIO" Association="Self.FK_AREAUSUARIO">
+      <End Role="FUWEB_P_AREA" EntitySet="FUWEB_P_AREA" />
+      <End Role="FUWEB_USUARIO" EntitySet="FUWEB_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ESTADOFORMULARIO" Association="Self.FK_ESTADOFORMULARIO">
+      <End Role="FUWEB_P_ESTADOFORMULARIO" EntitySet="FUWEB_P_ESTADOFORMULARIO" />
+      <End Role="FUWEB_PERMISOAREA" EntitySet="FUWEB_PERMISOAREA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_ESTADOBIZBLOWESTADO" Association="Self.FK_P_ESTADOBIZBLOWESTADO">
+      <End Role="FUWEB_P_ESTADOBIZFLOW" EntitySet="FUWEB_P_ESTADOBIZFLOW" />
+      <End Role="FUWEB_PERMISOESTADO" EntitySet="FUWEB_PERMISOESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_TIPOFORMULARIO" Association="Self.FK_P_TIPOFORMULARIO">
+      <End Role="FUWEB_P_TIPOFORMULARIO" EntitySet="FUWEB_P_TIPOFORMULARIO" />
+      <End Role="FUWEB_P_TIPOFORMULARIODETALLE" EntitySet="FUWEB_P_TIPOFORMULARIODETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_TIPOFORMULARIOESTADO" Association="Self.FK_P_TIPOFORMULARIOESTADO">
+      <End Role="FUWEB_P_TIPOFORMULARIO" EntitySet="FUWEB_P_TIPOFORMULARIO" />
+      <End Role="FUWEB_PERMISOESTADO" EntitySet="FUWEB_PERMISOESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PESTANAAREA" Association="Self.FK_PESTANAAREA">
+      <End Role="FUWEB_P_PESTANA" EntitySet="FUWEB_P_PESTANA" />
+      <End Role="FUWEB_PERMISOAREA" EntitySet="FUWEB_PERMISOAREA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADORDETAL" Association="Self.FK_POLIZADORDETAL">
+      <End Role="FUWEB_P_TIPOFORMULARIODETALLE" EntitySet="FUWEB_P_TIPOFORMULARIODETALLE" />
+      <End Role="FUWEB_POLIZA" EntitySet="FUWEB_POLIZA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPOPERMISOAREA" Association="Self.FK_TIPOPERMISOAREA">
+      <End Role="FUWEB_P_TIPOPERMISO" EntitySet="FUWEB_P_TIPOPERMISO" />
+      <End Role="FUWEB_PERMISOAREA" EntitySet="FUWEB_PERMISOAREA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

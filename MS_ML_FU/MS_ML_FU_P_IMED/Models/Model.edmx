@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_IMED">
+          <Key>
+            <PropertyRef Name="ID_IMED" />
+          </Key>
+          <Property Name="ID_IMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPOIMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDFRECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_FRECUENCIA" />
+          </Key>
+          <Property Name="ID_FRECUENCIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPOFRECUENCIA" Type="number" Precision="10" Scale="0" />
+          <Property Name="CANTIDAD" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_IMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDPRESTADORES">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORES" />
+          </Key>
+          <Property Name="ID_PRESTADORES" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_PRESTADORGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_IMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDPRESTADORESEXCEPCION">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORES_EXCEPCION" />
+          </Key>
+          <Property Name="ID_PRESTADORES_EXCEPCION" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_PRESTADORGRUPOSACS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_IMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDTOPEMONTO">
+          <Key>
+            <PropertyRef Name="ID_IMEDTOPEMONTO" />
+          </Key>
+          <Property Name="ID_IMEDTOPEMONTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPOTOPEMONTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MINIMO_PESOS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MAXIMO_UF" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_IMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_PRESTADORGRUPO">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPO" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_PRESTADORGRUPOSACS">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPOSACS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ID_PRESTADORGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_TIPOFRECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_TIPOFRECUENCIA" />
+          </Key>
+          <Property Name="ID_TIPOFRECUENCIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ESTANDAR" Type="number" Precision="5" Scale="0" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_TIPOIMED">
+          <Key>
+            <PropertyRef Name="ID_TIPOIMED" />
+          </Key>
+          <Property Name="ID_TIPOIMED" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_IMEDFRECUENCIA">
+          <End Role="FUWEB_IMED" Type="Self.FUWEB_IMED" Multiplicity="1" />
+          <End Role="FUWEB_IMEDFRECUENCIA" Type="Self.FUWEB_IMEDFRECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDFRECUENCIA">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDPRESTADORES">
+          <End Role="FUWEB_IMED" Type="Self.FUWEB_IMED" Multiplicity="1" />
+          <End Role="FUWEB_IMEDPRESTADORES" Type="Self.FUWEB_IMEDPRESTADORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORES">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDPRESTADORESEXC">
+          <End Role="FUWEB_IMED" Type="Self.FUWEB_IMED" Multiplicity="1" />
+          <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" Type="Self.FUWEB_IMEDPRESTADORESEXCEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORESEXCEPCION">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDTOPEMONTO">
+          <End Role="FUWEB_IMED" Type="Self.FUWEB_IMED" Multiplicity="1" />
+          <End Role="FUWEB_IMEDTOPEMONTO" Type="Self.FUWEB_IMEDTOPEMONTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDTOPEMONTO">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPO">
+          <End Role="FUWEB_P_PRESTADORGRUPO" Type="Self.FUWEB_P_PRESTADORGRUPO" Multiplicity="1" />
+          <End Role="FUWEB_P_PRESTADORGRUPOSACS" Type="Self.FUWEB_P_PRESTADORGRUPOSACS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPO">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_P_PRESTADORGRUPOSACS">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPOLIS">
+          <End Role="FUWEB_P_PRESTADORGRUPO" Type="Self.FUWEB_P_PRESTADORGRUPO" Multiplicity="1" />
+          <End Role="FUWEB_IMEDPRESTADORES" Type="Self.FUWEB_IMEDPRESTADORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPO">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORES">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPOSACS">
+          <End Role="FUWEB_P_PRESTADORGRUPOSACS" Type="Self.FUWEB_P_PRESTADORGRUPOSACS" Multiplicity="1" />
+          <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" Type="Self.FUWEB_IMEDPRESTADORESEXCEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPOSACS">
+              <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORESEXCEPCION">
+              <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOFRECUENCIA">
+          <End Role="FUWEB_P_TIPOFRECUENCIA" Type="Self.FUWEB_P_TIPOFRECUENCIA" Multiplicity="0..1" />
+          <End Role="FUWEB_IMEDFRECUENCIA" Type="Self.FUWEB_IMEDFRECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_TIPOFRECUENCIA">
+              <PropertyRef Name="ID_TIPOFRECUENCIA" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDFRECUENCIA">
+              <PropertyRef Name="ID_TIPOFRECUENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOIMED">
+          <End Role="FUWEB_P_TIPOIMED" Type="Self.FUWEB_P_TIPOIMED" Multiplicity="1" />
+          <End Role="FUWEB_IMED" Type="Self.FUWEB_IMED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_TIPOIMED">
+              <PropertyRef Name="ID_TIPOIMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMED">
+              <PropertyRef Name="ID_TIPOIMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_IMED" EntityType="Self.FUWEB_IMED" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_IMEDFRECUENCIA" EntityType="Self.FUWEB_IMEDFRECUENCIA" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_IMEDPRESTADORES" EntityType="Self.FUWEB_IMEDPRESTADORES" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_IMEDPRESTADORESEXCEPCION" EntityType="Self.FUWEB_IMEDPRESTADORESEXCEPCION" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_IMEDTOPEMONTO" EntityType="Self.FUWEB_IMEDTOPEMONTO" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPO" EntityType="Self.FUWEB_P_PRESTADORGRUPO" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPOSACS" EntityType="Self.FUWEB_P_PRESTADORGRUPOSACS" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_P_TIPOFRECUENCIA" EntityType="Self.FUWEB_P_TIPOFRECUENCIA" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_P_TIPOIMED" EntityType="Self.FUWEB_P_TIPOIMED" Schema="SALUD" store:Type="Tables" />
+          <AssociationSet Name="FK_IMEDFRECUENCIA" Association="Self.FK_IMEDFRECUENCIA">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDFRECUENCIA" EntitySet="FUWEB_IMEDFRECUENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDPRESTADORES" Association="Self.FK_IMEDPRESTADORES">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDPRESTADORES" EntitySet="FUWEB_IMEDPRESTADORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDPRESTADORESEXC" Association="Self.FK_IMEDPRESTADORESEXC">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" EntitySet="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDTOPEMONTO" Association="Self.FK_IMEDTOPEMONTO">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDTOPEMONTO" EntitySet="FUWEB_IMEDTOPEMONTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPO" Association="Self.FK_PRESTADORGRUPO">
+            <End Role="FUWEB_P_PRESTADORGRUPO" EntitySet="FUWEB_P_PRESTADORGRUPO" />
+            <End Role="FUWEB_P_PRESTADORGRUPOSACS" EntitySet="FUWEB_P_PRESTADORGRUPOSACS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPOLIS" Association="Self.FK_PRESTADORGRUPOLIS">
+            <End Role="FUWEB_P_PRESTADORGRUPO" EntitySet="FUWEB_P_PRESTADORGRUPO" />
+            <End Role="FUWEB_IMEDPRESTADORES" EntitySet="FUWEB_IMEDPRESTADORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPOSACS" Association="Self.FK_PRESTADORGRUPOSACS">
+            <End Role="FUWEB_P_PRESTADORGRUPOSACS" EntitySet="FUWEB_P_PRESTADORGRUPOSACS" />
+            <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" EntitySet="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOFRECUENCIA" Association="Self.FK_TIPOFRECUENCIA">
+            <End Role="FUWEB_P_TIPOFRECUENCIA" EntitySet="FUWEB_P_TIPOFRECUENCIA" />
+            <End Role="FUWEB_IMEDFRECUENCIA" EntitySet="FUWEB_IMEDFRECUENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOIMED" Association="Self.FK_TIPOIMED">
+            <End Role="FUWEB_P_TIPOIMED" EntitySet="FUWEB_P_TIPOIMED" />
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_P_TIPOIMED">
+          <Key>
+            <PropertyRef Name="ID_TIPOIMED" />
+          </Key>
+          <Property Name="ID_TIPOIMED" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMED" Relationship="Model.FK_TIPOIMED" FromRole="FUWEB_P_TIPOIMED" ToRole="FUWEB_IMED" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_P_TIPOIMED" EntityType="Self.FUWEB_P_TIPOIMED" />
+          <EntitySet Name="FUWEB_IMED" EntityType="Model.FUWEB_IMED" />
+          <EntitySet Name="FUWEB_IMEDFRECUENCIA" EntityType="Model.FUWEB_IMEDFRECUENCIA" />
+          <EntitySet Name="FUWEB_IMEDPRESTADORES" EntityType="Model.FUWEB_IMEDPRESTADORES" />
+          <EntitySet Name="FUWEB_IMEDPRESTADORESEXCEPCION" EntityType="Model.FUWEB_IMEDPRESTADORESEXCEPCION" />
+          <EntitySet Name="FUWEB_IMEDTOPEMONTO" EntityType="Model.FUWEB_IMEDTOPEMONTO" />
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPO" EntityType="Model.FUWEB_P_PRESTADORGRUPO" />
+          <EntitySet Name="FUWEB_P_PRESTADORGRUPOSACS" EntityType="Model.FUWEB_P_PRESTADORGRUPOSACS" />
+          <AssociationSet Name="FK_IMEDFRECUENCIA" Association="Model.FK_IMEDFRECUENCIA">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDFRECUENCIA" EntitySet="FUWEB_IMEDFRECUENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDPRESTADORES" Association="Model.FK_IMEDPRESTADORES">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDPRESTADORES" EntitySet="FUWEB_IMEDPRESTADORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDPRESTADORESEXC" Association="Model.FK_IMEDPRESTADORESEXC">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" EntitySet="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMEDTOPEMONTO" Association="Model.FK_IMEDTOPEMONTO">
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+            <End Role="FUWEB_IMEDTOPEMONTO" EntitySet="FUWEB_IMEDTOPEMONTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOIMED" Association="Model.FK_TIPOIMED">
+            <End Role="FUWEB_P_TIPOIMED" EntitySet="FUWEB_P_TIPOIMED" />
+            <End Role="FUWEB_IMED" EntitySet="FUWEB_IMED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPOLIS" Association="Model.FK_PRESTADORGRUPOLIS">
+            <End Role="FUWEB_P_PRESTADORGRUPO" EntitySet="FUWEB_P_PRESTADORGRUPO" />
+            <End Role="FUWEB_IMEDPRESTADORES" EntitySet="FUWEB_IMEDPRESTADORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPOSACS" Association="Model.FK_PRESTADORGRUPOSACS">
+            <End Role="FUWEB_P_PRESTADORGRUPOSACS" EntitySet="FUWEB_P_PRESTADORGRUPOSACS" />
+            <End Role="FUWEB_IMEDPRESTADORESEXCEPCION" EntitySet="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTADORGRUPO" Association="Model.FK_PRESTADORGRUPO">
+            <End Role="FUWEB_P_PRESTADORGRUPO" EntitySet="FUWEB_P_PRESTADORGRUPO" />
+            <End Role="FUWEB_P_PRESTADORGRUPOSACS" EntitySet="FUWEB_P_PRESTADORGRUPOSACS" />
+          </AssociationSet>
+          <EntitySet Name="FUWEB_P_TIPOFRECUENCIA" EntityType="Model.FUWEB_P_TIPOFRECUENCIA" />
+          <AssociationSet Name="FK_TIPOFRECUENCIA" Association="Model.FK_TIPOFRECUENCIA">
+            <End Role="FUWEB_P_TIPOFRECUENCIA" EntitySet="FUWEB_P_TIPOFRECUENCIA" />
+            <End Role="FUWEB_IMEDFRECUENCIA" EntitySet="FUWEB_IMEDFRECUENCIA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FUWEB_IMED">
+          <Key>
+            <PropertyRef Name="ID_IMED" />
+          </Key>
+          <Property Name="ID_IMED" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPOIMED" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMEDFRECUENCIA" Relationship="Model.FK_IMEDFRECUENCIA" FromRole="FUWEB_IMED" ToRole="FUWEB_IMEDFRECUENCIA" />
+          <NavigationProperty Name="FUWEB_IMEDPRESTADORES" Relationship="Model.FK_IMEDPRESTADORES" FromRole="FUWEB_IMED" ToRole="FUWEB_IMEDPRESTADORES" />
+          <NavigationProperty Name="FUWEB_IMEDPRESTADORESEXCEPCION" Relationship="Model.FK_IMEDPRESTADORESEXC" FromRole="FUWEB_IMED" ToRole="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          <NavigationProperty Name="FUWEB_IMEDTOPEMONTO" Relationship="Model.FK_IMEDTOPEMONTO" FromRole="FUWEB_IMED" ToRole="FUWEB_IMEDTOPEMONTO" />
+          <NavigationProperty Name="FUWEB_P_TIPOIMED" Relationship="Model.FK_TIPOIMED" FromRole="FUWEB_IMED" ToRole="FUWEB_P_TIPOIMED" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDFRECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_FRECUENCIA" />
+          </Key>
+          <Property Name="ID_FRECUENCIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPOFRECUENCIA" Type="Int32" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+          <Property Name="ID_IMED" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMED" Relationship="Model.FK_IMEDFRECUENCIA" FromRole="FUWEB_IMEDFRECUENCIA" ToRole="FUWEB_IMED" />
+          <NavigationProperty Name="FUWEB_P_TIPOFRECUENCIA" Relationship="Model.FK_TIPOFRECUENCIA" FromRole="FUWEB_IMEDFRECUENCIA" ToRole="FUWEB_P_TIPOFRECUENCIA" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDPRESTADORES">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORES" />
+          </Key>
+          <Property Name="ID_PRESTADORES" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRESTADORGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_IMED" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMED" Relationship="Model.FK_IMEDPRESTADORES" FromRole="FUWEB_IMEDPRESTADORES" ToRole="FUWEB_IMED" />
+          <NavigationProperty Name="FUWEB_P_PRESTADORGRUPO" Relationship="Model.FK_PRESTADORGRUPOLIS" FromRole="FUWEB_IMEDPRESTADORES" ToRole="FUWEB_P_PRESTADORGRUPO" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDPRESTADORESEXCEPCION">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORES_EXCEPCION" />
+          </Key>
+          <Property Name="ID_PRESTADORES_EXCEPCION" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRESTADORGRUPOSACS" Type="Int32" Nullable="false" />
+          <Property Name="ID_IMED" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMED" Relationship="Model.FK_IMEDPRESTADORESEXC" FromRole="FUWEB_IMEDPRESTADORESEXCEPCION" ToRole="FUWEB_IMED" />
+          <NavigationProperty Name="FUWEB_P_PRESTADORGRUPOSACS" Relationship="Model.FK_PRESTADORGRUPOSACS" FromRole="FUWEB_IMEDPRESTADORESEXCEPCION" ToRole="FUWEB_P_PRESTADORGRUPOSACS" />
+        </EntityType>
+        <EntityType Name="FUWEB_IMEDTOPEMONTO">
+          <Key>
+            <PropertyRef Name="ID_IMEDTOPEMONTO" />
+          </Key>
+          <Property Name="ID_IMEDTOPEMONTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPOTOPEMONTO" Type="Int32" Nullable="false" />
+          <Property Name="MINIMO_PESOS" Type="Int32" Nullable="false" />
+          <Property Name="MAXIMO_UF" Type="Int32" Nullable="false" />
+          <Property Name="ID_IMED" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMED" Relationship="Model.FK_IMEDTOPEMONTO" FromRole="FUWEB_IMEDTOPEMONTO" ToRole="FUWEB_IMED" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_PRESTADORGRUPO">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPO" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="FUWEB_IMEDPRESTADORES" Relationship="Model.FK_PRESTADORGRUPOLIS" FromRole="FUWEB_P_PRESTADORGRUPO" ToRole="FUWEB_IMEDPRESTADORES" />
+          <NavigationProperty Name="FUWEB_P_PRESTADORGRUPOSACS" Relationship="Model.FK_PRESTADORGRUPO" FromRole="FUWEB_P_PRESTADORGRUPO" ToRole="FUWEB_P_PRESTADORGRUPOSACS" />
+        </EntityType>
+        <EntityType Name="FUWEB_P_PRESTADORGRUPOSACS">
+          <Key>
+            <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+          </Key>
+          <Property Name="ID_PRESTADORGRUPOSACS" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ID_PRESTADORGRUPO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_IMEDPRESTADORESEXCEPCION" Relationship="Model.FK_PRESTADORGRUPOSACS" FromRole="FUWEB_P_PRESTADORGRUPOSACS" ToRole="FUWEB_IMEDPRESTADORESEXCEPCION" />
+          <NavigationProperty Name="FUWEB_P_PRESTADORGRUPO" Relationship="Model.FK_PRESTADORGRUPO" FromRole="FUWEB_P_PRESTADORGRUPOSACS" ToRole="FUWEB_P_PRESTADORGRUPO" />
+        </EntityType>
+        <Association Name="FK_IMEDFRECUENCIA">
+          <End Type="Model.FUWEB_IMED" Role="FUWEB_IMED" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDFRECUENCIA" Role="FUWEB_IMEDFRECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDFRECUENCIA">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDPRESTADORES">
+          <End Type="Model.FUWEB_IMED" Role="FUWEB_IMED" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDPRESTADORES" Role="FUWEB_IMEDPRESTADORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORES">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDPRESTADORESEXC">
+          <End Type="Model.FUWEB_IMED" Role="FUWEB_IMED" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDPRESTADORESEXCEPCION" Role="FUWEB_IMEDPRESTADORESEXCEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORESEXCEPCION">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMEDTOPEMONTO">
+          <End Type="Model.FUWEB_IMED" Role="FUWEB_IMED" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDTOPEMONTO" Role="FUWEB_IMEDTOPEMONTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_IMED">
+              <PropertyRef Name="ID_IMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDTOPEMONTO">
+              <PropertyRef Name="ID_IMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOIMED">
+          <End Type="Model.FUWEB_P_TIPOIMED" Role="FUWEB_P_TIPOIMED" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMED" Role="FUWEB_IMED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_TIPOIMED">
+              <PropertyRef Name="ID_TIPOIMED" />
+            </Principal>
+            <Dependent Role="FUWEB_IMED">
+              <PropertyRef Name="ID_TIPOIMED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPOLIS">
+          <End Type="Model.FUWEB_P_PRESTADORGRUPO" Role="FUWEB_P_PRESTADORGRUPO" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDPRESTADORES" Role="FUWEB_IMEDPRESTADORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPO">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORES">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPOSACS">
+          <End Type="Model.FUWEB_P_PRESTADORGRUPOSACS" Role="FUWEB_P_PRESTADORGRUPOSACS" Multiplicity="1" />
+          <End Type="Model.FUWEB_IMEDPRESTADORESEXCEPCION" Role="FUWEB_IMEDPRESTADORESEXCEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPOSACS">
+              <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDPRESTADORESEXCEPCION">
+              <PropertyRef Name="ID_PRESTADORGRUPOSACS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTADORGRUPO">
+          <End Type="Model.FUWEB_P_PRESTADORGRUPO" Role="FUWEB_P_PRESTADORGRUPO" Multiplicity="1" />
+          <End Type="Model.FUWEB_P_PRESTADORGRUPOSACS" Role="FUWEB_P_PRESTADORGRUPOSACS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_PRESTADORGRUPO">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_P_PRESTADORGRUPOSACS">
+              <PropertyRef Name="ID_PRESTADORGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FUWEB_P_TIPOFRECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_TIPOFRECUENCIA" />
+          </Key>
+          <Property Name="ID_TIPOFRECUENCIA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="VIGENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ESTANDAR" Type="Int16" />
+          <NavigationProperty Name="FUWEB_IMEDFRECUENCIA" Relationship="Model.FK_TIPOFRECUENCIA" FromRole="FUWEB_P_TIPOFRECUENCIA" ToRole="FUWEB_IMEDFRECUENCIA" />
+        </EntityType>
+        <Association Name="FK_TIPOFRECUENCIA">
+          <End Type="Model.FUWEB_P_TIPOFRECUENCIA" Role="FUWEB_P_TIPOFRECUENCIA" Multiplicity="0..1" />
+          <End Type="Model.FUWEB_IMEDFRECUENCIA" Role="FUWEB_IMEDFRECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_TIPOFRECUENCIA">
+              <PropertyRef Name="ID_TIPOFRECUENCIA" />
+            </Principal>
+            <Dependent Role="FUWEB_IMEDFRECUENCIA">
+              <PropertyRef Name="ID_TIPOFRECUENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_P_TIPOIMED">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOIMED">
+              <MappingFragment StoreEntitySet="FUWEB_P_TIPOIMED">
+                <ScalarProperty Name="ID_TIPOIMED" ColumnName="ID_TIPOIMED" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_IMED">
+            <EntityTypeMapping TypeName="Model.FUWEB_IMED">
+              <MappingFragment StoreEntitySet="FUWEB_IMED">
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+                <ScalarProperty Name="ID_TIPOIMED" ColumnName="ID_TIPOIMED" />
+                <ScalarProperty Name="ID_IMED" ColumnName="ID_IMED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_IMEDFRECUENCIA">
+            <EntityTypeMapping TypeName="Model.FUWEB_IMEDFRECUENCIA">
+              <MappingFragment StoreEntitySet="FUWEB_IMEDFRECUENCIA">
+                <ScalarProperty Name="ID_IMED" ColumnName="ID_IMED" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="ID_TIPOFRECUENCIA" ColumnName="ID_TIPOFRECUENCIA" />
+                <ScalarProperty Name="ID_FRECUENCIA" ColumnName="ID_FRECUENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_IMEDPRESTADORES">
+            <EntityTypeMapping TypeName="Model.FUWEB_IMEDPRESTADORES">
+              <MappingFragment StoreEntitySet="FUWEB_IMEDPRESTADORES">
+                <ScalarProperty Name="ID_IMED" ColumnName="ID_IMED" />
+                <ScalarProperty Name="ID_PRESTADORGRUPO" ColumnName="ID_PRESTADORGRUPO" />
+                <ScalarProperty Name="ID_PRESTADORES" ColumnName="ID_PRESTADORES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_IMEDPRESTADORESEXCEPCION">
+            <EntityTypeMapping TypeName="Model.FUWEB_IMEDPRESTADORESEXCEPCION">
+              <MappingFragment StoreEntitySet="FUWEB_IMEDPRESTADORESEXCEPCION">
+                <ScalarProperty Name="ID_IMED" ColumnName="ID_IMED" />
+                <ScalarProperty Name="ID_PRESTADORGRUPOSACS" ColumnName="ID_PRESTADORGRUPOSACS" />
+                <ScalarProperty Name="ID_PRESTADORES_EXCEPCION" ColumnName="ID_PRESTADORES_EXCEPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_IMEDTOPEMONTO">
+            <EntityTypeMapping TypeName="Model.FUWEB_IMEDTOPEMONTO">
+              <MappingFragment StoreEntitySet="FUWEB_IMEDTOPEMONTO">
+                <ScalarProperty Name="ID_IMED" ColumnName="ID_IMED" />
+                <ScalarProperty Name="MAXIMO_UF" ColumnName="MAXIMO_UF" />
+                <ScalarProperty Name="MINIMO_PESOS" ColumnName="MINIMO_PESOS" />
+                <ScalarProperty Name="ID_TIPOTOPEMONTO" ColumnName="ID_TIPOTOPEMONTO" />
+                <ScalarProperty Name="ID_IMEDTOPEMONTO" ColumnName="ID_IMEDTOPEMONTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_P_PRESTADORGRUPO">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTADORGRUPO">
+              <MappingFragment StoreEntitySet="FUWEB_P_PRESTADORGRUPO">
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_PRESTADORGRUPO" ColumnName="ID_PRESTADORGRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_P_PRESTADORGRUPOSACS">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_PRESTADORGRUPOSACS">
+              <MappingFragment StoreEntitySet="FUWEB_P_PRESTADORGRUPOSACS">
+                <ScalarProperty Name="ID_PRESTADORGRUPO" ColumnName="ID_PRESTADORGRUPO" />
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_PRESTADORGRUPOSACS" ColumnName="ID_PRESTADORGRUPOSACS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_P_TIPOFRECUENCIA">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFRECUENCIA">
+              <MappingFragment StoreEntitySet="FUWEB_P_TIPOFRECUENCIA">
+                <ScalarProperty Name="ESTANDAR" ColumnName="ESTANDAR" />
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_TIPOFRECUENCIA" ColumnName="ID_TIPOFRECUENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

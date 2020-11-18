@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_P_AQUIENPARAMETROS">
+    <Key>
+      <PropertyRef Name="ID_AQUIENPARAMETROS" />
+    </Key>
+    <Property Name="ID_AQUIENPARAMETROS" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_GRUPOISAPRE">
+    <Key>
+      <PropertyRef Name="ID_P_GRUPOISAPRE" />
+    </Key>
+    <Property Name="ID_P_GRUPOISAPRE" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NRO_SAC" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_PRESTACIONBASICA">
+    <Key>
+      <PropertyRef Name="ID_PRESTACIONBASICA" />
+    </Key>
+    <Property Name="ID_PRESTACIONBASICA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SIGLA_SACS" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_P_AQUIENPARAMETROS" EntityType="Self.FUWEB_P_AQUIENPARAMETROS" />
+    <EntitySet Name="FUWEB_P_GRUPOISAPRE" EntityType="Self.FUWEB_P_GRUPOISAPRE" />
+    <EntitySet Name="FUWEB_P_PRESTACIONBASICA" EntityType="Self.FUWEB_P_PRESTACIONBASICA" />
+  </EntityContainer>
+</Schema>

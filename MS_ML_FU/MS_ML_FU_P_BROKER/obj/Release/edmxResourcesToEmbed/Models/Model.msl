@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_BROKERCCTE">
+      <EntityTypeMapping TypeName="Model.FUWEB_BROKERCCTE">
+        <MappingFragment StoreEntitySet="FUWEB_BROKERCCTE">
+          <ScalarProperty Name="ID_CCTE" ColumnName="ID_CCTE" />
+          <ScalarProperty Name="RUTCCTE" ColumnName="RUTCCTE" />
+          <ScalarProperty Name="DVCCTE" ColumnName="DVCCTE" />
+          <ScalarProperty Name="NOMBRECCTE" ColumnName="NOMBRECCTE" />
+          <ScalarProperty Name="GRUPOEMPRESAS" ColumnName="GRUPOEMPRESAS" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+          <ScalarProperty Name="GIRO" ColumnName="GIRO" />
+          <ScalarProperty Name="NOMBRE_CONTACTO" ColumnName="NOMBRE_CONTACTO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOMBRE_MANDANTE" ColumnName="NOMBRE_MANDANTE" />
+          <ScalarProperty Name="RUT_MANDANTE" ColumnName="RUT_MANDANTE" />
+          <ScalarProperty Name="ID_TIPOCCTE" ColumnName="ID_TIPOCCTE" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_BROKERCORREDOR">
+      <EntityTypeMapping TypeName="Model.FUWEB_BROKERCORREDOR">
+        <MappingFragment StoreEntitySet="FUWEB_BROKERCORREDOR">
+          <ScalarProperty Name="ID_CORREDOR" ColumnName="ID_CORREDOR" />
+          <ScalarProperty Name="RUT_CORREDOR" ColumnName="RUT_CORREDOR" />
+          <ScalarProperty Name="DV_CORREDOR" ColumnName="DV_CORREDOR" />
+          <ScalarProperty Name="NOMBRE_CORREDOR" ColumnName="NOMBRE_CORREDOR" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="GIRO" ColumnName="GIRO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+          <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+          <ScalarProperty Name="POLIZA_GARANTIA_VIGENTE" ColumnName="POLIZA_GARANTIA_VIGENTE" />
+          <ScalarProperty Name="NOMBRE_CONTACTO" ColumnName="NOMBRE_CONTACTO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FORMA_PAGO" ColumnName="FORMA_PAGO" />
+          <ScalarProperty Name="TIPO_CUENTA" ColumnName="TIPO_CUENTA" />
+          <ScalarProperty Name="NRO_CUENTA" ColumnName="NRO_CUENTA" />
+          <ScalarProperty Name="BANCO" ColumnName="BANCO" />
+          <ScalarProperty Name="ID_HOLDING" ColumnName="ID_HOLDING" />
+          <ScalarProperty Name="ID_ADMINISTRADOR" ColumnName="ID_ADMINISTRADOR" />
+          <ScalarProperty Name="ID_EJECUTIVO_COBRANZA" ColumnName="ID_EJECUTIVO_COBRANZA" />
+          <ScalarProperty Name="ID_EJECUTIVO_COMERCIAL" ColumnName="ID_EJECUTIVO_COMERCIAL" />
+          <ScalarProperty Name="ID_EJECUTIVO_MOVIMIENTO" ColumnName="ID_EJECUTIVO_MOVIMIENTO" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

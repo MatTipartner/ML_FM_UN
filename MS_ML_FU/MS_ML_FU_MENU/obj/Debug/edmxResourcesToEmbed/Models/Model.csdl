@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_P_TIPOFORMULARIO">
+    <Key>
+      <PropertyRef Name="ID_TIPOFORMULARIO" />
+    </Key>
+    <Property Name="ID_TIPOFORMULARIO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VISIBLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_TIPOFORMULARIODETALLE" Relationship="Self.FK_P_TIPOFORMULARIO" FromRole="FUWEB_P_TIPOFORMULARIO" ToRole="FUWEB_P_TIPOFORMULARIODETALLE" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_TIPOFORMULARIODETALLE">
+    <Key>
+      <PropertyRef Name="ID_TIPOFORMUALRIODETALLE" />
+    </Key>
+    <Property Name="ID_TIPOFORMUALRIODETALLE" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ID_TIPOFORMULARIO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FUWEB_P_TIPOFORMULARIO" Relationship="Self.FK_P_TIPOFORMULARIO" FromRole="FUWEB_P_TIPOFORMULARIODETALLE" ToRole="FUWEB_P_TIPOFORMULARIO" />
+  </EntityType>
+  <Association Name="FK_P_TIPOFORMULARIO">
+    <End Role="FUWEB_P_TIPOFORMULARIO" Type="Self.FUWEB_P_TIPOFORMULARIO" Multiplicity="1" />
+    <End Role="FUWEB_P_TIPOFORMULARIODETALLE" Type="Self.FUWEB_P_TIPOFORMULARIODETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_TIPOFORMULARIO">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Principal>
+      <Dependent Role="FUWEB_P_TIPOFORMULARIODETALLE">
+        <PropertyRef Name="ID_TIPOFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_P_TIPOFORMULARIO" EntityType="Self.FUWEB_P_TIPOFORMULARIO" />
+    <EntitySet Name="FUWEB_P_TIPOFORMULARIODETALLE" EntityType="Self.FUWEB_P_TIPOFORMULARIODETALLE" />
+    <AssociationSet Name="FK_P_TIPOFORMULARIO" Association="Self.FK_P_TIPOFORMULARIO">
+      <End Role="FUWEB_P_TIPOFORMULARIO" EntitySet="FUWEB_P_TIPOFORMULARIO" />
+      <End Role="FUWEB_P_TIPOFORMULARIODETALLE" EntitySet="FUWEB_P_TIPOFORMULARIODETALLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_P_DEFINICIONTRIBUTARIA">
+          <Key>
+            <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+          </Key>
+          <Property Name="ID_DEFINICIONTRIBUTARIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NRO_SAC" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFA">
+          <Key>
+            <PropertyRef Name="ID_TARIFA" />
+          </Key>
+          <Property Name="ID_TARIFA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SIGLA_COBRO" Type="char" MaxLength="10" />
+          <Property Name="ADICION_TARIFA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TARIFA_VIGENCIA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRIMA_PROPORCIONAL" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EDAD_FIJA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFAGRUPO">
+          <Key>
+            <PropertyRef Name="ID_TARIFAGRUPO" />
+          </Key>
+          <Property Name="ID_TARIFAGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPOPRODUCTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_DEFINICIONTRIBUTARIA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="GRUPOFAMILIAR" Type="char" MaxLength="1" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+          <Key>
+            <PropertyRef Name="ID_GRUPOLISTAESPECIAL" />
+          </Key>
+          <Property Name="ID_GRUPOLISTAESPECIAL" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TARIFAGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SIGLA_RELACION" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="DESDE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HASTA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TASARECARGO" Type="number" Precision="14" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFAGRUPOLISTAPRIMA">
+          <Key>
+            <PropertyRef Name="ID_GRUPOLISTAPRIMA" />
+          </Key>
+          <Property Name="ID_GRUPOLISTAPRIMA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TARIFAGRUPO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESDE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HASTA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PRIMAFIJA" Type="number" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="TASA" Type="number" Precision="14" Scale="4" />
+        </EntityType>
+        <Association Name="FK_IDCOBERTURA">
+          <End Role="FUWEB_P_DEFINICIONTRIBUTARIA" Type="Self.FUWEB_P_DEFINICIONTRIBUTARIA" Multiplicity="1" />
+          <End Role="FUWEB_TARIFAGRUPO" Type="Self.FUWEB_TARIFAGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_DEFINICIONTRIBUTARIA">
+              <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDTARIFAGRUPOPRIMA">
+          <End Role="FUWEB_TARIFAGRUPO" Type="Self.FUWEB_TARIFAGRUPO" Multiplicity="1" />
+          <End Role="FUWEB_TARIFAGRUPOLISTAPRIMA" Type="Self.FUWEB_TARIFAGRUPOLISTAPRIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPOLISTAPRIMA">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TARIFAGRUPOESPECIAL">
+          <End Role="FUWEB_TARIFAGRUPO" Type="Self.FUWEB_TARIFAGRUPO" Multiplicity="1" />
+          <End Role="FUWEB_TARIFAGRUPOLISTAESPECIAL" Type="Self.FUWEB_TARIFAGRUPOLISTAESPECIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_P_DEFINICIONTRIBUTARIA" EntityType="Self.FUWEB_P_DEFINICIONTRIBUTARIA" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_TARIFA" EntityType="Self.FUWEB_TARIFA" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_TARIFAGRUPO" EntityType="Self.FUWEB_TARIFAGRUPO" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_TARIFAGRUPOLISTAESPECIAL" EntityType="Self.FUWEB_TARIFAGRUPOLISTAESPECIAL" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_TARIFAGRUPOLISTAPRIMA" EntityType="Self.FUWEB_TARIFAGRUPOLISTAPRIMA" Schema="SALUD" store:Type="Tables" />
+          <AssociationSet Name="FK_IDCOBERTURA" Association="Self.FK_IDCOBERTURA">
+            <End Role="FUWEB_P_DEFINICIONTRIBUTARIA" EntitySet="FUWEB_P_DEFINICIONTRIBUTARIA" />
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDTARIFAGRUPOPRIMA" Association="Self.FK_IDTARIFAGRUPOPRIMA">
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+            <End Role="FUWEB_TARIFAGRUPOLISTAPRIMA" EntitySet="FUWEB_TARIFAGRUPOLISTAPRIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TARIFAGRUPOESPECIAL" Association="Self.FK_TARIFAGRUPOESPECIAL">
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+            <End Role="FUWEB_TARIFAGRUPOLISTAESPECIAL" EntitySet="FUWEB_TARIFAGRUPOLISTAESPECIAL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_P_DEFINICIONTRIBUTARIA">
+          <Key>
+            <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+          </Key>
+          <Property Name="ID_DEFINICIONTRIBUTARIA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIGENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NRO_SAC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_TARIFAGRUPO" Relationship="Model.FK_IDCOBERTURA" FromRole="FUWEB_P_DEFINICIONTRIBUTARIA" ToRole="FUWEB_TARIFAGRUPO" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_P_DEFINICIONTRIBUTARIA" EntityType="Self.FUWEB_P_DEFINICIONTRIBUTARIA" />
+          <EntitySet Name="FUWEB_TARIFA" EntityType="Model.FUWEB_TARIFA" />
+          <EntitySet Name="FUWEB_TARIFAGRUPO" EntityType="Model.FUWEB_TARIFAGRUPO" />
+          <AssociationSet Name="FK_IDCOBERTURA" Association="Model.FK_IDCOBERTURA">
+            <End Role="FUWEB_P_DEFINICIONTRIBUTARIA" EntitySet="FUWEB_P_DEFINICIONTRIBUTARIA" />
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+          </AssociationSet>
+          <EntitySet Name="FUWEB_TARIFAGRUPOLISTAESPECIAL" EntityType="Model.FUWEB_TARIFAGRUPOLISTAESPECIAL" />
+          <EntitySet Name="FUWEB_TARIFAGRUPOLISTAPRIMA" EntityType="Model.FUWEB_TARIFAGRUPOLISTAPRIMA" />
+          <AssociationSet Name="FK_IDTARIFAGRUPOPRIMA" Association="Model.FK_IDTARIFAGRUPOPRIMA">
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+            <End Role="FUWEB_TARIFAGRUPOLISTAPRIMA" EntitySet="FUWEB_TARIFAGRUPOLISTAPRIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TARIFAGRUPOESPECIAL" Association="Model.FK_TARIFAGRUPOESPECIAL">
+            <End Role="FUWEB_TARIFAGRUPO" EntitySet="FUWEB_TARIFAGRUPO" />
+            <End Role="FUWEB_TARIFAGRUPOLISTAESPECIAL" EntitySet="FUWEB_TARIFAGRUPOLISTAESPECIAL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FUWEB_TARIFA">
+          <Key>
+            <PropertyRef Name="ID_TARIFA" />
+          </Key>
+          <Property Name="ID_TARIFA" Type="Int32" Nullable="false" />
+          <Property Name="SIGLA_COBRO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ADICION_TARIFA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TARIFA_VIGENCIA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PRIMA_PROPORCIONAL" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EDAD_FIJA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFAGRUPO">
+          <Key>
+            <PropertyRef Name="ID_TARIFAGRUPO" />
+          </Key>
+          <Property Name="ID_TARIFAGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPOPRODUCTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_DEFINICIONTRIBUTARIA" Type="Int32" Nullable="false" />
+          <Property Name="GRUPOFAMILIAR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_P_DEFINICIONTRIBUTARIA" Relationship="Model.FK_IDCOBERTURA" FromRole="FUWEB_TARIFAGRUPO" ToRole="FUWEB_P_DEFINICIONTRIBUTARIA" />
+          <NavigationProperty Name="FUWEB_TARIFAGRUPOLISTAPRIMA" Relationship="Model.FK_IDTARIFAGRUPOPRIMA" FromRole="FUWEB_TARIFAGRUPO" ToRole="FUWEB_TARIFAGRUPOLISTAPRIMA" />
+          <NavigationProperty Name="FUWEB_TARIFAGRUPOLISTAESPECIAL" Relationship="Model.FK_TARIFAGRUPOESPECIAL" FromRole="FUWEB_TARIFAGRUPO" ToRole="FUWEB_TARIFAGRUPOLISTAESPECIAL" />
+        </EntityType>
+        <Association Name="FK_IDCOBERTURA">
+          <End Type="Model.FUWEB_P_DEFINICIONTRIBUTARIA" Role="FUWEB_P_DEFINICIONTRIBUTARIA" Multiplicity="1" />
+          <End Type="Model.FUWEB_TARIFAGRUPO" Role="FUWEB_TARIFAGRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_P_DEFINICIONTRIBUTARIA">
+              <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_DEFINICIONTRIBUTARIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+          <Key>
+            <PropertyRef Name="ID_GRUPOLISTAESPECIAL" />
+          </Key>
+          <Property Name="ID_GRUPOLISTAESPECIAL" Type="Int32" Nullable="false" />
+          <Property Name="ID_TARIFAGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="SIGLA_RELACION" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DESDE" Type="Int32" Nullable="false" />
+          <Property Name="HASTA" Type="Int32" Nullable="false" />
+          <Property Name="TASARECARGO" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+          <NavigationProperty Name="FUWEB_TARIFAGRUPO" Relationship="Model.FK_TARIFAGRUPOESPECIAL" FromRole="FUWEB_TARIFAGRUPOLISTAESPECIAL" ToRole="FUWEB_TARIFAGRUPO" />
+        </EntityType>
+        <EntityType Name="FUWEB_TARIFAGRUPOLISTAPRIMA">
+          <Key>
+            <PropertyRef Name="ID_GRUPOLISTAPRIMA" />
+          </Key>
+          <Property Name="ID_GRUPOLISTAPRIMA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TARIFAGRUPO" Type="Int32" Nullable="false" />
+          <Property Name="DESDE" Type="Int32" Nullable="false" />
+          <Property Name="HASTA" Type="Int32" Nullable="false" />
+          <Property Name="PRIMAFIJA" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+          <Property Name="TASA" Type="Decimal" Precision="14" Scale="4" />
+          <NavigationProperty Name="FUWEB_TARIFAGRUPO" Relationship="Model.FK_IDTARIFAGRUPOPRIMA" FromRole="FUWEB_TARIFAGRUPOLISTAPRIMA" ToRole="FUWEB_TARIFAGRUPO" />
+        </EntityType>
+        <Association Name="FK_IDTARIFAGRUPOPRIMA">
+          <End Type="Model.FUWEB_TARIFAGRUPO" Role="FUWEB_TARIFAGRUPO" Multiplicity="1" />
+          <End Type="Model.FUWEB_TARIFAGRUPOLISTAPRIMA" Role="FUWEB_TARIFAGRUPOLISTAPRIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPOLISTAPRIMA">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TARIFAGRUPOESPECIAL">
+          <End Type="Model.FUWEB_TARIFAGRUPO" Role="FUWEB_TARIFAGRUPO" Multiplicity="1" />
+          <End Type="Model.FUWEB_TARIFAGRUPOLISTAESPECIAL" Role="FUWEB_TARIFAGRUPOLISTAESPECIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_TARIFAGRUPO">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Principal>
+            <Dependent Role="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+              <PropertyRef Name="ID_TARIFAGRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_P_DEFINICIONTRIBUTARIA">
+            <EntityTypeMapping TypeName="Model.FUWEB_P_DEFINICIONTRIBUTARIA">
+              <MappingFragment StoreEntitySet="FUWEB_P_DEFINICIONTRIBUTARIA">
+                <ScalarProperty Name="ID_DEFINICIONTRIBUTARIA" ColumnName="ID_DEFINICIONTRIBUTARIA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+                <ScalarProperty Name="NRO_SAC" ColumnName="NRO_SAC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_TARIFA">
+            <EntityTypeMapping TypeName="Model.FUWEB_TARIFA">
+              <MappingFragment StoreEntitySet="FUWEB_TARIFA">
+                <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+                <ScalarProperty Name="EDAD_FIJA" ColumnName="EDAD_FIJA" />
+                <ScalarProperty Name="PRIMA_PROPORCIONAL" ColumnName="PRIMA_PROPORCIONAL" />
+                <ScalarProperty Name="TARIFA_VIGENCIA" ColumnName="TARIFA_VIGENCIA" />
+                <ScalarProperty Name="ADICION_TARIFA" ColumnName="ADICION_TARIFA" />
+                <ScalarProperty Name="SIGLA_COBRO" ColumnName="SIGLA_COBRO" />
+                <ScalarProperty Name="ID_TARIFA" ColumnName="ID_TARIFA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_TARIFAGRUPO">
+            <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPO">
+              <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPO">
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+                <ScalarProperty Name="GRUPOFAMILIAR" ColumnName="GRUPOFAMILIAR" />
+                <ScalarProperty Name="ID_DEFINICIONTRIBUTARIA" ColumnName="ID_DEFINICIONTRIBUTARIA" />
+                <ScalarProperty Name="ID_TIPOPRODUCTO" ColumnName="ID_TIPOPRODUCTO" />
+                <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+                <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+            <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPOLISTAESPECIAL">
+              <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+                <ScalarProperty Name="TASARECARGO" ColumnName="TASARECARGO" />
+                <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+                <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+                <ScalarProperty Name="SIGLA_RELACION" ColumnName="SIGLA_RELACION" />
+                <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+                <ScalarProperty Name="ID_GRUPOLISTAESPECIAL" ColumnName="ID_GRUPOLISTAESPECIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_TARIFAGRUPOLISTAPRIMA">
+            <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPOLISTAPRIMA">
+              <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPOLISTAPRIMA">
+                <ScalarProperty Name="TASA" ColumnName="TASA" />
+                <ScalarProperty Name="PRIMAFIJA" ColumnName="PRIMAFIJA" />
+                <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+                <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+                <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+                <ScalarProperty Name="ID_GRUPOLISTAPRIMA" ColumnName="ID_GRUPOLISTAPRIMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

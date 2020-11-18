@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_TIPOFORMULARIO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFORMULARIO">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFORMULARIO">
+          <ScalarProperty Name="ID_TIPOFORMULARIO" ColumnName="ID_TIPOFORMULARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_TIPOFORMULARIODETALLE">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_TIPOFORMULARIODETALLE">
+        <MappingFragment StoreEntitySet="FUWEB_P_TIPOFORMULARIODETALLE">
+          <ScalarProperty Name="ID_TIPOFORMUALRIODETALLE" ColumnName="ID_TIPOFORMUALRIODETALLE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="ID_TIPOFORMULARIO" ColumnName="ID_TIPOFORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

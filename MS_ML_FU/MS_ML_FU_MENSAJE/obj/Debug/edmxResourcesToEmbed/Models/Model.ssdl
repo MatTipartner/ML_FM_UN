@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FUWEB_MENSAJES">
+    <Key>
+      <PropertyRef Name="ID_MENSAJE" />
+    </Key>
+    <Property Name="ID_MENSAJE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_ATRIBUTOPESTANA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ID_ESTADOATRIBUTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="MENSAJE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="SIGLA_USUARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_ATRIBUTOPESTANA">
+    <Key>
+      <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+    </Key>
+    <Property Name="ID_ATRIBUTOPESTANA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ID_PESTANA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUWEB_P_ESTADOATRIBUTO">
+    <Key>
+      <PropertyRef Name="ID_ESTADOATRIBUTO" />
+    </Key>
+    <Property Name="ID_ESTADOATRIBUTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="VIGENTE" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ESTADOMENSAJE">
+    <End Role="FUWEB_P_ESTADOATRIBUTO" Type="Self.FUWEB_P_ESTADOATRIBUTO" Multiplicity="1" />
+    <End Role="FUWEB_MENSAJES" Type="Self.FUWEB_MENSAJES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ESTADOATRIBUTO">
+        <PropertyRef Name="ID_ESTADOATRIBUTO" />
+      </Principal>
+      <Dependent Role="FUWEB_MENSAJES">
+        <PropertyRef Name="ID_ESTADOATRIBUTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PESTANAMENSAJE">
+    <End Role="FUWEB_P_ATRIBUTOPESTANA" Type="Self.FUWEB_P_ATRIBUTOPESTANA" Multiplicity="1" />
+    <End Role="FUWEB_MENSAJES" Type="Self.FUWEB_MENSAJES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUWEB_P_ATRIBUTOPESTANA">
+        <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+      </Principal>
+      <Dependent Role="FUWEB_MENSAJES">
+        <PropertyRef Name="ID_ATRIBUTOPESTANA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="FUWEB_MENSAJES" EntityType="Self.FUWEB_MENSAJES" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_ATRIBUTOPESTANA" EntityType="Self.FUWEB_P_ATRIBUTOPESTANA" Schema="SALUD" store:Type="Tables" />
+    <EntitySet Name="FUWEB_P_ESTADOATRIBUTO" EntityType="Self.FUWEB_P_ESTADOATRIBUTO" Schema="SALUD" store:Type="Tables" />
+    <AssociationSet Name="FK_ESTADOMENSAJE" Association="Self.FK_ESTADOMENSAJE">
+      <End Role="FUWEB_P_ESTADOATRIBUTO" EntitySet="FUWEB_P_ESTADOATRIBUTO" />
+      <End Role="FUWEB_MENSAJES" EntitySet="FUWEB_MENSAJES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PESTANAMENSAJE" Association="Self.FK_PESTANAMENSAJE">
+      <End Role="FUWEB_P_ATRIBUTOPESTANA" EntitySet="FUWEB_P_ATRIBUTOPESTANA" />
+      <End Role="FUWEB_MENSAJES" EntitySet="FUWEB_MENSAJES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

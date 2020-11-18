@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FUWEB_P_EXLUSIONASEGURABILIDAD">
+    <Key>
+      <PropertyRef Name="ID_EXLUSIONASEGURABILIDAD" />
+    </Key>
+    <Property Name="ID_EXLUSIONASEGURABILIDAD" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIGENCIA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FUWEB_P_EXLUSIONASEGURABILIDAD" EntityType="Self.FUWEB_P_EXLUSIONASEGURABILIDAD" />
+  </EntityContainer>
+</Schema>

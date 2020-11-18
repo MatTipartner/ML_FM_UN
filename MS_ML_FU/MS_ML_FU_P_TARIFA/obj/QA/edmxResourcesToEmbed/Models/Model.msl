@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_DEFINICIONTRIBUTARIA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_DEFINICIONTRIBUTARIA">
+        <MappingFragment StoreEntitySet="FUWEB_P_DEFINICIONTRIBUTARIA">
+          <ScalarProperty Name="ID_DEFINICIONTRIBUTARIA" ColumnName="ID_DEFINICIONTRIBUTARIA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NRO_SAC" ColumnName="NRO_SAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_TARIFA">
+      <EntityTypeMapping TypeName="Model.FUWEB_TARIFA">
+        <MappingFragment StoreEntitySet="FUWEB_TARIFA">
+          <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+          <ScalarProperty Name="EDAD_FIJA" ColumnName="EDAD_FIJA" />
+          <ScalarProperty Name="PRIMA_PROPORCIONAL" ColumnName="PRIMA_PROPORCIONAL" />
+          <ScalarProperty Name="TARIFA_VIGENCIA" ColumnName="TARIFA_VIGENCIA" />
+          <ScalarProperty Name="ADICION_TARIFA" ColumnName="ADICION_TARIFA" />
+          <ScalarProperty Name="SIGLA_COBRO" ColumnName="SIGLA_COBRO" />
+          <ScalarProperty Name="ID_TARIFA" ColumnName="ID_TARIFA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_TARIFAGRUPO">
+      <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPO">
+        <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPO">
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="GRUPOFAMILIAR" ColumnName="GRUPOFAMILIAR" />
+          <ScalarProperty Name="ID_DEFINICIONTRIBUTARIA" ColumnName="ID_DEFINICIONTRIBUTARIA" />
+          <ScalarProperty Name="ID_TIPOPRODUCTO" ColumnName="ID_TIPOPRODUCTO" />
+          <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+          <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+      <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPOLISTAESPECIAL">
+        <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPOLISTAESPECIAL">
+          <ScalarProperty Name="TASARECARGO" ColumnName="TASARECARGO" />
+          <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+          <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+          <ScalarProperty Name="SIGLA_RELACION" ColumnName="SIGLA_RELACION" />
+          <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+          <ScalarProperty Name="ID_GRUPOLISTAESPECIAL" ColumnName="ID_GRUPOLISTAESPECIAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_TARIFAGRUPOLISTAPRIMA">
+      <EntityTypeMapping TypeName="Model.FUWEB_TARIFAGRUPOLISTAPRIMA">
+        <MappingFragment StoreEntitySet="FUWEB_TARIFAGRUPOLISTAPRIMA">
+          <ScalarProperty Name="TASA" ColumnName="TASA" />
+          <ScalarProperty Name="PRIMAFIJA" ColumnName="PRIMAFIJA" />
+          <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+          <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+          <ScalarProperty Name="ID_TARIFAGRUPO" ColumnName="ID_TARIFAGRUPO" />
+          <ScalarProperty Name="ID_GRUPOLISTAPRIMA" ColumnName="ID_GRUPOLISTAPRIMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

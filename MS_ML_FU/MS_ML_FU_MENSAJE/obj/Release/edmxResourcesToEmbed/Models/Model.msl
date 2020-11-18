@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_MENSAJES">
+      <EntityTypeMapping TypeName="Model.FUWEB_MENSAJES">
+        <MappingFragment StoreEntitySet="FUWEB_MENSAJES">
+          <ScalarProperty Name="ID_MENSAJE" ColumnName="ID_MENSAJE" />
+          <ScalarProperty Name="ID_ATRIBUTOPESTANA" ColumnName="ID_ATRIBUTOPESTANA" />
+          <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+          <ScalarProperty Name="ID_ESTADOATRIBUTO" ColumnName="ID_ESTADOATRIBUTO" />
+          <ScalarProperty Name="MENSAJE" ColumnName="MENSAJE" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="SIGLA_USUARIO" ColumnName="SIGLA_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_ATRIBUTOPESTANA">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_ATRIBUTOPESTANA">
+        <MappingFragment StoreEntitySet="FUWEB_P_ATRIBUTOPESTANA">
+          <ScalarProperty Name="ID_PESTANA" ColumnName="ID_PESTANA" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_ATRIBUTOPESTANA" ColumnName="ID_ATRIBUTOPESTANA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUWEB_P_ESTADOATRIBUTO">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_ESTADOATRIBUTO">
+        <MappingFragment StoreEntitySet="FUWEB_P_ESTADOATRIBUTO">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_ESTADOATRIBUTO" ColumnName="ID_ESTADOATRIBUTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

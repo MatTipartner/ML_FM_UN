@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="FUWEB_P_EXLUSIONASEGURABILIDAD">
+      <EntityTypeMapping TypeName="Model.FUWEB_P_EXLUSIONASEGURABILIDAD">
+        <MappingFragment StoreEntitySet="FUWEB_P_EXLUSIONASEGURABILIDAD">
+          <ScalarProperty Name="ID_EXLUSIONASEGURABILIDAD" ColumnName="ID_EXLUSIONASEGURABILIDAD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

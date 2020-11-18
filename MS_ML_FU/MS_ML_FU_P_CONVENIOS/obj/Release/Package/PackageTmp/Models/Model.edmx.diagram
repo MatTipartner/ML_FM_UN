@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dee4cc60a1eb4ab5a48ffd7d52bc498d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.FUWEB_CONVENIOOTROS" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOCONVENIO" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOFACTURACION" Width="2.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_VADEMECUM" Width="2.25" PointX="10.625" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_CONVENIO" Width="1.5" PointX="3" PointY="3.5" />
+        <AssociationConnector Association="Model.FK_ID_CONVENIO" />
+        <AssociationConnector Association="Model.FK_ID_TIPOCONVENIO" />
+        <EntityTypeShape EntityType="Model.FUWEB_CONVENIOFARMACIA" Width="3.375" PointX="6.25" PointY="3" />
+        <AssociationConnector Association="Model.FK_FARMACIA" />
+        <AssociationConnector Association="Model.FK_TIPOFACTURACION" />
+        <AssociationConnector Association="Model.FK_VADEMECUM" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

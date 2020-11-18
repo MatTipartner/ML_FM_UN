@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7eb17a2e8a544ef7a08edb52641f7901" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="Model.FUWEB_P_COBERTURA" Width="2.625" PointX="4.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTACIONBASICA" Width="2.625" PointX="4.125" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTACIONBASICGENERIC" Width="3" PointX="5.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTACIONGENERICA" Width="2.625" PointX="7.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTACIONSUBGRUPO" Width="1.5" PointX="15.625" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_PRESTACIONBASICA1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PRESTACIONGENERICA1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOPRODUCTO" Width="1.5" PointX="1.125" PointY="8.25" />
+        <AssociationConnector Association="Model.FK_ID_TIPOPRODUCTO" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_PRESTACION" Width="2.25" PointX="11.75" PointY="3.25" />
+        <AssociationConnector Association="Model.FK_GRUPOPRESTACION2" />
+        <AssociationConnector Association="Model.FK_PRESTACIONGENERICA2" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_COBERTURA_PRESTBASICA" Width="2.75" PointX="0.5" PointY="4.25" />
+        <AssociationConnector Association="Model.FK_COBERTURA20" />
+        <AssociationConnector Association="Model.FK_PRESBASICA20" />
+        <EntityTypeShape EntityType="Model.FUWEB_PRODUCTOLIST_SALUD" Width="2.75" PointX="7.875" PointY="11.25" />
+        <AssociationConnector Association="Model.FK_COBERTURA3" />
+        <EntityTypeShape EntityType="Model.FUWEB_PRODUCTOLIST_VIDAAP" Width="3" PointX="7.875" PointY="7" />
+        <AssociationConnector Association="Model.FK_COBERTURA2" />
+        <EntityTypeShape EntityType="Model.FUWEB_PRODUCTO_VIDAAP" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.FUWEB_PRODUCTOCASCADA" Width="2.375" PointX="11.875" PointY="7.5" />
+        <AssociationConnector Association="Model.FK_TIPOPRODUCTO" />
+        <AssociationConnector Association="Model.FK_COBERTURA4" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

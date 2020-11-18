@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FUWEB_CONDESP">
+          <Key>
+            <PropertyRef Name="ID_CONDESP" />
+          </Key>
+          <Property Name="ID_CONDESP" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FLD" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DP" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DP_HOLDING" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DP_PLIZA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="MONTO_FONTO" Type="number" Precision="10" Scale="0" />
+          <Property Name="NOMBRE_FONDO" Type="varchar2" MaxLength="100" />
+          <Property Name="NRO_FONDO" Type="number" Precision="10" Scale="0" />
+          <Property Name="VERSION" Type="number" Precision="10" Scale="0" />
+          <Property Name="NRO_POLIZA" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_COBERTU_DP">
+          <Key>
+            <PropertyRef Name="ID_COBERTURA_DP" />
+          </Key>
+          <Property Name="ID_COBERTURA_DP" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_CONDESP" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_GRUPO_DP">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_DP" />
+          </Key>
+          <Property Name="ID_GRUPO_DP" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_CONDESP" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_TEXTO">
+          <Key>
+            <PropertyRef Name="ID_CONDESP_TEXTO" />
+          </Key>
+          <Property Name="ID_CONDESP_TEXTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPOOBSERVACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TEXTO" Type="varchar2" MaxLength="500" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_COND_ESPC">
+          <End Role="FUWEB_CONDESP" Type="Self.FUWEB_CONDESP" Multiplicity="1" />
+          <End Role="FUWEB_CONDESP_GRUPO_DP" Type="Self.FUWEB_CONDESP_GRUPO_DP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_CONDESP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Principal>
+            <Dependent Role="FUWEB_CONDESP_GRUPO_DP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COND_ESPC_DP">
+          <End Role="FUWEB_CONDESP" Type="Self.FUWEB_CONDESP" Multiplicity="1" />
+          <End Role="FUWEB_CONDESP_COBERTU_DP" Type="Self.FUWEB_CONDESP_COBERTU_DP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_CONDESP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Principal>
+            <Dependent Role="FUWEB_CONDESP_COBERTU_DP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FUWEB_CONDESP" EntityType="Self.FUWEB_CONDESP" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_CONDESP_COBERTU_DP" EntityType="Self.FUWEB_CONDESP_COBERTU_DP" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_CONDESP_GRUPO_DP" EntityType="Self.FUWEB_CONDESP_GRUPO_DP" Schema="SALUD" store:Type="Tables" />
+          <EntitySet Name="FUWEB_CONDESP_TEXTO" EntityType="Self.FUWEB_CONDESP_TEXTO" Schema="SALUD" store:Type="Tables" />
+          <AssociationSet Name="FK_COND_ESPC" Association="Self.FK_COND_ESPC">
+            <End Role="FUWEB_CONDESP" EntitySet="FUWEB_CONDESP" />
+            <End Role="FUWEB_CONDESP_GRUPO_DP" EntitySet="FUWEB_CONDESP_GRUPO_DP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COND_ESPC_DP" Association="Self.FK_COND_ESPC_DP">
+            <End Role="FUWEB_CONDESP" EntitySet="FUWEB_CONDESP" />
+            <End Role="FUWEB_CONDESP_COBERTU_DP" EntitySet="FUWEB_CONDESP_COBERTU_DP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FUWEB_CONDESP">
+          <Key>
+            <PropertyRef Name="ID_CONDESP" />
+          </Key>
+          <Property Name="ID_CONDESP" Type="Int32" Nullable="false" />
+          <Property Name="FLD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DP_HOLDING" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DP_PLIZA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MONTO_FONTO" Type="Int32" />
+          <Property Name="NOMBRE_FONDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NRO_FONDO" Type="Int32" />
+          <Property Name="VERSION" Type="Int32" />
+          <Property Name="NRO_POLIZA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_CONDESP_GRUPO_DP" Relationship="Self.FK_COND_ESPC" FromRole="FUWEB_CONDESP" ToRole="FUWEB_CONDESP_GRUPO_DP" />
+          <NavigationProperty Name="FUWEB_CONDESP_COBERTU_DP" Relationship="Self.FK_COND_ESPC_DP" FromRole="FUWEB_CONDESP" ToRole="FUWEB_CONDESP_COBERTU_DP" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_COBERTU_DP">
+          <Key>
+            <PropertyRef Name="ID_COBERTURA_DP" />
+          </Key>
+          <Property Name="ID_COBERTURA_DP" Type="Int32" Nullable="false" />
+          <Property Name="ID_COBERTURA" Type="Int32" Nullable="false" />
+          <Property Name="ID_CONDESP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_CONDESP" Relationship="Self.FK_COND_ESPC_DP" FromRole="FUWEB_CONDESP_COBERTU_DP" ToRole="FUWEB_CONDESP" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_GRUPO_DP">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_DP" />
+          </Key>
+          <Property Name="ID_GRUPO_DP" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_CONDESP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUWEB_CONDESP" Relationship="Self.FK_COND_ESPC" FromRole="FUWEB_CONDESP_GRUPO_DP" ToRole="FUWEB_CONDESP" />
+        </EntityType>
+        <EntityType Name="FUWEB_CONDESP_TEXTO">
+          <Key>
+            <PropertyRef Name="ID_CONDESP_TEXTO" />
+          </Key>
+          <Property Name="ID_CONDESP_TEXTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPOOBSERVACION" Type="Int32" Nullable="false" />
+          <Property Name="TEXTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_AGRUPACION" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_COND_ESPC">
+          <End Role="FUWEB_CONDESP" Type="Self.FUWEB_CONDESP" Multiplicity="1" />
+          <End Role="FUWEB_CONDESP_GRUPO_DP" Type="Self.FUWEB_CONDESP_GRUPO_DP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_CONDESP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Principal>
+            <Dependent Role="FUWEB_CONDESP_GRUPO_DP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COND_ESPC_DP">
+          <End Role="FUWEB_CONDESP" Type="Self.FUWEB_CONDESP" Multiplicity="1" />
+          <End Role="FUWEB_CONDESP_COBERTU_DP" Type="Self.FUWEB_CONDESP_COBERTU_DP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUWEB_CONDESP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Principal>
+            <Dependent Role="FUWEB_CONDESP_COBERTU_DP">
+              <PropertyRef Name="ID_CONDESP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FUWEB_CONDESP" EntityType="Self.FUWEB_CONDESP" />
+          <EntitySet Name="FUWEB_CONDESP_COBERTU_DP" EntityType="Self.FUWEB_CONDESP_COBERTU_DP" />
+          <EntitySet Name="FUWEB_CONDESP_GRUPO_DP" EntityType="Self.FUWEB_CONDESP_GRUPO_DP" />
+          <EntitySet Name="FUWEB_CONDESP_TEXTO" EntityType="Self.FUWEB_CONDESP_TEXTO" />
+          <AssociationSet Name="FK_COND_ESPC" Association="Self.FK_COND_ESPC">
+            <End Role="FUWEB_CONDESP" EntitySet="FUWEB_CONDESP" />
+            <End Role="FUWEB_CONDESP_GRUPO_DP" EntitySet="FUWEB_CONDESP_GRUPO_DP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COND_ESPC_DP" Association="Self.FK_COND_ESPC_DP">
+            <End Role="FUWEB_CONDESP" EntitySet="FUWEB_CONDESP" />
+            <End Role="FUWEB_CONDESP_COBERTU_DP" EntitySet="FUWEB_CONDESP_COBERTU_DP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FUWEB_CONDESP">
+            <EntityTypeMapping TypeName="Model.FUWEB_CONDESP">
+              <MappingFragment StoreEntitySet="FUWEB_CONDESP">
+                <ScalarProperty Name="ID_CONDESP" ColumnName="ID_CONDESP" />
+                <ScalarProperty Name="FLD" ColumnName="FLD" />
+                <ScalarProperty Name="DP" ColumnName="DP" />
+                <ScalarProperty Name="DP_HOLDING" ColumnName="DP_HOLDING" />
+                <ScalarProperty Name="DP_PLIZA" ColumnName="DP_PLIZA" />
+                <ScalarProperty Name="MONTO_FONTO" ColumnName="MONTO_FONTO" />
+                <ScalarProperty Name="NOMBRE_FONDO" ColumnName="NOMBRE_FONDO" />
+                <ScalarProperty Name="NRO_FONDO" ColumnName="NRO_FONDO" />
+                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+                <ScalarProperty Name="NRO_POLIZA" ColumnName="NRO_POLIZA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_CONDESP_COBERTU_DP">
+            <EntityTypeMapping TypeName="Model.FUWEB_CONDESP_COBERTU_DP">
+              <MappingFragment StoreEntitySet="FUWEB_CONDESP_COBERTU_DP">
+                <ScalarProperty Name="ID_COBERTURA_DP" ColumnName="ID_COBERTURA_DP" />
+                <ScalarProperty Name="ID_COBERTURA" ColumnName="ID_COBERTURA" />
+                <ScalarProperty Name="ID_CONDESP" ColumnName="ID_CONDESP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_CONDESP_GRUPO_DP">
+            <EntityTypeMapping TypeName="Model.FUWEB_CONDESP_GRUPO_DP">
+              <MappingFragment StoreEntitySet="FUWEB_CONDESP_GRUPO_DP">
+                <ScalarProperty Name="ID_GRUPO_DP" ColumnName="ID_GRUPO_DP" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+                <ScalarProperty Name="ID_CONDESP" ColumnName="ID_CONDESP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUWEB_CONDESP_TEXTO">
+            <EntityTypeMapping TypeName="Model.FUWEB_CONDESP_TEXTO">
+              <MappingFragment StoreEntitySet="FUWEB_CONDESP_TEXTO">
+                <ScalarProperty Name="ID_CONDESP_TEXTO" ColumnName="ID_CONDESP_TEXTO" />
+                <ScalarProperty Name="ID_TIPOOBSERVACION" ColumnName="ID_TIPOOBSERVACION" />
+                <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+                <ScalarProperty Name="ID_AGRUPACION" ColumnName="ID_AGRUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

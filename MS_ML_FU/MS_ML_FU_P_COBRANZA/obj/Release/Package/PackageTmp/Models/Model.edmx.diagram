@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f55aef9294c94814b9de40977678e87e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="Model.FUWEB_P_AQUIENCOBRANZA" Width="2.25" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_CALCULOPRIMA" Width="2.25" PointX="9.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_DESTINATARIOCOBRANZA" Width="3.25" PointX="9.875" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_RIESGOFACTURACION" Width="2.5" PointX="11.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOCOBRO" Width="2.125" PointX="2.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_TIPOFACTURACIONCOBR" Width="3" PointX="1.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FUWEB_COBRANZA" Width="2.25" PointX="5.75" PointY="0.625" />
+        <AssociationConnector Association="Model.FK_CALCULOPRIM" />
+        <AssociationConnector Association="Model.FK_DESTINATARIOCOBRAN" />
+        <AssociationConnector Association="Model.FK_TIPOCOBO" />
+        <AssociationConnector Association="Model.FK_TIPOFACTURACIONCO" />
+        <EntityTypeShape EntityType="Model.FUWEB_P_CONTRIBUTORIEDAD" Width="2.375" PointX="8.625" PointY="8.625" />
+        <EntityTypeShape EntityType="Model.FUWEB_COBRANZAGRUPO" Width="2.875" PointX="1.375" PointY="8.75" />
+        <AssociationConnector Association="Model.FK_AQUIENFACTURAR" />
+        <AssociationConnector Association="Model.FK_ID_CONTRIBUTORIEDAD" />
+        <EntityTypeShape EntityType="Model.FUWEB_COBRANZARIESGO" Width="1.5" PointX="14.375" PointY="8.375" />
+        <AssociationConnector Association="Model.FK_GRUPOCOBRANZA" />
+        <AssociationConnector Association="Model.FK_TIPORIESGOFACT" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
